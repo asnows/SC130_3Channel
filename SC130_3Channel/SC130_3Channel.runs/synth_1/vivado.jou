@@ -2,11 +2,11 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Sat Jun 22 14:48:07 2019
-# Process ID: 3232
-# Current directory: D:/Program/FPGA/WORKING/camera30/SC130_3Channel/prj_sc130.runs/synth_1
+# Start of session at: Tue Mar  3 09:02:51 2020
+# Process ID: 4040
+# Current directory: E:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
-# Log file: D:/Program/FPGA/WORKING/camera30/SC130_3Channel/prj_sc130.runs/synth_1/top.vds
-# Journal file: D:/Program/FPGA/WORKING/camera30/SC130_3Channel/prj_sc130.runs/synth_1\vivado.jou
+# Log file: E:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.runs/synth_1/top.vds
+# Journal file: E:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source top.tcl -notrace

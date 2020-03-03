@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:BoundaryCRC="0xA471DC60055CEE4A" bd:device="xc7z020clg400-1" bd:isValidated="true" bd:synthFlowMode="None" bd:tool_version="2018.2" bd:top="design_1" bd:version="1.00.a">
+<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:BoundaryCRC="0xF0C068DDEA4F3F55" bd:device="xc7z020clg400-1" bd:isValidated="true" bd:synthFlowMode="Hierarchical" bd:tool_version="2018.2" bd:top="design_1" bd:version="1.00.a">
 
   <spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
     <spirit:vendor>xilinx.com</spirit:vendor>
@@ -850,6 +850,12 @@
         </spirit:parameters>
       </spirit:busInterface>
       <spirit:busInterface>
+        <spirit:name>PHY_RST</spirit:name>
+        <spirit:master/>
+        <spirit:busType spirit:library="interface" spirit:name="gpio" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="interface" spirit:name="gpio_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+      </spirit:busInterface>
+      <spirit:busInterface>
         <spirit:name>RST.PERIPHERAL_ARESETN</spirit:name>
         <spirit:displayName>Reset</spirit:displayName>
         <spirit:description>Reset</spirit:description>
@@ -1078,7 +1084,7 @@
           <spirit:configurableElementValue spirit:referenceId="PCW_EN_EMIO_ENET1">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_EN_PTP_ENET0">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_EN_PTP_ENET1">0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PCW_EN_EMIO_GPIO">0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PCW_EN_EMIO_GPIO">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_EN_EMIO_I2C0">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_EN_EMIO_I2C1">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_EN_EMIO_PJTAG">0</spirit:configurableElementValue>
@@ -1125,6 +1131,7 @@
           <spirit:configurableElementValue spirit:referenceId="PCW_USE_PS_SLCR_REGISTERS">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_USE_CORESIGHT">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_EN_EMIO_SRAM_INT">0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PCW_GPIO_EMIO_GPIO_WIDTH">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_GP0_NUM_WRITE_THREADS">4</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_GP0_NUM_READ_THREADS">4</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_GP1_NUM_WRITE_THREADS">4</spirit:configurableElementValue>
@@ -1249,7 +1256,8 @@
           <spirit:configurableElementValue spirit:referenceId="PCW_I2C1_PERIPHERAL_ENABLE">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_GPIO_PERIPHERAL_ENABLE">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_GPIO_MIO_GPIO_ENABLE">0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="PCW_GPIO_EMIO_GPIO_ENABLE">0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PCW_GPIO_EMIO_GPIO_ENABLE">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="PCW_GPIO_EMIO_GPIO_IO">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_APU_CLK_RATIO_ENABLE">6:2:1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_ENET0_PERIPHERAL_FREQMHZ">1000 Mbps</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PCW_CPU_PERIPHERAL_CLKSRC">ARM PLL</spirit:configurableElementValue>
@@ -1839,6 +1847,9 @@
       </spirit:hierConnection>
       <spirit:hierConnection spirit:interfaceRef="S_AXIS_S2MM_3/S_AXIS_S2MM_3_1">
         <spirit:activeInterface spirit:busRef="S_AXIS_S2MM" spirit:componentRef="axi_vdma_imgCapture_Sobely"/>
+      </spirit:hierConnection>
+      <spirit:hierConnection spirit:interfaceRef="PHY_RST/processing_system7_0_GPIO_0">
+        <spirit:activeInterface spirit:busRef="GPIO_0" spirit:componentRef="processing_system7_0"/>
       </spirit:hierConnection>
     </spirit:hierConnections>
   </spirit:design>

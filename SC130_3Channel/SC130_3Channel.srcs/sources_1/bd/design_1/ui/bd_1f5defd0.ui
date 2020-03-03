@@ -8,6 +8,7 @@ preplace port DDR -pg 1 -y 910 -defaultsOSRD
 preplace port CMOS_XCK -pg 1 -y 280 -defaultsOSRD
 preplace port S_AXIS_S2MM_0 -pg 1 -y 940 -defaultsOSRD
 preplace port S_AXIS_S2MM_1 -pg 1 -y 960 -defaultsOSRD
+preplace port PHY_RST -pg 1 -y 890 -defaultsOSRD
 preplace port S_AXIS_S2MM_2 -pg 1 -y 1170 -defaultsOSRD
 preplace port IIC_0 -pg 1 -y 950 -defaultsOSRD
 preplace port FIXED_IO -pg 1 -y 930 -defaultsOSRD
@@ -30,9 +31,9 @@ preplace inst axi_interconnect_2 -pg 1 -lvl 3 -y 1490 -defaultsOSRD
 preplace inst axi_mem_intercon -pg 1 -lvl 3 -y 980 -defaultsOSRD
 preplace inst processing_system7_0_axi_periph -pg 1 -lvl 1 -y 740 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 4 -y 970 -defaultsOSRD
-preplace netloc processing_system7_0_DDR 1 4 1 1900J
+preplace netloc processing_system7_0_DDR 1 4 1 NJ
 preplace netloc axi_vdma_1_M_AXI_S2MM 1 2 1 660
-preplace netloc processing_system7_0_axi_periph_M00_AXI 1 1 4 170 480 NJ 480 NJ 480 1920J
+preplace netloc processing_system7_0_axi_periph_M00_AXI 1 1 4 170 480 NJ 480 NJ 480 1910J
 preplace netloc processing_system7_0_axi_periph_M03_AXI 1 1 1 140
 preplace netloc axi_vdma_0_M_AXI_MM2S 1 2 1 600
 preplace netloc processing_system7_0_M_AXI_GP0 1 0 5 -510J 460 NJ 460 NJ 460 NJ 460 1870
@@ -40,22 +41,23 @@ preplace netloc processing_system7_0_axi_periph_M05_AXI 1 1 1 130
 preplace netloc axi_vdma_0_M_AXIS_MM2S 1 1 2 210 1080 580
 preplace netloc axi_vdma_0_M_AXI_S2MM1 1 2 1 590
 preplace netloc processing_system7_0_FCLK_RESET0_N 1 2 3 670J 1140 1370J 1160 1870
-preplace netloc processing_system7_0_IIC_0 1 4 1 1880J
+preplace netloc processing_system7_0_IIC_0 1 4 1 NJ
 preplace netloc axi_mem_intercon_M00_AXI 1 3 1 1330
 preplace netloc processing_system7_0_axi_periph_M02_AXI 1 1 1 180
-preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 0 5 -480 990 190 800 610 800 1340 770 1920J
+preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 0 5 -480 990 190 800 610 800 1340 770 1890J
 preplace netloc S_AXIS_S2MM_1 1 0 2 -510J 980 170
 preplace netloc processing_system7_0_axi_periph_M06_AXI 1 1 1 120
 preplace netloc axi_gpio_0_gpio_io_o 1 1 4 210 1070 590 1150 1330 1170 1870
-preplace netloc processing_system7_0_FIXED_IO 1 4 1 1900J
+preplace netloc processing_system7_0_FIXED_IO 1 4 1 NJ
 preplace netloc S00_AXI_1 1 2 1 620
 preplace netloc clk_wiz_0_clk_out1 1 4 1 NJ
 preplace netloc S_AXIS_S2MM_2_1 1 0 2 NJ 1170 200
 preplace netloc S_AXIS_S2MM_1_1 1 0 2 -520J 500 130
 preplace netloc S00_AXI_2 1 2 1 590
 preplace netloc axi_interconnect_0_M00_AXI 1 3 1 1390
-preplace netloc axi_vdma_1_s2mm_frame_ptr_out 1 2 3 610 470 N 470 1910
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 5 -490 490 150 500 630 500 1380 780 1890
+preplace netloc processing_system7_0_GPIO_0 1 4 1 N
+preplace netloc axi_vdma_1_s2mm_frame_ptr_out 1 2 3 610 470 N 470 1900
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 5 -490 490 150 500 630 500 1380 780 1880
 preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 0 4 -500 480 160 490 650 490 1330
 preplace netloc axi_interconnect_2_M00_AXI 1 3 1 1410
 preplace netloc axi_interconnect_1_M00_AXI 1 3 1 1360

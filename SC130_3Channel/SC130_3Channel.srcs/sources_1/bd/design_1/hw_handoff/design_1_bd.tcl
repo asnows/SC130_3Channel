@@ -171,6 +171,7 @@ proc create_root_design { parentCell } {
    CONFIG.NUM_WRITE_OUTSTANDING {2} \
    CONFIG.PROTOCOL {AXI4LITE} \
    ] $M00_AXI
+  set PHY_RST [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:gpio_rtl:1.0 PHY_RST ]
   set S_AXIS_S2MM_0 [ create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:axis_rtl:1.0 S_AXIS_S2MM_0 ]
   set_property -dict [ list \
    CONFIG.FREQ_HZ {100000000} \
@@ -468,7 +469,7 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_EN_EMIO_CD_SDIO1 {0} \
    CONFIG.PCW_EN_EMIO_ENET0 {0} \
    CONFIG.PCW_EN_EMIO_ENET1 {0} \
-   CONFIG.PCW_EN_EMIO_GPIO {0} \
+   CONFIG.PCW_EN_EMIO_GPIO {1} \
    CONFIG.PCW_EN_EMIO_I2C0 {1} \
    CONFIG.PCW_EN_EMIO_I2C1 {0} \
    CONFIG.PCW_EN_EMIO_MODEM_UART0 {0} \
@@ -546,8 +547,9 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_GP1_NUM_READ_THREADS {4} \
    CONFIG.PCW_GP1_NUM_WRITE_THREADS {4} \
    CONFIG.PCW_GPIO_BASEADDR {0xE000A000} \
-   CONFIG.PCW_GPIO_EMIO_GPIO_ENABLE {0} \
-   CONFIG.PCW_GPIO_EMIO_GPIO_WIDTH {64} \
+   CONFIG.PCW_GPIO_EMIO_GPIO_ENABLE {1} \
+   CONFIG.PCW_GPIO_EMIO_GPIO_IO {1} \
+   CONFIG.PCW_GPIO_EMIO_GPIO_WIDTH {1} \
    CONFIG.PCW_GPIO_HIGHADDR {0xE000AFFF} \
    CONFIG.PCW_GPIO_MIO_GPIO_ENABLE {0} \
    CONFIG.PCW_GPIO_MIO_GPIO_IO {<Select>} \
@@ -1162,6 +1164,7 @@ proc create_root_design { parentCell } {
   connect_bd_intf_net -intf_net axi_vdma_1_M_AXI_S2MM [get_bd_intf_pins axi_mem_intercon/S01_AXI] [get_bd_intf_pins axi_vdma_imgCapture/M_AXI_S2MM]
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
+  connect_bd_intf_net -intf_net processing_system7_0_GPIO_0 [get_bd_intf_ports PHY_RST] [get_bd_intf_pins processing_system7_0/GPIO_0]
   connect_bd_intf_net -intf_net processing_system7_0_IIC_0 [get_bd_intf_ports IIC_0] [get_bd_intf_pins processing_system7_0/IIC_0]
   connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP0 [get_bd_intf_pins processing_system7_0/M_AXI_GP0] [get_bd_intf_pins processing_system7_0_axi_periph/S00_AXI]
   connect_bd_intf_net -intf_net processing_system7_0_axi_periph_M00_AXI [get_bd_intf_ports M00_AXI] [get_bd_intf_pins processing_system7_0_axi_periph/M00_AXI]

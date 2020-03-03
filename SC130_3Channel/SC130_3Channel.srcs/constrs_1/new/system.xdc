@@ -89,7 +89,8 @@ set_property PACKAGE_PIN L15 [get_ports E_OUT2]
 set_property IOSTANDARD LVCMOS18 [get_ports E_OUT2]
 set_property PACKAGE_PIN L14 [get_ports E_IN1]
 set_property IOSTANDARD LVCMOS18 [get_ports E_IN1]
-
+set_property IOSTANDARD LVCMOS18 [get_ports PHY_RST_tri_io]
+set_property PACKAGE_PIN Y14 [get_ports PHY_RST_tri_io]
 
 
 

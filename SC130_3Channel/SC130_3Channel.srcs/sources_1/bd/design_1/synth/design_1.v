@@ -1,15 +1,15 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-//Date        : Thu May 23 16:45:05 2019
-//Host        : PS-03 running 64-bit major release  (build 9200)
+//Date        : Tue Mar  3 08:49:12 2020
+//Host        : VT2OB6D7ZB52FZ0 running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
 //Purpose     : IP block netlist
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=38,numReposBlks=17,numNonXlnxBlks=0,numHierBlks=21,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=45,da_clkrst_cnt=37,da_ps7_cnt=1,synth_mode=Global}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=38,numReposBlks=17,numNonXlnxBlks=0,numHierBlks=21,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=45,da_clkrst_cnt=37,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
    (CMOS_XCK,
     DDR_addr,
@@ -59,6 +59,9 @@ module design_1
     M00_AXI_wready,
     M00_AXI_wstrb,
     M00_AXI_wvalid,
+    PHY_RST_tri_i,
+    PHY_RST_tri_o,
+    PHY_RST_tri_t,
     S_AXIS_S2MM_0_tdata,
     S_AXIS_S2MM_0_tkeep,
     S_AXIS_S2MM_0_tlast,
@@ -133,18 +136,21 @@ module design_1
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI WREADY" *) input [0:0]M00_AXI_wready;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI WSTRB" *) output [3:0]M00_AXI_wstrb;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M00_AXI WVALID" *) output [0:0]M00_AXI_wvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_0 " *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXIS_S2MM_0, FREQ_HZ 100000000, HAS_TKEEP 1, HAS_TLAST 1, HAS_TREADY 1, HAS_TSTRB 0, LAYERED_METADATA undef, PHASE 0.000, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1" *) input [31:0]S_AXIS_S2MM_0_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_0 " *) input [3:0]S_AXIS_S2MM_0_tkeep;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_0 " *) input S_AXIS_S2MM_0_tlast;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_0 " *) output S_AXIS_S2MM_0_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_0 " *) input [0:0]S_AXIS_S2MM_0_tuser;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_0 " *) input S_AXIS_S2MM_0_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_1 " *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXIS_S2MM_1, FREQ_HZ 100000000, HAS_TKEEP 1, HAS_TLAST 1, HAS_TREADY 1, HAS_TSTRB 0, LAYERED_METADATA undef, PHASE 0.000, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1" *) input [31:0]S_AXIS_S2MM_1_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_1 " *) input [3:0]S_AXIS_S2MM_1_tkeep;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_1 " *) input S_AXIS_S2MM_1_tlast;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_1 " *) output S_AXIS_S2MM_1_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_1 " *) input [0:0]S_AXIS_S2MM_1_tuser;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_1 " *) input S_AXIS_S2MM_1_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 PHY_RST " *) input [0:0]PHY_RST_tri_i;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 PHY_RST " *) output [0:0]PHY_RST_tri_o;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 PHY_RST " *) output [0:0]PHY_RST_tri_t;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_0 TDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXIS_S2MM_0, FREQ_HZ 100000000, HAS_TKEEP 1, HAS_TLAST 1, HAS_TREADY 1, HAS_TSTRB 0, LAYERED_METADATA undef, PHASE 0.000, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1" *) input [31:0]S_AXIS_S2MM_0_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_0 TKEEP" *) input [3:0]S_AXIS_S2MM_0_tkeep;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_0 TLAST" *) input S_AXIS_S2MM_0_tlast;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_0 TREADY" *) output S_AXIS_S2MM_0_tready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_0 TUSER" *) input [0:0]S_AXIS_S2MM_0_tuser;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_0 TVALID" *) input S_AXIS_S2MM_0_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_1 TDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXIS_S2MM_1, FREQ_HZ 100000000, HAS_TKEEP 1, HAS_TLAST 1, HAS_TREADY 1, HAS_TSTRB 0, LAYERED_METADATA undef, PHASE 0.000, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1" *) input [31:0]S_AXIS_S2MM_1_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_1 TKEEP" *) input [3:0]S_AXIS_S2MM_1_tkeep;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_1 TLAST" *) input S_AXIS_S2MM_1_tlast;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_1 TREADY" *) output S_AXIS_S2MM_1_tready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_1 TUSER" *) input [0:0]S_AXIS_S2MM_1_tuser;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_1 TVALID" *) input S_AXIS_S2MM_1_tvalid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_2 TDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S_AXIS_S2MM_2, FREQ_HZ 100000000, HAS_TKEEP 0, HAS_TLAST 0, HAS_TREADY 1, HAS_TSTRB 0, LAYERED_METADATA undef, PHASE 0.000, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 1" *) input [31:0]S_AXIS_S2MM_2_tdata;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_2 TKEEP" *) input [3:0]S_AXIS_S2MM_2_tkeep;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S_AXIS_S2MM_2 TLAST" *) input S_AXIS_S2MM_2_tlast;
@@ -422,6 +428,9 @@ module design_1
   wire processing_system7_0_FIXED_IO_PS_CLK;
   wire processing_system7_0_FIXED_IO_PS_PORB;
   wire processing_system7_0_FIXED_IO_PS_SRSTB;
+  wire [0:0]processing_system7_0_GPIO_0_TRI_I;
+  wire [0:0]processing_system7_0_GPIO_0_TRI_O;
+  wire [0:0]processing_system7_0_GPIO_0_TRI_T;
   wire processing_system7_0_IIC_0_SCL_I;
   wire processing_system7_0_IIC_0_SCL_O;
   wire processing_system7_0_IIC_0_SCL_T;
@@ -602,6 +611,8 @@ module design_1
   assign M00_AXI_wdata[31:0] = processing_system7_0_axi_periph_M00_AXI_WDATA;
   assign M00_AXI_wstrb[3:0] = processing_system7_0_axi_periph_M00_AXI_WSTRB;
   assign M00_AXI_wvalid[0] = processing_system7_0_axi_periph_M00_AXI_WVALID;
+  assign PHY_RST_tri_o[0] = processing_system7_0_GPIO_0_TRI_O;
+  assign PHY_RST_tri_t[0] = processing_system7_0_GPIO_0_TRI_T;
   assign S_AXIS_S2MM_0_tready = S_AXIS_S2MM_1_1_TREADY;
   assign S_AXIS_S2MM_1_1_TDATA = S_AXIS_S2MM_0_tdata[31:0];
   assign S_AXIS_S2MM_1_1_TKEEP = S_AXIS_S2MM_0_tkeep[3:0];
@@ -627,6 +638,7 @@ module design_1
   assign S_AXIS_S2MM_3_1_TVALID = S_AXIS_S2MM_3_tvalid;
   assign S_AXIS_S2MM_3_tready = S_AXIS_S2MM_3_1_TREADY;
   assign peripheral_aresetn[0] = rst_processing_system7_0_100M_peripheral_aresetn;
+  assign processing_system7_0_GPIO_0_TRI_I = PHY_RST_tri_i[0];
   assign processing_system7_0_IIC_0_SCL_I = IIC_0_scl_i;
   assign processing_system7_0_IIC_0_SDA_I = IIC_0_sda_i;
   assign processing_system7_0_axi_periph_M00_AXI_ARREADY = M00_AXI_arready[0];
@@ -1163,6 +1175,9 @@ module design_1
         .DDR_WEB(DDR_we_n),
         .FCLK_CLK0(processing_system7_0_FCLK_CLK0),
         .FCLK_RESET0_N(processing_system7_0_FCLK_RESET0_N),
+        .GPIO_I(processing_system7_0_GPIO_0_TRI_I),
+        .GPIO_O(processing_system7_0_GPIO_0_TRI_O),
+        .GPIO_T(processing_system7_0_GPIO_0_TRI_T),
         .I2C0_SCL_I(processing_system7_0_IIC_0_SCL_I),
         .I2C0_SCL_O(processing_system7_0_IIC_0_SCL_O),
         .I2C0_SCL_T(processing_system7_0_IIC_0_SCL_T),

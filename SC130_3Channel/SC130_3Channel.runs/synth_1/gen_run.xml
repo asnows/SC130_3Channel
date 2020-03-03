@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1561186084">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1583196781">
   <File Type="PA-TCL" Name="top.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="top_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="top_reports.tcl"/>
   <File Type="RDS-RDS" Name="top.vds"/>
   <File Type="RDS-UTIL" Name="top_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="top_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="top.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="top_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="top_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/ip/maxtri7x7_shift_ram_0/maxtri7x7_shift_ram_0.xci">
@@ -215,19 +218,19 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/hdl/design_1_wrapper.v">
+    <File Path="$PSRCDIR/sources_1/new/maxtri7x7_fifo.v">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../../FPGA_backup/SC130_3Channel/prj_sc130.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v"/>
-        <Attr Name="ImportTime" Val="1558601106"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../FPGA_backup/SC130_3Channel/prj_sc130.srcs/sources_1/new/maxtri7x7_fifo.v"/>
+        <Attr Name="ImportTime" Val="1561186074"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/maxtri7x7_fifo.v">
+    <File Path="$PSRCDIR/sources_1/imports/hdl/design_1_wrapper.v">
       <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../../FPGA_backup/SC130_3Channel/prj_sc130.srcs/sources_1/new/maxtri7x7_fifo.v"/>
-        <Attr Name="ImportTime" Val="1561186074"/>
+        <Attr Name="ImportPath" Val="$PSRCDIR/sources_1/bd/design_1/hdl/design_1_wrapper.v"/>
+        <Attr Name="ImportTime" Val="1583196553"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -257,8 +260,25 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2015"/>
     <Step Id="synth_design"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_auto_pc_3"/>
   <BlockFileSet Type="BlockSrcs" Name="gray_count_bram"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_axi_vdma_0_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_axi_vdma_1_0"/>
   <BlockFileSet Type="BlockSrcs" Name="fifo_generator_0"/>
   <BlockFileSet Type="BlockSrcs" Name="axis_dwidth_converter_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_clk_wiz_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_axi_vdma_imgCapture1_0"/>
   <BlockFileSet Type="BlockSrcs" Name="fifo_maxtrix"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_processing_system7_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_rst_processing_system7_0_100M_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_axi_vdma_0_2"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_axi_gpio_0_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_xbar_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_xbar_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_xbar_2"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_axi_vdma_imgCapture_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_auto_pc_4"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_auto_pc_2"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_auto_pc_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_auto_pc_0"/>
 </GenRun>

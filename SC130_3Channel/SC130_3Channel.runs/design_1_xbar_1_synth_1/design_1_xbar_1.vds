@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Tue Mar  3 08:54:27 2020
+# Process ID: 3500
+# Current directory: E:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.runs/design_1_xbar_1_synth_1
+# Command line: vivado.exe -log design_1_xbar_1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_xbar_1.tcl
+# Log file: E:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.runs/design_1_xbar_1_synth_1/design_1_xbar_1.vds
+# Journal file: E:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.runs/design_1_xbar_1_synth_1\vivado.jou
+#-----------------------------------------------------------
+INFO: [Common 17-748] XILINX_TCLAPP_REPO is set to 'D:/Xilinx/Vivado/2018.1/data/XilinxTclStore'. Refresh XilinxTclStore catalog is disabled when XILINX_TCLAPP_REPO is set.
+source design_1_xbar_1.tcl -notrace
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP design_1_xbar_1, cache-ID = a28c613e2fd30961.
+INFO: [Common 17-206] Exiting Vivado at Tue Mar  3 08:54:39 2020...

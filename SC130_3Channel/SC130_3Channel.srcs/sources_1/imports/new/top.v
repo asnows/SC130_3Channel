@@ -53,7 +53,7 @@
         input      CMOS_FSYNC,   //  帧同步信号
         input      CMOS_LREF,    //  行同步信号
         input[9:0] CMOS_DATA,    //  像素数据
-        
+        inout      PHY_RST_tri_io,
         output     E_OUT1,
         output     E_OUT2,  
         input      E_IN1
@@ -240,6 +240,7 @@
         .M00_AXI_wready      (M00_AXI_0_wready      ),
         .M00_AXI_wstrb       (M00_AXI_0_wstrb       ),
         .M00_AXI_wvalid      (M00_AXI_0_wvalid      ),
+        .PHY_RST_tri_io      (PHY_RST_tri_io        ),
         .S_AXIS_S2MM_0_tdata (sw_m_0_axis_tdata     ),
         .S_AXIS_S2MM_0_tkeep (4'b1111               ),
         .S_AXIS_S2MM_0_tlast (sw_m_0_axis_tlast     ),
