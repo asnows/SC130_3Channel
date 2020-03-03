@@ -1,0 +1,204 @@
+/*
+ * sc030.c
+ *
+ *  Created on: 2018年7月31日
+ *      Author: Administrator
+ */
+#include "xil_io.h"
+
+#define SC030_FPGABASEADDR 0x43C00000
+#define WO_reg0            (SC030_FPGABASEADDR+0)
+#define R0_reg0            (SC030_FPGABASEADDR+(1*4))
+#define R0_reg1            (SC030_FPGABASEADDR+(2*4))
+#define R0_reg2            (SC030_FPGABASEADDR+(3*4))
+#define R0_reg3            (SC030_FPGABASEADDR+(4*4))
+#define R0_reg4            (SC030_FPGABASEADDR+(5*4))
+#define R0_reg5            (SC030_FPGABASEADDR+(6*4))
+#define R0_reg6            (SC030_FPGABASEADDR+(7*4))
+#define R0_reg7            (SC030_FPGABASEADDR+(8*4))
+#define WO_reg1            (SC030_FPGABASEADDR+(9*4))
+#define WO_reg2            (SC030_FPGABASEADDR+(10*4))
+#define WO_reg3            (SC030_FPGABASEADDR+(11*4))
+#define WO_reg4            (SC030_FPGABASEADDR+(12*4))
+#define WO_reg5            (SC030_FPGABASEADDR+(13*4))
+#define WO_reg6            (SC030_FPGABASEADDR+(14*4))
+#define WO_reg7            (SC030_FPGABASEADDR+(15*4))
+#define WO_reg8            (SC030_FPGABASEADDR+(16*4))
+#define WO_reg9            (SC030_FPGABASEADDR+(17*4))
+#define WO_reg10            (SC030_FPGABASEADDR+(18*4))
+#define WO_reg11            (SC030_FPGABASEADDR+(19*4))
+#define WO_reg12            (SC030_FPGABASEADDR+(20*4))
+#define WO_reg13            (SC030_FPGABASEADDR+(21*4))
+#define WO_reg14            (SC030_FPGABASEADDR+(22*4))
+#define WO_reg15            (SC030_FPGABASEADDR+(23*4))
+#define WO_reg16            (SC030_FPGABASEADDR+(24*4))
+#define WO_reg17            (SC030_FPGABASEADDR+(25*4))
+#define WO_reg18            (SC030_FPGABASEADDR+(26*4))
+#define WO_reg19            (SC030_FPGABASEADDR+(27*4))
+#define WO_reg20            (SC030_FPGABASEADDR+(28*4))
+#define WO_reg21            (SC030_FPGABASEADDR+(29*4))
+#define WO_reg22            (SC030_FPGABASEADDR+(30*4))
+#define WO_reg23            (SC030_FPGABASEADDR+(31*4))
+
+/***********************************************************************************************
+* Function      : void SC30_PWDN(unsigned char LH)
+* Description   : SC30上电电平 PWDN引脚需要有一个高脉冲 这里给时间10ms
+*                 上电信号完成后，才能给IIC时序
+* Input         :
+* Output        :
+* Note(s)       :
+* Contributor   : 31/07/2018    DGW
+***********************************************************************************************/
+void SC30_PWDN(void)
+{
+	unsigned int value;
+//	value=Xil_In32(WO_reg10);
+//	value &= ~0x01;
+//	Xil_Out32(WO_reg10,value);
+//	usleep(1000);//
+//	value |= 0x01;
+//	Xil_Out32(WO_reg10,value);
+//	usleep(10000);//
+//	value &= ~0x01;
+//	Xil_Out32(WO_reg10,value);
+	value = 0x01;
+	Xil_Out32(SC030_FPGABASEADDR+(12*4),value);
+	value = Xil_In32(SC030_FPGABASEADDR+(0*4));
+	value |=0x20;
+	Xil_Out32(SC030_FPGABASEADDR+(0*4),value);
+}
+/***********************************************************************************************
+* Function      : void SC30_Set_HHVVCC(unsigned short HH,unsigned short VV,unsigned char CC)
+* Description   : 设置通知IP的像素值：
+* Input         :HH:像素宽，VV：像素高，CC像素通道数
+* Output        :
+* Note(s)       :
+* Contributor   : 31/07/2018    DGW
+***********************************************************************************************/
+void SC30_Set_HHVVCC(unsigned short HH,unsigned short VV,unsigned char CC)
+{
+	unsigned int value;
+	value=Xil_In32(WO_reg10);
+	HH--;
+	VV--;
+
+	value &=0xff;
+	value |=(HH<<20)+(VV<<8);
+	Xil_Out32(WO_reg10,value);
+	value=Xil_In32(WO_reg9);
+	value &=0xfffffffc;
+	if(CC==0)CC=1;
+	if(CC>3) CC=3;
+	value |=CC;
+	Xil_Out32(WO_reg9,value);
+
+	//设置图像宽
+	Xil_Out32(SC030_FPGABASEADDR+4,0x280);
+
+
+}
+/***********************************************************************************************
+* Function      : void SC30_Set_AutoRate(float Rate)
+* Description   : 设置自动帧率：每秒采样量
+*                 计数时钟为100_000_000
+*                 曝光模式：有自动曝光和手动曝光模式，每曝光一次，上传一张图片
+* Input         : Rate[0.1~120]
+* Output        :
+* Note(s)       :
+* Contributor   : 31/07/2018    DGW
+***********************************************************************************************/
+void SC30_Set_AutoRate(float Rate)
+{
+	float fz;
+	unsigned int value;
+	unsigned int temp;
+	if(Rate<0.1)Rate=0.1;
+	if(Rate>120)Rate=120;
+	fz=100000000/Rate;
+	fz=fz/4;//按照文档需要除以4
+	temp=fz;
+	value=Xil_In32(WO_reg9);
+
+	value |=(temp<<2);
+	Xil_Out32(WO_reg9,value);
+
+	value=Xil_In32(WO_reg10);//切换到自动曝光模式
+	value &=~0x1;
+	Xil_Out32(WO_reg10,value);
+
+
+
+
+}
+/***********************************************************************************************
+* Function      : void SC30_Set_SoftExposure(void)
+* Description   : 手动曝光一次
+                               切换到收到切换模式上来，并给一个高脉冲Trigger0
+*
+* Input         : Rate[0.1~120]
+* Output        :
+* Note(s)       :
+* Contributor   : 31/07/2018    DGW
+***********************************************************************************************/
+void SC30_Set_SoftExposure(void)
+{
+	float fz;
+	unsigned int value;
+	value=Xil_In32(WO_reg10);
+	value |=0x1;//切换到收到曝光
+	Xil_Out32(WO_reg10,value);
+	value |=0x3;
+	Xil_Out32(WO_reg10,value);
+	usleep(5);
+	value &=~0x2;
+	Xil_Out32(WO_reg10,value);
+}
+
+void vdma1_enable(void)
+{
+	unsigned int status;
+	status = Xil_In32(WO_reg0);
+	status = status | 0x8;
+	Xil_Out32(WO_reg0,status);
+
+}
+
+void vdma0_enable(void)
+{
+	unsigned int status;
+	status = Xil_In32(WO_reg0);
+	status = status | 0x4;
+	Xil_Out32(WO_reg0,status);
+
+}
+
+void vdma0_disable(void)
+{
+	unsigned int status;
+	status = Xil_In32(WO_reg0);
+	status = status & (~0x4);
+	Xil_Out32(WO_reg0,status);
+
+}
+
+int vdma0_rd_status(void)
+{
+	return (Xil_In32(R0_reg3) & 0x2);
+}
+
+void hist_ctl(uint8 val)
+{
+
+	unsigned int value;
+
+	value = Xil_In32(SC030_FPGABASEADDR+(12*4));
+
+	value &= 0xfffffffd;
+	value |= val;
+
+	Xil_Out32(SC030_FPGABASEADDR+(12*4),value);
+
+
+}
+
+

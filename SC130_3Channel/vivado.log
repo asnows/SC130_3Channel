@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Mon Mar  2 16:02:32 2020
+# Process ID: 4348
+# Current directory: E:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12232 E:\WorkSpace\project\FPGA\SC130_3Channel\SC130_3Channel\SC130_3Channel.xpr
+# Log file: E:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/vivado.log
+# Journal file: E:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel\vivado.jou
+#-----------------------------------------------------------
+INFO: [Common 17-748] XILINX_TCLAPP_REPO is set to 'D:/Xilinx/Vivado/2018.1/data/XilinxTclStore'. Refresh XilinxTclStore catalog is disabled when XILINX_TCLAPP_REPO is set.
+start_gui
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Mar  2 16:06:40 2020...

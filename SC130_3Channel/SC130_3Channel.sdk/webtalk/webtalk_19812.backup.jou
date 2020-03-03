@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2018.1 (64-bit)
+# SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+# 
+# Start of session at: Fri Jan 11 13:59:13 2019
+# Process ID: 19812
+# Current directory: E:/WorkSpace/project/FPGA/prj_sc130_V2.0_emmc/prj_sc130/prj_sc130.sdk/webtalk
+# Command line: wbtcv.exe -mode batch -source sdk_webtalk.tcl
+# Log file: E:/WorkSpace/project/FPGA/prj_sc130_V2.0_emmc/prj_sc130/prj_sc130.sdk/webtalk/webtalk.log
+# Journal file: E:/WorkSpace/project/FPGA/prj_sc130_V2.0_emmc/prj_sc130/prj_sc130.sdk/webtalk\webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl

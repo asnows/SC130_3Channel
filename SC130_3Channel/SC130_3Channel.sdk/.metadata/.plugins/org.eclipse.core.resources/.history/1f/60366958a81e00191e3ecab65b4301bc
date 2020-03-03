@@ -1,0 +1,871 @@
+#include "psiic.h"
+#include "xstatus.h"
+#include "xpseudo_asm_gcc.h"
+#include "Image_Pixl.h"
+#define MAX_WIDTH  640
+#define MAX_HEIGHT 480
+#define MID_WIDTH  (MAX_WIDTH/2+4)    //像素中心点的位置
+#define MID_HEIGHT (MAX_HEIGHT/2+4)  //像素中心点的位置
+#define SC130GS
+//#define SC030GS
+
+static unsigned short SC030GC_HH;
+static unsigned short SC030GC_VV;
+static unsigned short SC030GC_channel;
+static unsigned int SC030GC[]=
+{
+#ifdef SC030GS
+	0x01000000,
+	0x3018001f,
+	0x301900ff,
+	0x301c00b4,
+	0x30220010,
+	0x302b0080,
+	0x30300004,
+	0x3031000a,
+	0x30340029,
+	0x3035002a,
+	0x30380044,
+	0x30390033,
+	0x303a0077,
+	0x303b0005,
+	0x303c0004,
+	0x303f0091,
+	0x32000001,
+	0x320100b8,
+	0x32020000,
+	0x32030088,
+	0x32040004,
+	0x32050047,
+	0x32060001,
+	0x3207007b,
+	0x32080002,//
+	0x32090080,//
+	0x320a0001,//
+	0x320b00e0,//
+	0x320c0002,
+	0x320d00ee,
+	0x320e0001,
+	0x320f000e,
+	0x32110004,//
+	0x32130004,//
+	0x322f009f,
+	0x33000020,
+	0x3302000c,
+	0x33060048,
+	0x33080050,
+	0x330a0000,
+	0x330b008c,
+	0x330e001a,
+	0x331000f0,
+	0x33110010,
+	0x331900e8,
+	0x33330090,
+	0x33340030,
+	0x33480002,
+	0x334900ee,
+	0x334a0002,
+	0x334b00e8,
+	0x335d0000,
+	0x338000ff,
+	0x338200e0,
+	0x3383000a,
+	0x338400e4,
+	0x34000053,
+	0x34160031,
+	0x35180007,
+	0x351900c8,
+	0x36200023,
+	0x3621000a,
+	0x36220006,
+	0x36230014,
+	0x36240040,
+	0x36250000,
+	0x36260000,
+	0x36270001,
+	0x36300063,
+	0x36320074,
+	0x36330063,
+	0x363400ff,
+	0x36350044,
+	0x36380082,
+	0x36390074,
+	0x363a0024,
+	0x363b0000,
+	0x36400002,
+	0x3658009a,
+	0x36630088,
+	0x36640007,
+	0x3c000045,
+	0x3d080000,
+	0x3e01001a,
+	0x3e020000,
+	0x3e03000b,
+	0x3e080003,
+	0x3e090020,
+	0x3e0e0000,
+	0x3e0f0014,
+	0x3e1400b0,
+	0x3f080004,
+	//0x450100c0,
+	0x450100c8,//incremental pattern
+	0x45020016,
+	0x50000001,
+	0x50400080,//color bar enable
+	0x5b000002,
+	0x5b010003,
+	0x5b020001,
+	0x5b030001,
+
+
+//	/*****************/
+
+	0x320c0002,  //1514x1070
+	0x320d00f4,
+	0x320e0002,
+	0x320f0017,
+
+	0x3205008b, //xaddr end
+	0x32020000, //yaddr strat 0
+	0x32030000,
+	0x32060002, //yaddr end  1032  1034 rows selected
+	0x32070004,
+
+	0x32080005,//
+	0x32090000,//
+	0x320a0004, //1024 rows output
+	0x320b0000,
+//
+//	0x30340001,
+//	0x303500d2,
+//	0x303a0010,
+//
+//
+//	0x3e010021,
+//	0x3e020050,
+//	/*********************/
+
+	0x01000001,
+	0xffff0000
+#endif
+
+#ifdef SC130GS
+		//0x01030001,// soft reset
+
+		0x01000000,
+
+		0x30340001,
+		0x303500c2,
+
+
+		0x330b004c,
+		0x36640009,
+		0x36380082,
+
+		0x3d080000,
+		0x36400003,
+
+
+		0x32050093, //rnc
+
+
+		0x36200042,
+		0x36230006,
+		0x36270002,
+		0x36210028,
+
+
+		0x363b0000,
+		0x36330024,
+		0x363400ff,  //fpn optimize
+
+		0x34160010,
+
+		0x3e03000b,
+		0x3e080003,
+		0x3e090020,
+		0x3e010023,
+		0x3e1400b0,
+
+		//added by xuchen for better noise performance
+		0x330b0040,
+		0x3e08003f,
+		0x363b0080,
+		0x36230007,
+
+
+		0x50000001,
+		0x3e010000,
+		0x3e020030,
+		0x320c0005,
+		0x320d0046,
+		0x320e0002,
+		0x320f0058,
+
+		//1014
+		0x36380085,
+		0x33060050,
+		0x330b0068,
+		0x33080010,
+		0x3e010000,
+		0x363b0000,
+		0x366300f8,
+		0x3664000a,
+
+		0x36330027,
+
+		//0x36330004,
+		0x303a003a,
+		0x303a003a,
+		0x303a003a,
+		0x303a003a,
+
+		0x363b0000,
+
+
+		0x34160038,
+
+
+		0x3e080023,
+
+
+		//mipi
+//		0x3c000041, //FIFO RESET for mipi
+//		0x303f0011, //[7] 0:sel pll_pclk
+		0x3c000045,
+		0x303f0091,
+
+		0x30180010, //lanenum=[7:5]+1
+		0x30190000,
+		0x30310008, // 8bit
+
+		0x30000000,
+		0x30010000,
+		0x302b0080,
+		0x30220010,
+		0x30300004,
+
+		0x30390010,
+		0x303a0030,
+		0x303b0001,
+		0x303c0004,
+
+
+		0x30390020,
+		0x303a0031,
+		0x303b0002,
+
+		0x3e010008,
+		0x36200043,
+
+		0x36210018,
+
+
+		0x450100c0,
+
+		0x45020016, //br recieve inv off
+
+
+		0x36230007,
+
+
+		//1029
+		0x50000001,
+		0x36200044,
+		0x33000030,
+		0x3e010004,
+
+		0x363b0080,
+
+		0x3664000a,
+		0x3e080023,
+		0x34160000,
+		0x36330020,
+
+		//1031
+		0x36330023,
+		0x3211000c,
+		0x3e0f0005,
+
+		//1105
+		0x363b0008, //fpn
+		0x36330022, //nvdd
+
+		//right gray shading
+		0x3302000c,//rst go low
+		0x3383000a,// pbias en rise edge
+
+		//black pixel
+		0x36230004,
+		0x3382000f, //sa fall edge
+		0x3e0f0004,
+		0x3e080027,
+
+		//1109
+		0x3e080023,
+		0x36640005,
+		0x330b0068,
+
+		0x36380084,
+
+		//color
+		0x363b0000,
+		0x36320054,
+		0x36330032,
+		0x3416000e,
+
+		//9k fullwell
+		0x3664000e,
+		0x36630088,
+		0x330b0050,
+
+		0x36220006, //blksun
+		0x363000b3,
+		0x34160011,
+
+		//HDR
+		//0x32210080,
+		//0x338b000C,//bypass NCP V2
+		//0x363b0001,//
+
+
+		0x3e0e0000,//[1] 0 auto dcg disable
+		0x36230014,//[4] arrat dcg enable
+		0x35180000,//max gain
+		0x351900c0,//max gain 6x
+
+		0x5b000002,
+		0x5b010003,
+		0x5b020001,
+		0x5b030001,
+
+		0x3e030000,//aec
+
+
+		0x330b0054,
+
+		//0303
+		0x36320074,
+		0x3623001b,
+		0x3e03000b,
+		0x3e080003,
+		0x3e090020,
+		0x3e010025,
+		0x3e020060,
+		0x36300073,
+
+		//50fps
+		0x30390000,
+		0x330b00f4,
+		0x36330012,
+
+		0x36300063, //blksun ; fullwell
+		0x3664000c,
+
+		//100fps
+		0x303a0022,
+		0x36320070,
+		0x36330002,
+		0x330a0001,
+		0x330b005c,
+
+		//0330
+		0x30380044,
+		0x36200023,
+
+		//0405
+		0x36350044,
+		0x36230018,
+
+		//low power
+		0x320c0003,
+		0x320d0084,
+		0x320e0002,
+		0x320f000d,
+
+		0x32070002,
+		0x32130004,
+
+		0x3e010020,
+		0x3e0200b0,
+
+		0x303a002b,
+		0x330a0001,
+		0x330b0008,
+		0x33060070,
+
+		//timing
+		0x335d000a,
+		0x33000020,
+		0x33480003,
+		0x33490074,
+		0x334a0002,
+		0x334b00a0,
+
+		0x33330080,
+		0x33340030,
+
+		0x36200033,
+		0x36320074, //HVDD buck en
+
+
+		0x36330074, //nvdd for fullwell  hvdd for shading/fpn
+
+		0x36300063,  //blksun
+
+		// gs read
+		0x33100070, // global tx gap
+		0x33190068, // global rs go high
+		0x33820060, // sa go low
+		//0x33830010, //pbisa go high
+		0x33840064, //pbias go low
+
+		0x34000073,  //rnc
+
+
+		0x3664000d, //fullwell
+		0x363a0034,  //rslo
+		0x363b0082, //hvdd ext mode  nv2 ext mode
+
+		//0409
+		0x303500d2,
+		0x36640007,
+		0x33060088,
+		0x330b005c,
+		0x334b00f8,
+		0x34000053,
+
+		0x33330090,
+
+		0x3e010027,
+		0x3e020020,
+
+		//0410
+		0x330e001a,
+
+		//8bit 1lane 612Mbps 60fps  24M input
+		0x30390023,
+		0x303a002f,
+		0x303b000d,
+		0x30340025,
+		0x3035002a,
+
+		0x320c0002,  //1500x850
+		0x320d00ee,
+		0x320e0001,
+		0x320f00a9,
+
+		0x3205008b, //xaddr end
+		0x32020000, //yaddr strat 112
+		0x32030038,
+		0x32060001, //yaddr end  921  810 rows selected
+		0x320700cc,
+
+		0x320a0003, //800 rows output
+		0x320b0020,
+
+
+
+		0x3f080004,
+
+		0x33480002,
+		0x334900de,
+		0x334a0001,
+		0x334b00b0,
+		0x330a0000,
+		0x330b006e,
+		0x33060028,
+
+		0x36230014,
+
+		0x36200032,
+
+		0x3e01001a,
+		0x3e020070,
+
+		//eco
+		0x363b0000,
+		0x33110010,  // tx pchg gap  10 is too small
+		0x33100070,  // tx read gap
+		//0x303b003e,
+		0x30390022,
+
+		0x363a0024,
+		0x36300063,
+		0x36390074, //hvdd
+		0x36330044,
+
+		0x330b005e,
+
+		//30fps
+		0x30390050,
+		0x303a000d,
+
+		0x33060010,
+		0x330b0034,
+		0x334b0060,
+		0x3e01000f,
+		0x3e0200f0,
+
+
+
+		//fpn
+		0x36330072,
+
+
+
+		0x36250000, //ini code for 16x anagain
+		0x36380083,
+
+		0x35180007,//max gain
+		0x351900c8,//max gain 15.5
+		0x3e0f0014,
+
+		//0719
+		0x330b003a,
+		0x34160031,
+
+		//0724 120fps 4lane
+		0x30180070, //lanenum=[7:5]+1
+		0x303b0001,
+
+		0x320d00f6,
+		0x320c0002,
+		0x330b00ec,
+		0x33060048,
+		0x334900ee,
+		0x334a0002,
+		0x334b0048,
+		//0x335d0000,
+
+		0x320c0002,  //1514x1070
+		0x320d00f4,
+		0x320e0002,
+		0x320f0017,
+
+		0x3205008b, //xaddr end
+		0x32020000, //yaddr strat 0
+		0x32030000,
+		0x32060002, //yaddr end  1032  1034 rows selected
+		0x32070004,
+
+		0x320a0004, //1024 rows output
+		0x320b0000,
+
+		0x30340001,
+		0x303500d2,
+		0x303a0010,
+
+
+		0x3e010021,
+		0x3e020050,
+
+		//0727
+		0x33080050,
+		0x338000ff,
+		0x334b00b0,
+
+		0x331000f0,
+		0x331900e8,
+		0x338400e4,
+		0x338200e0,
+
+		0x36330062,
+//
+//		////0927
+		0x30390024,
+		0x303a0023,
+		0x30340025,
+		0x3035002a,
+		0x320c0003,
+		0x320d0012,
+		0x320e0002,
+		0x320f000f,
+//
+//		0x36240020,
+//		0x3e010020,
+//
+//		0x334b00e0,
+//		0x330a0001,
+//		0x330b0020,
+//
+//		0x335d0000,
+//		0x3e0f0015,
+//		0x36640006,
+//		0x3e080002,
+//
+//		0x36210008,
+//		0x36200034,
+//
+//		0x36380082,
+
+		//low power
+//		0x36200024,
+//		0x36270001,
+
+//		0x3658009A,
+//		0x32250002,
+
+		0x01000001,
+
+
+//		[gain<4]
+//		0x363a0024,
+//		0x36300063,
+//		[gain>=4]
+//		0x363a0064,
+//		0x36300073,
+
+
+
+
+
+#endif
+
+
+
+
+};
+
+
+
+
+
+
+
+
+/*************************************************************
+ * 默认配置：1280*720*30
+ ****************************************************************/
+static unsigned int SC030GC_iRate[11]=
+{
+		0x01000000,
+		0x32120000,
+		0x32130004,
+		0x32100000,
+		0x32110004,
+//640*480
+//		0x32080002,
+//		0x32090080,
+//		0x320a0001,
+//		0x320b00e0,
+//		0x01000001,
+//		0xFFFF0000
+
+
+//1280*1024
+		0x32080005,
+		0x32090000,
+		0x320a0004,
+		0x320b0000,
+		0x01000001,
+		0xFFFF0000
+
+
+
+};
+
+/*************************************************************************************
+ *函数：unsigned int *SC030GS_SetPixle(unsigned short HH,unsigned short VV)
+ *功能：设置像素值 以最大的窗体为中心设定像素
+ *计算：设置像素框体，涉及到8个寄存器组
+                            高8位    低8位
+              行起始：0x3212,0x3213
+              列起始：0x3210,0x3211
+              宽度：   0x3208,0x3209
+              高度：   0x320a,0x320b
+        HH 必须4字节对齐
+ *************************************************************************************/
+unsigned int *SC030GS_SetPixle(unsigned short HH,unsigned short VV)
+{
+
+
+		unsigned short sop;
+		if(HH<240)HH=MAX_WIDTH;
+		if(HH>MAX_WIDTH)HH=MAX_WIDTH;
+		if(VV<240)VV=MAX_HEIGHT;
+		if(VV>MAX_HEIGHT)VV=MAX_HEIGHT;
+		HH &=0xfffc;//必须4字节对其
+		SC030GC_HH=HH;
+		SC030GC_VV=VV;
+		SC030GC_channel=1;
+
+
+		HH>>=1;
+		VV>>=1;
+		sop=MID_WIDTH-HH;//行起始点
+		SC030GC_iRate[1]=((sop>>8)|(0x3212<<16));//行 起始点 高8位
+		SC030GC_iRate[2]=((sop&0xff)|(0x3213<<16));//行 起始点 低八位
+		sop=MID_HEIGHT-VV;//列起始点
+		SC030GC_iRate[3]=((sop>>8)|(0x3210<<16));//列 起始点 高8位
+		SC030GC_iRate[4]=((sop&0xff)|(0x3211<<16));//列 起始点 低八位
+
+		sop=SC030GC_HH;//窗口的宽度
+		SC030GC_iRate[5]=((sop>>8)|(0x3208<<16));  //窗口的宽度 高8位
+        SC030GC_iRate[6]=((sop&0xff)|(0x3209<<16));//窗口的宽度 低八位
+
+        sop=SC030GC_VV;//窗口的高度
+    	SC030GC_iRate[7]=((sop>>8)|(0x320a<<16));  //窗口的宽度 高8位
+        SC030GC_iRate[8]=((sop&0xff)|(0x320b<<16));//窗口的宽度 低八位
+
+		return 0;
+}
+/*************************************************************************************
+ *函数：unsigned int *SC030GS_CreateWindows(unsigned short H_start,unsigned short W_start, unsigned short H_Len,unsigned short W_Len)
+ *功能：创建输出窗体
+ *计算：
+              行起始：0x3212,0x3213
+              列起始：0x3210,0x3211
+              宽度：   0x3208,0x3209
+              高度：   0x320a,0x320b
+        HH 必须4字节对齐
+        H_start:行起始位置， 必须>=4 且4的倍数
+        W_start 列起始位置， 必须>=4
+        H_Len ：行        4的倍数、
+        W_Len： 列
+ *************************************************************************************/
+unsigned int *SC030GS_CreateWindows(unsigned short H_start,unsigned short W_start, unsigned short HH,unsigned short VV)
+{
+
+		unsigned short sop;
+		if(HH<240)HH=MAX_WIDTH;
+		if(HH>MAX_WIDTH)HH=MAX_WIDTH;
+		if(VV<240)VV=MAX_HEIGHT;
+		if(VV>MAX_HEIGHT)VV=MAX_HEIGHT;
+		H_start &=0xfffc;
+		if(H_start<4)H_start=4;
+
+		HH &=0xfffc;//必须4字节对其
+		SC030GC_HH=HH;
+		SC030GC_VV=VV;
+		SC030GC_channel=1;
+		sop=MID_WIDTH-HH;//行起始点
+		SC030GC_iRate[1]=((H_start>>8)|(0x3212<<16));//行 起始点 高8位
+		SC030GC_iRate[2]=((H_start&0xff)|(0x3213<<16));//行 起始点 低八位
+		sop=MID_HEIGHT-VV;//列起始点
+		SC030GC_iRate[3]=((W_start>>8)|(0x3210<<16));//列 起始点 高8位
+		SC030GC_iRate[4]=((W_start&0xff)|(0x3211<<16));//列 起始点 低八位
+
+		sop=HH;//窗口的宽度
+		SC030GC_iRate[5]=((sop>>8)|(0x3208<<16));  //窗口的宽度 高8位
+        SC030GC_iRate[6]=((sop&0xff)|(0x3209<<16));//窗口的宽度 低八位
+
+        sop=VV;//窗口的高度
+    	SC030GC_iRate[7]=((sop>>8)|(0x320a<<16));  //窗口的宽度 高8位
+        SC030GC_iRate[8]=((sop&0xff)|(0x320b<<16));//窗口的宽度 低八位
+        return 0;
+
+}
+/*************************************************************************************
+ *函数：int SC030GS_Read(u16 addr,u8 *read_buf)
+ *功能：读取SC030GS寄存器数据
+ *入参：addr     SC030GS寄存器的地址
+ *      read_buf 读取数据对应存放，一个寄存器对应1个字节的数据
+ *返回值：XST_SUCCESS 成功
+ *************************************************************************************/
+static int SC030GS_Read(u16 addr,u8 *read_buf)
+{
+	u8 buf[2];
+	buf[0] = (addr >> 8);
+	buf[1] = addr;
+	if(i2c_wrtie_bytes(0x60,buf,2) != XST_SUCCESS)//0x60
+		return XST_FAILURE;
+	if(i2c_read_bytes(0x61,read_buf,1) != XST_SUCCESS)//
+			return XST_FAILURE;
+	return XST_SUCCESS;
+}
+/*************************************************************************************
+ *函数：int SC030GS_Write(u16 addr,u8 data)
+ *功能：写SC030GS寄存器数据
+ *入参：addr     SC030GS寄存器的地址
+ *      data     要写入的值
+ *返回值：XST_SUCCESS 成功
+ *************************************************************************************/
+static int SC030GS_Write( u16 Regaddr,u8 data)
+{
+	u8  buf[4];
+
+	buf[0] = Regaddr >> 8;
+	buf[1] = Regaddr & 0xFF;
+	buf[2] = data;
+	if(i2c_wrtie_bytes(0x60,buf,3) != XST_SUCCESS)
+		return XST_FAILURE;
+	return XST_SUCCESS;
+}
+/*************************************************************************************
+ *函数：unsigned char SetSCReg(unsigned int V)
+ *功能：写SC030GS寄存器数据，
+ *入参：V 高16位 为寄存器的地址
+ *        低8位  为寄存器的值
+ *      当寄存器地址=FFFF时，认为一组数据写入完毕了
+ *返回值：XST_SUCCESS 成功
+ *************************************************************************************/
+static unsigned char SetSCReg(unsigned int V)
+{
+		unsigned short reg;
+		unsigned char data;
+		reg= (unsigned short)((V >>16)&0xffff);
+		data= (unsigned short)((V )&0xff);
+		if(reg==0xffff)return 0xff;//设置完成
+		if(reg==0x0000)return 1;//没有参数
+		if(XST_SUCCESS!=SC030GS_Write(reg, data))
+		{
+			return 2;//
+		}
+		return 0;
+}
+
+
+int SC030GS_init(void)
+{
+	unsigned int *MorenRegAddr;
+	unsigned short i;
+	unsigned int org;
+	unsigned char status;
+	unsigned int lev;
+    unsigned char value;
+
+	lev = mfcpsr();
+	mtcpsr(lev | 0x000000C0);
+	//---------------------------------
+	SC030GS_Read(0x302b,&value);
+	xil_printf("value = %x \r\n",value);
+	//---------------------------------
+
+	SC030GS_Write(0x302b, 0x80);
+	SC030GS_Read(0x302b,&value);
+	if(value!=0x80)while(1);
+	//i2c_init(&IicInstance, 0,100000);
+#if 1
+	i=0;
+	while(1)//配置参数1
+	{
+		if(SetSCReg(SC030GC[i++]))
+			break;
+
+	}
+	/*
+	i=0;
+	while(1)//配置参数2
+	{
+		if(SetSCReg(SC030GC_iRate[i++]))
+			break;
+
+	}*/
+#endif
+	 mtcpsr(lev);
+
+	return 0;
+}
+
+void Get_i1280720Reg(struct Image_Reg *IRP)
+{
+	IRP->regP=SC030GC;
+	IRP->regImagep=SC030GC_iRate;
+	IRP->regP2=0;
+	IRP->HH=SC030GC_HH;
+	IRP->VV=SC030GC_VV;
+	IRP->channel=SC030GC_channel;
+
+}
+
