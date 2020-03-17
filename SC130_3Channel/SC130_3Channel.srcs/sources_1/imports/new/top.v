@@ -194,7 +194,7 @@
     assign CMOS_PWDN = ~WO_reg10[0];//控制 CMOS的上电  
     assign E_OUT1 = WO_reg10[1] ;
     assign E_OUT2 = WO_reg10[2] ;
-    assign R0_reg1[3] = E_IN1;
+    //assign R0_reg1[3] = E_IN1;
            
     design_1_wrapper design_1_wrapper_i
     (
@@ -214,6 +214,7 @@
         .DDR_ras_n           (DDR_ras_n             ),
         .DDR_reset_n         (DDR_reset_n           ),
         .DDR_we_n            (DDR_we_n              ),
+        .E_IN1_tri_i         (E_IN1                 ),
         .FCLK_CLK0           (FCLK_CLK0             ),
         .FIXED_IO_ddr_vrn    (FIXED_IO_ddr_vrn      ),
         .FIXED_IO_ddr_vrp    (FIXED_IO_ddr_vrp      ),

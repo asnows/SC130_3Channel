@@ -1,15 +1,19 @@
 #-----------------------------------------------------------
-# Vivado v2018.2 (64-bit)
-# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
-# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Tue Mar  3 09:01:35 2020
-# Process ID: 3032
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Tue Mar 17 14:53:04 2020
+# Process ID: 940
 # Current directory: E:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.runs/design_1_auto_pc_3_synth_1
 # Command line: vivado.exe -log design_1_auto_pc_3.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_auto_pc_3.tcl
 # Log file: E:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.runs/design_1_auto_pc_3_synth_1/design_1_auto_pc_3.vds
 # Journal file: E:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.runs/design_1_auto_pc_3_synth_1\vivado.jou
 #-----------------------------------------------------------
-INFO: [Common 17-748] XILINX_TCLAPP_REPO is set to 'D:/Xilinx/Vivado/2018.1/data/XilinxTclStore'. Refresh XilinxTclStore catalog is disabled when XILINX_TCLAPP_REPO is set.
+CRITICAL WARNING: [Common 17-1240] XILINX_TCLAPP_REPO is pointed to a location 'D:\Xilinx\Vivado\2018.1\data\XilinxTclStore' which does not exist or could not be read. The XilinxTclStore has been reverted to the installation area.
 source design_1_auto_pc_3.tcl -notrace
-INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP design_1_auto_pc_3, cache-ID = d0f4089aebafb964.
-INFO: [Common 17-206] Exiting Vivado at Tue Mar  3 09:01:44 2020...
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'e:/ip'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2019.2/data/ip'.
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP design_1_auto_pc_3, cache-ID = 4746d210c7003bc9.
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 17 14:53:11 2020...

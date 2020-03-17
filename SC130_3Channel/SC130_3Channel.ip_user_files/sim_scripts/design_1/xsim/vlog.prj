@@ -1,15 +1,16 @@
-verilog xil_defaultlib --include "../../../../SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/ec67/hdl" --include "../../../../SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/5bb9/hdl/verilog" --include "../../../../SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/70fd/hdl" --include "../../../../SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/b65a" --include "../../../../SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/b37e/hdl" \
+verilog xil_defaultlib --include "../../../../SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/ec67/hdl" --include "../../../../SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/2d50/hdl" --include "../../../../SC130_3Channel.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0" --include "../../../../SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/4fba" --include "../../../../SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/798b/hdl" \
 "../../../bd/design_1/ip/design_1_processing_system7_0_0/sim/design_1_processing_system7_0_0.v" \
 "../../../bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_clk_wiz.v" \
 "../../../bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0.v" \
-"../../../bd/design_1/ip/design_1_xbar_0/sim/design_1_xbar_0.v" \
-"../../../bd/design_1/ip/design_1_xbar_1/sim/design_1_xbar_1.v" \
+"../../../bd/design_1/ip/design_1_xlconcat_0_0/sim/design_1_xlconcat_0_0.v" \
 "../../../bd/design_1/ip/design_1_xbar_2/sim/design_1_xbar_2.v" \
-"../../../bd/design_1/ip/design_1_auto_pc_4/sim/design_1_auto_pc_4.v" \
-"../../../bd/design_1/ip/design_1_auto_pc_3/sim/design_1_auto_pc_3.v" \
-"../../../bd/design_1/ip/design_1_auto_pc_2/sim/design_1_auto_pc_2.v" \
-"../../../bd/design_1/ip/design_1_auto_pc_1/sim/design_1_auto_pc_1.v" \
+"../../../bd/design_1/ip/design_1_xbar_3/sim/design_1_xbar_3.v" \
+"../../../bd/design_1/ip/design_1_xbar_4/sim/design_1_xbar_4.v" \
 "../../../bd/design_1/ip/design_1_auto_pc_0/sim/design_1_auto_pc_0.v" \
+"../../../bd/design_1/ip/design_1_auto_pc_1/sim/design_1_auto_pc_1.v" \
+"../../../bd/design_1/ip/design_1_auto_pc_2/sim/design_1_auto_pc_2.v" \
+"../../../bd/design_1/ip/design_1_auto_pc_3/sim/design_1_auto_pc_3.v" \
+"../../../bd/design_1/ip/design_1_auto_pc_4/sim/design_1_auto_pc_4.v" \
 "../../../bd/design_1/sim/design_1.v" \
 
 verilog xil_defaultlib "glbl.v"

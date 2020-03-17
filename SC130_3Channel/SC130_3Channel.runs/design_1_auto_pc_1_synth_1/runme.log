@@ -3,33 +3,38 @@
     with args -log design_1_auto_pc_1.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_auto_pc_1.tcl
 
 
-****** Vivado v2018.2 (64-bit)
-  **** SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
-  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+****** Vivado v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 
-INFO: [Common 17-748] XILINX_TCLAPP_REPO is set to 'D:/Xilinx/Vivado/2018.1/data/XilinxTclStore'. Refresh XilinxTclStore catalog is disabled when XILINX_TCLAPP_REPO is set.
+CRITICAL WARNING: [Common 17-1240] XILINX_TCLAPP_REPO is pointed to a location 'D:\Xilinx\Vivado\2018.1\data\XilinxTclStore' which does not exist or could not be read. The XilinxTclStore has been reverted to the installation area.
 source design_1_auto_pc_1.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'e:/ip'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2019.2/data/ip'.
 Command: synth_design -top design_1_auto_pc_1 -part xc7z020clg400-1 -mode out_of_context
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 6856 
+INFO: Helper process launched with PID 6384 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 456.316 ; gain = 100.387
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 890.277 ; gain = 243.539
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_1' [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/synth/design_1_auto_pc_1.v:58]
-INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_17_axi_protocol_converter' [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/ccfb/hdl/axi_protocol_converter_v2_1_vl_rfs.v:4811]
+INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_20_axi_protocol_converter' [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/c4a6/hdl/axi_protocol_converter_v2_1_vl_rfs.v:4808]
 	Parameter C_FAMILY bound to: zynq - type: string 
 	Parameter C_M_AXI_PROTOCOL bound to: 1 - type: integer 
 	Parameter C_S_AXI_PROTOCOL bound to: 0 - type: integer 
-	Parameter C_IGNORE_ID bound to: 0 - type: integer 
+	Parameter C_IGNORE_ID bound to: 1 - type: integer 
 	Parameter C_AXI_ID_WIDTH bound to: 1 - type: integer 
 	Parameter C_AXI_ADDR_WIDTH bound to: 32 - type: integer 
 	Parameter C_AXI_DATA_WIDTH bound to: 64 - type: integer 
 	Parameter C_AXI_SUPPORTS_WRITE bound to: 1 - type: integer 
-	Parameter C_AXI_SUPPORTS_READ bound to: 1 - type: integer 
+	Parameter C_AXI_SUPPORTS_READ bound to: 0 - type: integer 
 	Parameter C_AXI_SUPPORTS_USER_SIGNALS bound to: 0 - type: integer 
 	Parameter C_AXI_AWUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_AXI_ARUSER_WIDTH bound to: 1 - type: integer 
@@ -46,7 +51,7 @@ INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_17_axi_pro
 	Parameter P_SLVERR bound to: 2'b10 
 	Parameter P_PROTECTION bound to: 1 - type: integer 
 	Parameter P_CONVERSION bound to: 2 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_17_axi3_conv' [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/ccfb/hdl/axi_protocol_converter_v2_1_vl_rfs.v:954]
+INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_20_axi3_conv' [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/c4a6/hdl/axi_protocol_converter_v2_1_vl_rfs.v:954]
 	Parameter C_FAMILY bound to: zynq - type: string 
 	Parameter C_AXI_ID_WIDTH bound to: 1 - type: integer 
 	Parameter C_AXI_ADDR_WIDTH bound to: 32 - type: integer 
@@ -58,11 +63,11 @@ INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_17_axi3_co
 	Parameter C_AXI_RUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_AXI_BUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_AXI_SUPPORTS_WRITE bound to: 1 - type: integer 
-	Parameter C_AXI_SUPPORTS_READ bound to: 1 - type: integer 
+	Parameter C_AXI_SUPPORTS_READ bound to: 0 - type: integer 
 	Parameter C_SUPPORT_SPLITTING bound to: 1 - type: integer 
 	Parameter C_SUPPORT_BURSTS bound to: 1 - type: integer 
 	Parameter C_SINGLE_THREAD bound to: 1 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_17_b_downsizer' [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/ccfb/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2276]
+INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_20_b_downsizer' [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/c4a6/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2276]
 	Parameter C_FAMILY bound to: zynq - type: string 
 	Parameter C_AXI_ID_WIDTH bound to: 1 - type: integer 
 	Parameter C_AXI_SUPPORTS_USER_SIGNALS bound to: 0 - type: integer 
@@ -71,8 +76,8 @@ INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_17_b_downs
 	Parameter C_RESP_EXOKAY bound to: 2'b01 
 	Parameter C_RESP_SLVERROR bound to: 2'b10 
 	Parameter C_RESP_DECERR bound to: 2'b11 
-INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_17_b_downsizer' (1#1) [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/ccfb/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2276]
-INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_17_a_axi3_conv' [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/ccfb/hdl/axi_protocol_converter_v2_1_vl_rfs.v:62]
+INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_20_b_downsizer' (1#1) [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/c4a6/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2276]
+INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_20_a_axi3_conv' [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/c4a6/hdl/axi_protocol_converter_v2_1_vl_rfs.v:62]
 	Parameter C_FAMILY bound to: zynq - type: string 
 	Parameter C_AXI_ID_WIDTH bound to: 1 - type: integer 
 	Parameter C_AXI_ADDR_WIDTH bound to: 32 - type: integer 
@@ -88,12 +93,12 @@ INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_17_a_axi3_
 	Parameter C_WRAP_BURST bound to: 2'b10 
 	Parameter C_FIFO_DEPTH_LOG bound to: 5 - type: integer 
 	Parameter C_SIZE_MASK bound to: 40'b1111111111111111111111111111111100000000 
-INFO: [Synth 8-6157] synthesizing module 'axi_data_fifo_v2_1_16_axic_fifo' [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/247d/hdl/axi_data_fifo_v2_1_vl_rfs.v:64]
+INFO: [Synth 8-6157] synthesizing module 'axi_data_fifo_v2_1_19_axic_fifo' [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/60de/hdl/axi_data_fifo_v2_1_vl_rfs.v:64]
 	Parameter C_FAMILY bound to: zynq - type: string 
 	Parameter C_FIFO_DEPTH_LOG bound to: 5 - type: integer 
 	Parameter C_FIFO_WIDTH bound to: 5 - type: integer 
 	Parameter C_FIFO_TYPE bound to: lut - type: string 
-INFO: [Synth 8-6157] synthesizing module 'axi_data_fifo_v2_1_16_fifo_gen' [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/247d/hdl/axi_data_fifo_v2_1_vl_rfs.v:168]
+INFO: [Synth 8-6157] synthesizing module 'axi_data_fifo_v2_1_19_fifo_gen' [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/60de/hdl/axi_data_fifo_v2_1_vl_rfs.v:168]
 	Parameter C_FAMILY bound to: zynq - type: string 
 	Parameter C_COMMON_CLOCK bound to: 1 - type: integer 
 	Parameter C_SYNCHRONIZER_STAGE bound to: 3 - type: integer 
@@ -102,14 +107,14 @@ INFO: [Synth 8-6157] synthesizing module 'axi_data_fifo_v2_1_16_fifo_gen' [e:/Wo
 	Parameter C_FIFO_TYPE bound to: lut - type: string 
 	Parameter C_MEMORY_TYPE bound to: 2 - type: integer 
 	Parameter C_IMPLEMENTATION_TYPE bound to: 0 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_async_rst' [D:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1171]
-INFO: [Synth 8-5534] Detected attribute (* ASYNC_REG = "TRUE" *) [D:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1222]
-INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_async_rst' (2#1) [D:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1171]
-INFO: [Synth 8-6155] done synthesizing module 'axi_data_fifo_v2_1_16_fifo_gen' (20#1) [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/247d/hdl/axi_data_fifo_v2_1_vl_rfs.v:168]
-INFO: [Synth 8-6155] done synthesizing module 'axi_data_fifo_v2_1_16_axic_fifo' (21#1) [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/247d/hdl/axi_data_fifo_v2_1_vl_rfs.v:64]
-WARNING: [Synth 8-6014] Unused sequential element S_AXI_AUSER_Q_reg was removed.  [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/ccfb/hdl/axi_protocol_converter_v2_1_vl_rfs.v:281]
-INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_17_a_axi3_conv' (22#1) [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/ccfb/hdl/axi_protocol_converter_v2_1_vl_rfs.v:62]
-INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_17_w_axi3_conv' [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/ccfb/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2004]
+INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_async_rst' [D:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1175]
+INFO: [Synth 8-5534] Detected attribute (* ASYNC_REG = "TRUE" *) [D:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1226]
+INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_async_rst' (2#1) [D:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:1175]
+INFO: [Synth 8-6155] done synthesizing module 'axi_data_fifo_v2_1_19_fifo_gen' (20#1) [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/60de/hdl/axi_data_fifo_v2_1_vl_rfs.v:168]
+INFO: [Synth 8-6155] done synthesizing module 'axi_data_fifo_v2_1_19_axic_fifo' (21#1) [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/60de/hdl/axi_data_fifo_v2_1_vl_rfs.v:64]
+WARNING: [Synth 8-6014] Unused sequential element S_AXI_AUSER_Q_reg was removed.  [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/c4a6/hdl/axi_protocol_converter_v2_1_vl_rfs.v:281]
+INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_20_a_axi3_conv' (22#1) [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/c4a6/hdl/axi_protocol_converter_v2_1_vl_rfs.v:62]
+INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_20_w_axi3_conv' [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/c4a6/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2004]
 	Parameter C_FAMILY bound to: zynq - type: string 
 	Parameter C_AXI_ID_WIDTH bound to: 1 - type: integer 
 	Parameter C_AXI_ADDR_WIDTH bound to: 32 - type: integer 
@@ -118,62 +123,40 @@ INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_17_w_axi3_
 	Parameter C_AXI_WUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_SUPPORT_SPLITTING bound to: 1 - type: integer 
 	Parameter C_SUPPORT_BURSTS bound to: 1 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_17_w_axi3_conv' (23#1) [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/ccfb/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2004]
-INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_17_a_axi3_conv__parameterized0' [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/ccfb/hdl/axi_protocol_converter_v2_1_vl_rfs.v:62]
-	Parameter C_FAMILY bound to: zynq - type: string 
-	Parameter C_AXI_ID_WIDTH bound to: 1 - type: integer 
-	Parameter C_AXI_ADDR_WIDTH bound to: 32 - type: integer 
-	Parameter C_AXI_DATA_WIDTH bound to: 64 - type: integer 
-	Parameter C_AXI_SUPPORTS_USER_SIGNALS bound to: 0 - type: integer 
-	Parameter C_AXI_AUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_AXI_CHANNEL bound to: 1 - type: integer 
-	Parameter C_SUPPORT_SPLITTING bound to: 1 - type: integer 
-	Parameter C_SUPPORT_BURSTS bound to: 1 - type: integer 
-	Parameter C_SINGLE_THREAD bound to: 1 - type: integer 
-	Parameter C_FIX_BURST bound to: 2'b00 
-	Parameter C_INCR_BURST bound to: 2'b01 
-	Parameter C_WRAP_BURST bound to: 2'b10 
-	Parameter C_FIFO_DEPTH_LOG bound to: 5 - type: integer 
-	Parameter C_SIZE_MASK bound to: 40'b1111111111111111111111111111111100000000 
-INFO: [Synth 8-6157] synthesizing module 'axi_data_fifo_v2_1_16_axic_fifo__parameterized0' [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/247d/hdl/axi_data_fifo_v2_1_vl_rfs.v:64]
-	Parameter C_FAMILY bound to: zynq - type: string 
-	Parameter C_FIFO_DEPTH_LOG bound to: 5 - type: integer 
-	Parameter C_FIFO_WIDTH bound to: 1 - type: integer 
-	Parameter C_FIFO_TYPE bound to: lut - type: string 
-INFO: [Synth 8-6157] synthesizing module 'axi_data_fifo_v2_1_16_fifo_gen__parameterized0' [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/247d/hdl/axi_data_fifo_v2_1_vl_rfs.v:168]
-	Parameter C_FAMILY bound to: zynq - type: string 
-	Parameter C_COMMON_CLOCK bound to: 1 - type: integer 
-	Parameter C_SYNCHRONIZER_STAGE bound to: 3 - type: integer 
-	Parameter C_FIFO_DEPTH_LOG bound to: 5 - type: integer 
-	Parameter C_FIFO_WIDTH bound to: 1 - type: integer 
-	Parameter C_FIFO_TYPE bound to: lut - type: string 
-	Parameter C_MEMORY_TYPE bound to: 2 - type: integer 
-	Parameter C_IMPLEMENTATION_TYPE bound to: 0 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'axi_data_fifo_v2_1_16_fifo_gen__parameterized0' (23#1) [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/247d/hdl/axi_data_fifo_v2_1_vl_rfs.v:168]
-INFO: [Synth 8-6155] done synthesizing module 'axi_data_fifo_v2_1_16_axic_fifo__parameterized0' (23#1) [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/247d/hdl/axi_data_fifo_v2_1_vl_rfs.v:64]
-WARNING: [Synth 8-6014] Unused sequential element NO_B_CHANNEL.cmd_b_depth_reg was removed.  [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/ccfb/hdl/axi_protocol_converter_v2_1_vl_rfs.v:853]
-WARNING: [Synth 8-6014] Unused sequential element S_AXI_AUSER_Q_reg was removed.  [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/ccfb/hdl/axi_protocol_converter_v2_1_vl_rfs.v:281]
-WARNING: [Synth 8-6014] Unused sequential element cmd_b_push_block_reg was removed.  [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/ccfb/hdl/axi_protocol_converter_v2_1_vl_rfs.v:637]
-INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_17_a_axi3_conv__parameterized0' (23#1) [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/ccfb/hdl/axi_protocol_converter_v2_1_vl_rfs.v:62]
-INFO: [Synth 8-6157] synthesizing module 'axi_protocol_converter_v2_1_17_r_axi3_conv' [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/ccfb/hdl/axi_protocol_converter_v2_1_vl_rfs.v:1789]
-	Parameter C_FAMILY bound to: zynq - type: string 
-	Parameter C_AXI_ID_WIDTH bound to: 1 - type: integer 
-	Parameter C_AXI_ADDR_WIDTH bound to: 32 - type: integer 
-	Parameter C_AXI_DATA_WIDTH bound to: 64 - type: integer 
-	Parameter C_AXI_SUPPORTS_USER_SIGNALS bound to: 0 - type: integer 
-	Parameter C_AXI_RUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_SUPPORT_SPLITTING bound to: 1 - type: integer 
-	Parameter C_SUPPORT_BURSTS bound to: 1 - type: integer 
-	Parameter C_RESP_OKAY bound to: 2'b00 
-	Parameter C_RESP_EXOKAY bound to: 2'b01 
-	Parameter C_RESP_SLVERROR bound to: 2'b10 
-	Parameter C_RESP_DECERR bound to: 2'b11 
-INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_17_r_axi3_conv' (24#1) [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/ccfb/hdl/axi_protocol_converter_v2_1_vl_rfs.v:1789]
-INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_17_axi3_conv' (25#1) [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/ccfb/hdl/axi_protocol_converter_v2_1_vl_rfs.v:954]
-INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_17_axi_protocol_converter' (26#1) [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/ccfb/hdl/axi_protocol_converter_v2_1_vl_rfs.v:4811]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_1' (27#1) [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/synth/design_1_auto_pc_1.v:58]
-WARNING: [Synth 8-3331] design axi_protocol_converter_v2_1_17_r_axi3_conv has unconnected port ACLK
-WARNING: [Synth 8-3331] design axi_protocol_converter_v2_1_17_r_axi3_conv has unconnected port ARESET
+INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_20_w_axi3_conv' (23#1) [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/c4a6/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2004]
+INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_20_axi3_conv' (24#1) [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/c4a6/hdl/axi_protocol_converter_v2_1_vl_rfs.v:954]
+INFO: [Synth 8-6155] done synthesizing module 'axi_protocol_converter_v2_1_20_axi_protocol_converter' (25#1) [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/c4a6/hdl/axi_protocol_converter_v2_1_vl_rfs.v:4808]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_1' (26#1) [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/synth/design_1_auto_pc_1.v:58]
+WARNING: [Synth 8-3331] design axi_protocol_converter_v2_1_20_w_axi3_conv has unconnected port S_AXI_WLAST
+WARNING: [Synth 8-3331] design axi_protocol_converter_v2_1_20_w_axi3_conv has unconnected port S_AXI_WUSER[0]
+WARNING: [Synth 8-3331] design output_blk has unconnected port ALMOST_FULL_I
+WARNING: [Synth 8-3331] design output_blk has unconnected port PROG_FULL_I
+WARNING: [Synth 8-3331] design output_blk has unconnected port ALMOST_EMPTY_I
+WARNING: [Synth 8-3331] design output_blk has unconnected port PROG_EMPTY_I
+WARNING: [Synth 8-3331] design output_blk has unconnected port WR_ACK_I
+WARNING: [Synth 8-3331] design output_blk has unconnected port VALID_I
+WARNING: [Synth 8-3331] design output_blk has unconnected port OVERFLOW_I
+WARNING: [Synth 8-3331] design output_blk has unconnected port UNDERFLOW_I
+WARNING: [Synth 8-3331] design output_blk has unconnected port DATA_COUNT_I[5]
+WARNING: [Synth 8-3331] design output_blk has unconnected port DATA_COUNT_I[4]
+WARNING: [Synth 8-3331] design output_blk has unconnected port DATA_COUNT_I[3]
+WARNING: [Synth 8-3331] design output_blk has unconnected port DATA_COUNT_I[2]
+WARNING: [Synth 8-3331] design output_blk has unconnected port DATA_COUNT_I[1]
+WARNING: [Synth 8-3331] design output_blk has unconnected port DATA_COUNT_I[0]
+WARNING: [Synth 8-3331] design output_blk has unconnected port WR_DATA_COUNT_I[5]
+WARNING: [Synth 8-3331] design output_blk has unconnected port WR_DATA_COUNT_I[4]
+WARNING: [Synth 8-3331] design output_blk has unconnected port WR_DATA_COUNT_I[3]
+WARNING: [Synth 8-3331] design output_blk has unconnected port WR_DATA_COUNT_I[2]
+WARNING: [Synth 8-3331] design output_blk has unconnected port WR_DATA_COUNT_I[1]
+WARNING: [Synth 8-3331] design output_blk has unconnected port WR_DATA_COUNT_I[0]
+WARNING: [Synth 8-3331] design output_blk has unconnected port RD_DATA_COUNT_I[5]
+WARNING: [Synth 8-3331] design output_blk has unconnected port RD_DATA_COUNT_I[4]
+WARNING: [Synth 8-3331] design output_blk has unconnected port RD_DATA_COUNT_I[3]
+WARNING: [Synth 8-3331] design output_blk has unconnected port RD_DATA_COUNT_I[2]
+WARNING: [Synth 8-3331] design output_blk has unconnected port RD_DATA_COUNT_I[1]
+WARNING: [Synth 8-3331] design output_blk has unconnected port RD_DATA_COUNT_I[0]
+WARNING: [Synth 8-3331] design output_blk has unconnected port SBITERR_I
+WARNING: [Synth 8-3331] design output_blk has unconnected port DBITERR_I
 WARNING: [Synth 8-3331] design wr_status_flags_ss has unconnected port SRST_FULL_FF
 WARNING: [Synth 8-3331] design wr_status_flags_ss has unconnected port WR_RST
 WARNING: [Synth 8-3331] design wr_status_flags_ss has unconnected port SRST
@@ -244,37 +227,9 @@ WARNING: [Synth 8-3331] design rd_logic has unconnected port PROG_EMPTY_THRESH_A
 WARNING: [Synth 8-3331] design rd_logic has unconnected port PROG_EMPTY_THRESH_ASSERT[0]
 WARNING: [Synth 8-3331] design rd_logic has unconnected port PROG_EMPTY_THRESH_NEGATE[4]
 WARNING: [Synth 8-3331] design rd_logic has unconnected port PROG_EMPTY_THRESH_NEGATE[3]
-WARNING: [Synth 8-3331] design rd_logic has unconnected port PROG_EMPTY_THRESH_NEGATE[2]
-WARNING: [Synth 8-3331] design rd_logic has unconnected port PROG_EMPTY_THRESH_NEGATE[1]
-WARNING: [Synth 8-3331] design rd_logic has unconnected port PROG_EMPTY_THRESH_NEGATE[0]
-WARNING: [Synth 8-3331] design dmem__parameterized0 has unconnected port SRST
-WARNING: [Synth 8-3331] design memory__parameterized0 has unconnected port FAB_REGOUT_EN
-WARNING: [Synth 8-3331] design memory__parameterized0 has unconnected port SFT_RST
-WARNING: [Synth 8-3331] design memory__parameterized0 has unconnected port SRST
-WARNING: [Synth 8-3331] design memory__parameterized0 has unconnected port SAFETY_CKT_RD_RST
-WARNING: [Synth 8-3331] design memory__parameterized0 has unconnected port SLEEP
-WARNING: [Synth 8-3331] design memory__parameterized0 has unconnected port INJECTDBITERR
-WARNING: [Synth 8-3331] design memory__parameterized0 has unconnected port INJECTSBITERR
-WARNING: [Synth 8-3331] design output_blk__parameterized0 has unconnected port ALMOST_FULL_I
-WARNING: [Synth 8-3331] design output_blk__parameterized0 has unconnected port PROG_FULL_I
-WARNING: [Synth 8-3331] design output_blk__parameterized0 has unconnected port ALMOST_EMPTY_I
-WARNING: [Synth 8-3331] design output_blk__parameterized0 has unconnected port PROG_EMPTY_I
-WARNING: [Synth 8-3331] design output_blk__parameterized0 has unconnected port WR_ACK_I
-WARNING: [Synth 8-3331] design output_blk__parameterized0 has unconnected port VALID_I
-WARNING: [Synth 8-3331] design output_blk__parameterized0 has unconnected port OVERFLOW_I
-WARNING: [Synth 8-3331] design output_blk__parameterized0 has unconnected port UNDERFLOW_I
-WARNING: [Synth 8-3331] design output_blk__parameterized0 has unconnected port DATA_COUNT_I[5]
-WARNING: [Synth 8-3331] design output_blk__parameterized0 has unconnected port DATA_COUNT_I[4]
-WARNING: [Synth 8-3331] design output_blk__parameterized0 has unconnected port DATA_COUNT_I[3]
-WARNING: [Synth 8-3331] design output_blk__parameterized0 has unconnected port DATA_COUNT_I[2]
-WARNING: [Synth 8-3331] design output_blk__parameterized0 has unconnected port DATA_COUNT_I[1]
-WARNING: [Synth 8-3331] design output_blk__parameterized0 has unconnected port DATA_COUNT_I[0]
-WARNING: [Synth 8-3331] design output_blk__parameterized0 has unconnected port WR_DATA_COUNT_I[5]
-WARNING: [Synth 8-3331] design output_blk__parameterized0 has unconnected port WR_DATA_COUNT_I[4]
-WARNING: [Synth 8-3331] design output_blk__parameterized0 has unconnected port WR_DATA_COUNT_I[3]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 613.719 ; gain = 257.789
+Finished RTL Elaboration : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1072.516 ; gain = 425.777
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -287,12 +242,12 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 613.719 ; gain = 257.789
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 1072.516 ; gain = 425.777
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 613.719 ; gain = 257.789
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 1072.516 ; gain = 425.777
 ---------------------------------------------------------------------------------
-INFO: [Device 21-403] Loading part xc7z020clg400-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.056 . Memory (MB): peak = 1072.516 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -301,30 +256,26 @@ Parsing XDC File [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_
 Finished Parsing XDC File [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1_ooc.xdc] for cell 'inst'
 Parsing XDC File [E:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.runs/design_1_auto_pc_1_synth_1/dont_touch.xdc]
 Finished Parsing XDC File [E:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.runs/design_1_auto_pc_1_synth_1/dont_touch.xdc]
-Sourcing Tcl File [D:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
-Finished Sourcing Tcl File [D:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
-Sourcing Tcl File [D:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
-Finished Sourcing Tcl File [D:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
-Sourcing Tcl File [D:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
-Finished Sourcing Tcl File [D:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/design_1_auto_pc_1_propImpl.xdc].
-Resolution: To avoid this warning, move constraints listed in [.Xil/design_1_auto_pc_1_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
-WARNING: [Constraints 18-5210] No constraint will be written out.
+Sourcing Tcl File [D:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Finished Sourcing Tcl File [D:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Sourcing Tcl File [D:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
+Finished Sourcing Tcl File [D:/Xilinx/Vivado/2019.2/data/ip/xpm/xpm_cdc/tcl/xpm_cdc_async_rst.tcl] for cell 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst'
 Completed Processing XDC Constraints
 
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1075.387 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.031 . Memory (MB): peak = 898.926 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.068 . Memory (MB): peak = 1086.727 ; gain = 11.340
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:54 ; elapsed = 00:00:57 . Memory (MB): peak = 898.926 ; gain = 542.996
+Finished Constraint Validation : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 1086.727 ; gain = 439.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:54 ; elapsed = 00:00:57 . Memory (MB): peak = 898.926 ; gain = 542.996
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 1086.727 ; gain = 439.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -332,16 +283,13 @@ Start Applying 'set_property' XDC Constraints
 Applied set_property DONT_TOUCH = true for inst. (constraint file  E:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.runs/design_1_auto_pc_1_synth_1/dont_touch.xdc, line 9).
 Applied set_property DONT_TOUCH = true for inst/\gen_axi4_axi3.axi3_conv_inst /\USE_WRITE.write_addr_inst /\USE_BURSTS.cmd_queue /inst/fifo_gen_inst/inst_fifo_gen/\gconvfifo.rf /\grf.rf /rstblk/\ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst . (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for inst/\gen_axi4_axi3.axi3_conv_inst /\USE_WRITE.write_addr_inst /\USE_B_CHANNEL.cmd_b_queue /inst/fifo_gen_inst/inst_fifo_gen/\gconvfifo.rf /\grf.rf /rstblk/\ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst . (constraint file  auto generated constraint, line ).
-Applied set_property DONT_TOUCH = true for inst/\gen_axi4_axi3.axi3_conv_inst /\USE_READ.USE_SPLIT_R.read_addr_inst /\USE_R_CHANNEL.cmd_queue /inst/fifo_gen_inst/inst_fifo_gen/\gconvfifo.rf /\grf.rf /rstblk/\ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst . (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:54 ; elapsed = 00:00:57 . Memory (MB): peak = 898.926 ; gain = 542.996
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 1086.727 ; gain = 439.988
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5544] ROM "leaving_empty_fwft" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/ccfb/hdl/axi_protocol_converter_v2_1_vl_rfs.v:823]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/ccfb/hdl/axi_protocol_converter_v2_1_vl_rfs.v:763]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/ccfb/hdl/axi_protocol_converter_v2_1_vl_rfs.v:763]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/c4a6/hdl/axi_protocol_converter_v2_1_vl_rfs.v:823]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ipshared/c4a6/hdl/axi_protocol_converter_v2_1_vl_rfs.v:763]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:55 ; elapsed = 00:00:58 . Memory (MB): peak = 898.926 ; gain = 542.996
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 1086.727 ; gain = 439.988
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -354,38 +302,38 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 2     
+	   2 Input     32 Bit       Adders := 1     
 	   2 Input      8 Bit       Adders := 1     
-	   2 Input      6 Bit       Adders := 3     
-	   2 Input      5 Bit       Adders := 8     
-	   2 Input      4 Bit       Adders := 3     
+	   2 Input      6 Bit       Adders := 2     
+	   2 Input      5 Bit       Adders := 5     
+	   2 Input      4 Bit       Adders := 2     
 +---XORs : 
-	   2 Input      1 Bit         XORs := 60    
+	   2 Input      1 Bit         XORs := 40    
 +---Registers : 
-	               32 Bit    Registers := 6     
-	               16 Bit    Registers := 2     
-	               12 Bit    Registers := 2     
-	                8 Bit    Registers := 3     
-	                6 Bit    Registers := 3     
-	                5 Bit    Registers := 16    
-	                4 Bit    Registers := 12    
-	                3 Bit    Registers := 4     
-	                2 Bit    Registers := 13    
-	                1 Bit    Registers := 59    
+	               32 Bit    Registers := 3     
+	               16 Bit    Registers := 1     
+	               12 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
+	                6 Bit    Registers := 2     
+	                5 Bit    Registers := 12    
+	                4 Bit    Registers := 7     
+	                3 Bit    Registers := 2     
+	                2 Bit    Registers := 8     
+	                1 Bit    Registers := 35    
 +---Muxes : 
-	   8 Input     32 Bit        Muxes := 2     
-	   2 Input     32 Bit        Muxes := 2     
-	   3 Input     16 Bit        Muxes := 2     
-	   2 Input     16 Bit        Muxes := 2     
-	   8 Input     12 Bit        Muxes := 2     
+	   8 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 1     
+	   3 Input     16 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 1     
+	   8 Input     12 Bit        Muxes := 1     
 	   2 Input      8 Bit        Muxes := 2     
-	   2 Input      4 Bit        Muxes := 3     
-	   2 Input      2 Bit        Muxes := 21    
-	   5 Input      2 Bit        Muxes := 3     
-	   3 Input      2 Bit        Muxes := 2     
-	   3 Input      1 Bit        Muxes := 3     
-	   2 Input      1 Bit        Muxes := 27    
-	   4 Input      1 Bit        Muxes := 6     
+	   2 Input      4 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 15    
+	   5 Input      2 Bit        Muxes := 2     
+	   3 Input      2 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 16    
+	   4 Input      1 Bit        Muxes := 4     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -393,7 +341,7 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
-Module axi_protocol_converter_v2_1_17_b_downsizer 
+Module axi_protocol_converter_v2_1_20_b_downsizer 
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input      4 Bit       Adders := 1     
@@ -455,11 +403,11 @@ Module wr_status_flags_ss
 Detailed RTL Component Info : 
 +---Registers : 
 	                1 Bit    Registers := 2     
-Module reset_blk_ramfifo__xdcDup__2 
+Module reset_blk_ramfifo 
 Detailed RTL Component Info : 
 +---Registers : 
 	                4 Bit    Registers := 1     
-Module axi_protocol_converter_v2_1_17_a_axi3_conv 
+Module axi_protocol_converter_v2_1_20_a_axi3_conv 
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     32 Bit       Adders := 1     
@@ -486,7 +434,7 @@ Detailed RTL Component Info :
 	   2 Input      2 Bit        Muxes := 3     
 	   3 Input      2 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 10    
-Module axi_protocol_converter_v2_1_17_w_axi3_conv 
+Module axi_protocol_converter_v2_1_20_w_axi3_conv 
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input      8 Bit       Adders := 1     
@@ -495,45 +443,6 @@ Detailed RTL Component Info :
 	                1 Bit    Registers := 1     
 +---Muxes : 
 	   2 Input      8 Bit        Muxes := 2     
-Module reset_blk_ramfifo 
-Detailed RTL Component Info : 
-+---Registers : 
-	                4 Bit    Registers := 1     
-Module dmem__parameterized0 
-Detailed RTL Component Info : 
-+---Registers : 
-	                1 Bit    Registers := 1     
-Module memory__parameterized0 
-Detailed RTL Component Info : 
-+---Registers : 
-	                1 Bit    Registers := 1     
-Module axi_protocol_converter_v2_1_17_a_axi3_conv__parameterized0 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     32 Bit       Adders := 1     
-	   2 Input      6 Bit       Adders := 1     
-	   2 Input      5 Bit       Adders := 1     
-	   2 Input      4 Bit       Adders := 1     
-+---Registers : 
-	               32 Bit    Registers := 3     
-	               16 Bit    Registers := 1     
-	               12 Bit    Registers := 1     
-	                8 Bit    Registers := 1     
-	                6 Bit    Registers := 1     
-	                4 Bit    Registers := 4     
-	                3 Bit    Registers := 2     
-	                2 Bit    Registers := 3     
-	                1 Bit    Registers := 12    
-+---Muxes : 
-	   8 Input     32 Bit        Muxes := 1     
-	   2 Input     32 Bit        Muxes := 1     
-	   3 Input     16 Bit        Muxes := 1     
-	   2 Input     16 Bit        Muxes := 1     
-	   8 Input     12 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 2     
-	   3 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 8     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -550,113 +459,54 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/addr_step_q_reg[0]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/first_step_q_reg[12]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/addr_step_q_reg[1]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/first_step_q_reg[12]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/addr_step_q_reg[2]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/first_step_q_reg[12]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/addr_step_q_reg[3]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/first_step_q_reg[12]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/first_step_q_reg[12]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/first_step_q_reg[13]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/first_step_q_reg[13]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/first_step_q_reg[14]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/first_step_q_reg[14] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/first_step_q_reg[15] )
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/addr_step_q_reg[0]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/first_step_q_reg[12]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/addr_step_q_reg[1]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/first_step_q_reg[12]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/addr_step_q_reg[2]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/first_step_q_reg[12]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/addr_step_q_reg[3]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/first_step_q_reg[12]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/first_step_q_reg[12]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/first_step_q_reg[13]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/addr_step_q_reg[0]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/addr_step_q_reg[1]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/addr_step_q_reg[1]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/addr_step_q_reg[2]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/addr_step_q_reg[2]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/addr_step_q_reg[3]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/addr_step_q_reg[3]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/first_step_q_reg[14]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/first_step_q_reg[12]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/first_step_q_reg[14]'
 INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/first_step_q_reg[13]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/first_step_q_reg[14]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/first_step_q_reg[14] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/first_step_q_reg[15] )
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/areset_d_reg[0]' (FD) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/areset_d_reg[0]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/areset_d_reg[1]' (FD) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/areset_d_reg[1]'
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (inst/\gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/NO_B_CHANNEL.cmd_b_empty_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/S_AXI_ALOCK_Q_reg[1] )
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[7]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[8]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[8]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[9]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[9]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[10]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[10]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[11]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[11]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[12]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[12]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[13]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[13]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[14]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[14]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[15]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[15]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[16]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[16]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[17]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[17]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[18]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[18]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[19]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[19]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[20]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[20]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[21]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[21]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[22]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[22]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[23]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[23]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[24]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[24]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[25]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[25]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[26]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[26]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[27]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[27]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[28]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[28]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[29]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[29]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[30]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[30]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[31]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/S_AXI_ALOCK_Q_reg[1] )
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[7]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[8]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[9]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[10]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[11]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[12]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[13]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[14]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[15]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[16]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[17]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[18]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[19]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[20]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[21]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[22]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[23]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[24]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[25]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[26]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[27]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[28]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[29]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[31]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[7]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[8]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[8]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[9]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[9]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[10]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[10]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[11]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[11]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[12]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[12]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[13]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[13]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[14]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[14]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[15]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[15]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[16]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[16]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[17]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[17]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[18]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[18]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[19]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[19]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[20]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[20]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[21]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[21]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[22]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[22]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[23]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[23]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[24]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[24]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[25]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[25]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[26]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[26]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[27]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[27]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[28]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[28]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[29]'
+INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[29]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[30]'
 INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[30]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[31]'
-WARNING: [Synth 8-3332] Sequential element (inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gcc_rst.sckt_wr_rst_cc_reg[3]) is unused and will be removed from module fifo_generator_v13_2_2__xdcDup__1.
-WARNING: [Synth 8-3332] Sequential element (inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gcc_rst.sckt_wr_rst_cc_reg[2]) is unused and will be removed from module fifo_generator_v13_2_2__xdcDup__1.
-WARNING: [Synth 8-3332] Sequential element (inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gcc_rst.sckt_wr_rst_cc_reg[3]) is unused and will be removed from module fifo_generator_v13_2_2.
-WARNING: [Synth 8-3332] Sequential element (inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gcc_rst.sckt_wr_rst_cc_reg[2]) is unused and will be removed from module fifo_generator_v13_2_2.
-WARNING: [Synth 8-3332] Sequential element (inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gcc_rst.sckt_wr_rst_cc_reg[3]) is unused and will be removed from module fifo_generator_v13_2_2__parameterized0.
-WARNING: [Synth 8-3332] Sequential element (inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gcc_rst.sckt_wr_rst_cc_reg[2]) is unused and will be removed from module fifo_generator_v13_2_2__parameterized0.
-INFO: [Synth 8-3332] Sequential element (gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/first_step_q_reg[15]) is unused and will be removed from module axi_protocol_converter_v2_1_17_axi_protocol_converter.
-INFO: [Synth 8-3332] Sequential element (gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/S_AXI_ALEN_Q_reg[7]) is unused and will be removed from module axi_protocol_converter_v2_1_17_axi_protocol_converter.
-INFO: [Synth 8-3332] Sequential element (gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/S_AXI_ALEN_Q_reg[6]) is unused and will be removed from module axi_protocol_converter_v2_1_17_axi_protocol_converter.
-INFO: [Synth 8-3332] Sequential element (gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/S_AXI_ALEN_Q_reg[5]) is unused and will be removed from module axi_protocol_converter_v2_1_17_axi_protocol_converter.
-INFO: [Synth 8-3332] Sequential element (gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/S_AXI_ALEN_Q_reg[4]) is unused and will be removed from module axi_protocol_converter_v2_1_17_axi_protocol_converter.
-INFO: [Synth 8-3332] Sequential element (gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/S_AXI_ALOCK_Q_reg[1]) is unused and will be removed from module axi_protocol_converter_v2_1_17_axi_protocol_converter.
-INFO: [Synth 8-3332] Sequential element (gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/NO_B_CHANNEL.cmd_b_empty_reg) is unused and will be removed from module axi_protocol_converter_v2_1_17_axi_protocol_converter.
-INFO: [Synth 8-3332] Sequential element (gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/first_step_q_reg[15]) is unused and will be removed from module axi_protocol_converter_v2_1_17_axi_protocol_converter.
-INFO: [Synth 8-3332] Sequential element (gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/S_AXI_ALEN_Q_reg[7]) is unused and will be removed from module axi_protocol_converter_v2_1_17_axi_protocol_converter.
-INFO: [Synth 8-3332] Sequential element (gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/S_AXI_ALEN_Q_reg[6]) is unused and will be removed from module axi_protocol_converter_v2_1_17_axi_protocol_converter.
-INFO: [Synth 8-3332] Sequential element (gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/S_AXI_ALEN_Q_reg[5]) is unused and will be removed from module axi_protocol_converter_v2_1_17_axi_protocol_converter.
-INFO: [Synth 8-3332] Sequential element (gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/S_AXI_ALEN_Q_reg[4]) is unused and will be removed from module axi_protocol_converter_v2_1_17_axi_protocol_converter.
-INFO: [Synth 8-3332] Sequential element (gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/S_AXI_ALOCK_Q_reg[1]) is unused and will be removed from module axi_protocol_converter_v2_1_17_axi_protocol_converter.
-INFO: [Synth 8-3332] Sequential element (gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/first_step_q_reg[14]) is unused and will be removed from module axi_protocol_converter_v2_1_17_axi_protocol_converter.
-INFO: [Synth 8-3332] Sequential element (gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/first_step_q_reg[14]) is unused and will be removed from module axi_protocol_converter_v2_1_17_axi_protocol_converter.
-INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/addr_step_q_reg[4]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/size_mask_q_reg[0]'
 INFO: [Synth 8-3886] merging instance 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/addr_step_q_reg[4]' (FDRE) to 'inst/gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/size_mask_q_reg[0]'
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:57 ; elapsed = 00:01:00 . Memory (MB): peak = 898.926 ; gain = 542.996
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:38 . Memory (MB): peak = 1086.727 ; gain = 439.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 
-Distributed RAM: Preliminary Mapping  Report (see note below)
-+-------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+----------------+----------------------+----------------+
-|Module Name                                                                                                        | RTL Object                                                                    | Inference      | Size (Depth x Width) | Primitives     | 
-+-------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+----------------+----------------------+----------------+
-|inst/\gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst               | inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg | User Attribute | 32 x 5               | RAM32M x 1     | 
-|inst/\gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst          | inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg | User Attribute | 32 x 5               | RAM32M x 1     | 
-|inst/\gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst  | inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg | User Attribute | 32 x 1               | RAM32X1D x 1   | 
-+-------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+----------------+----------------------+----------------+
+Distributed RAM: Preliminary Mapping	Report (see note below)
++-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+----------------+----------------------+-------------+
+|Module Name                                                                                                | RTL Object                                                                    | Inference      | Size (Depth x Width) | Primitives  | 
++-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+----------------+----------------------+-------------+
+|inst/\gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst       | inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg | User Attribute | 32 x 5               | RAM32M x 1	 | 
+|inst/\gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst  | inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg | User Attribute | 32 x 5               | RAM32M x 1	 | 
++-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+----------------+----------------------+-------------+
 
 Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
 ---------------------------------------------------------------------------------
@@ -672,26 +522,25 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:06 ; elapsed = 00:01:10 . Memory (MB): peak = 898.926 ; gain = 542.996
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:47 ; elapsed = 00:00:54 . Memory (MB): peak = 1086.727 ; gain = 439.988
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:06 ; elapsed = 00:01:10 . Memory (MB): peak = 904.520 ; gain = 548.590
+Finished Timing Optimization : Time (s): cpu = 00:00:49 ; elapsed = 00:00:56 . Memory (MB): peak = 1086.988 ; gain = 440.250
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 
-Distributed RAM: Final Mapping  Report
-+-------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+----------------+----------------------+----------------+
-|Module Name                                                                                                        | RTL Object                                                                    | Inference      | Size (Depth x Width) | Primitives     | 
-+-------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+----------------+----------------------+----------------+
-|inst/\gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst               | inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg | User Attribute | 32 x 5               | RAM32M x 1     | 
-|inst/\gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst          | inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg | User Attribute | 32 x 5               | RAM32M x 1     | 
-|inst/\gen_axi4_axi3.axi3_conv_inst/USE_READ.USE_SPLIT_R.read_addr_inst/USE_R_CHANNEL.cmd_queue/inst/fifo_gen_inst  | inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg | User Attribute | 32 x 1               | RAM32X1D x 1   | 
-+-------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+----------------+----------------------+----------------+
+Distributed RAM: Final Mapping	Report
++-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+----------------+----------------------+-------------+
+|Module Name                                                                                                | RTL Object                                                                    | Inference      | Size (Depth x Width) | Primitives  | 
++-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+----------------+----------------------+-------------+
+|inst/\gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_BURSTS.cmd_queue/inst/fifo_gen_inst       | inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg | User Attribute | 32 x 5               | RAM32M x 1	 | 
+|inst/\gen_axi4_axi3.axi3_conv_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst  | inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg | User Attribute | 32 x 5               | RAM32M x 1	 | 
++-----------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+----------------+----------------------+-------------+
 
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP and Shift Register Reporting
@@ -706,7 +555,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:06 ; elapsed = 00:01:11 . Memory (MB): peak = 905.484 ; gain = 549.555
+Finished Technology Mapping : Time (s): cpu = 00:00:49 ; elapsed = 00:00:57 . Memory (MB): peak = 1086.988 ; gain = 440.250
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -730,8 +579,20 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:08 ; elapsed = 00:01:12 . Memory (MB): peak = 905.484 ; gain = 549.555
+Finished IO Insertion : Time (s): cpu = 00:00:59 ; elapsed = 00:01:07 . Memory (MB): peak = 1095.824 ; gain = 449.086
 ---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:59 ; elapsed = 00:01:07 . Memory (MB): peak = 1095.824 ; gain = 449.086
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
 
 Report Check Netlist: 
 +------+------------------+-------+---------+-------+------------------+
@@ -740,40 +601,28 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Start Renaming Generated Instances
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:08 ; elapsed = 00:01:12 . Memory (MB): peak = 905.484 ; gain = 549.555
----------------------------------------------------------------------------------
-
-Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
----------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:08 ; elapsed = 00:01:12 . Memory (MB): peak = 905.484 ; gain = 549.555
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:59 ; elapsed = 00:01:07 . Memory (MB): peak = 1095.824 ; gain = 449.086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:08 ; elapsed = 00:01:12 . Memory (MB): peak = 905.484 ; gain = 549.555
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:59 ; elapsed = 00:01:07 . Memory (MB): peak = 1095.824 ; gain = 449.086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:08 ; elapsed = 00:01:12 . Memory (MB): peak = 905.484 ; gain = 549.555
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:59 ; elapsed = 00:01:07 . Memory (MB): peak = 1095.824 ; gain = 449.086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:08 ; elapsed = 00:01:12 . Memory (MB): peak = 905.484 ; gain = 549.555
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:59 ; elapsed = 00:01:07 . Memory (MB): peak = 1095.824 ; gain = 449.086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -786,113 +635,117 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+---------+------+
-|      |Cell     |Count |
-+------+---------+------+
-|1     |CARRY4   |    16|
-|2     |LUT1     |    20|
-|3     |LUT2     |    42|
-|4     |LUT3     |    55|
-|5     |LUT4     |    61|
-|6     |LUT5     |   162|
-|7     |LUT6     |    84|
-|8     |RAM32M   |     2|
-|9     |RAM32X1D |     1|
-|10    |FDCE     |    69|
-|11    |FDPE     |    33|
-|12    |FDRE     |   323|
-|13    |FDSE     |     5|
-+------+---------+------+
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY4 |     8|
+|2     |LUT1   |    32|
+|3     |LUT2   |    26|
+|4     |LUT3   |    28|
+|5     |LUT4   |    38|
+|6     |LUT5   |    92|
+|7     |LUT6   |    54|
+|8     |RAM32M |     2|
+|9     |FDCE   |    46|
+|10    |FDPE   |    22|
+|11    |FDRE   |   183|
+|12    |FDSE   |     4|
++------+-------+------+
 
 Report Instance Areas: 
-+------+----------------------------------------------------------------------------+-----------------------------------------------------------+------+
-|      |Instance                                                                    |Module                                                     |Cells |
-+------+----------------------------------------------------------------------------+-----------------------------------------------------------+------+
-|1     |top                                                                         |                                                           |   873|
-|2     |  inst                                                                      |axi_protocol_converter_v2_1_17_axi_protocol_converter      |   873|
-|3     |    \gen_axi4_axi3.axi3_conv_inst                                           |axi_protocol_converter_v2_1_17_axi3_conv                   |   873|
-|4     |      \USE_READ.USE_SPLIT_R.read_addr_inst                                  |axi_protocol_converter_v2_1_17_a_axi3_conv__parameterized0 |   359|
-|5     |        \USE_R_CHANNEL.cmd_queue                                            |axi_data_fifo_v2_1_16_axic_fifo__parameterized0            |    94|
-|6     |          inst                                                              |axi_data_fifo_v2_1_16_fifo_gen__parameterized0             |    94|
-|7     |            fifo_gen_inst                                                   |fifo_generator_v13_2_2__parameterized0                     |    69|
-|8     |              inst_fifo_gen                                                 |fifo_generator_v13_2_2_synth__parameterized0               |    69|
-|9     |                \gconvfifo.rf                                               |fifo_generator_top__parameterized0                         |    69|
-|10    |                  \grf.rf                                                   |fifo_generator_ramfifo__parameterized0                     |    69|
-|11    |                    \gntv_or_sync_fifo.gl0.rd                               |rd_logic_9                                                 |    32|
-|12    |                      \gr1.gr1_int.rfwft                                    |rd_fwft_13                                                 |    15|
-|13    |                      \grss.rsts                                            |rd_status_flags_ss_14                                      |     2|
-|14    |                      rpntr                                                 |rd_bin_cntr_15                                             |    15|
-|15    |                    \gntv_or_sync_fifo.gl0.wr                               |wr_logic_10                                                |    28|
-|16    |                      \gwss.wsts                                            |wr_status_flags_ss_11                                      |     5|
-|17    |                      wpntr                                                 |wr_bin_cntr_12                                             |    23|
-|18    |                    \gntv_or_sync_fifo.mem                                  |memory__parameterized0                                     |     4|
-|19    |                      \gdm.dm_gen.dm                                        |dmem__parameterized0                                       |     3|
-|20    |                    rstblk                                                  |reset_blk_ramfifo                                          |     5|
-|21    |                      \ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst  |xpm_cdc_async_rst                                          |     2|
-|22    |      \USE_WRITE.USE_SPLIT_W.write_resp_inst                                |axi_protocol_converter_v2_1_17_b_downsizer                 |    20|
-|23    |      \USE_WRITE.write_addr_inst                                            |axi_protocol_converter_v2_1_17_a_axi3_conv                 |   468|
-|24    |        \USE_BURSTS.cmd_queue                                               |axi_data_fifo_v2_1_16_axic_fifo__xdcDup__1                 |    97|
-|25    |          inst                                                              |axi_data_fifo_v2_1_16_fifo_gen__xdcDup__1                  |    97|
-|26    |            fifo_gen_inst                                                   |fifo_generator_v13_2_2__xdcDup__1                          |    77|
-|27    |              inst_fifo_gen                                                 |fifo_generator_v13_2_2_synth__xdcDup__1                    |    77|
-|28    |                \gconvfifo.rf                                               |fifo_generator_top__xdcDup__1                              |    77|
-|29    |                  \grf.rf                                                   |fifo_generator_ramfifo__xdcDup__1                          |    77|
-|30    |                    \gntv_or_sync_fifo.gl0.rd                               |rd_logic_0                                                 |    32|
-|31    |                      \gr1.gr1_int.rfwft                                    |rd_fwft_6                                                  |    15|
-|32    |                      \grss.rsts                                            |rd_status_flags_ss_7                                       |     2|
-|33    |                      rpntr                                                 |rd_bin_cntr_8                                              |    15|
-|34    |                    \gntv_or_sync_fifo.gl0.wr                               |wr_logic_1                                                 |    28|
-|35    |                      \gwss.wsts                                            |wr_status_flags_ss_4                                       |     5|
-|36    |                      wpntr                                                 |wr_bin_cntr_5                                              |    23|
-|37    |                    \gntv_or_sync_fifo.mem                                  |memory_2                                                   |    11|
-|38    |                      \gdm.dm_gen.dm                                        |dmem_3                                                     |     6|
-|39    |                    rstblk                                                  |reset_blk_ramfifo__xdcDup__1                               |     6|
-|40    |                      \ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst  |xpm_cdc_async_rst__3                                       |     2|
-|41    |        \USE_B_CHANNEL.cmd_b_queue                                          |axi_data_fifo_v2_1_16_axic_fifo                            |    99|
-|42    |          inst                                                              |axi_data_fifo_v2_1_16_fifo_gen                             |    99|
-|43    |            fifo_gen_inst                                                   |fifo_generator_v13_2_2                                     |    77|
-|44    |              inst_fifo_gen                                                 |fifo_generator_v13_2_2_synth                               |    77|
-|45    |                \gconvfifo.rf                                               |fifo_generator_top                                         |    77|
-|46    |                  \grf.rf                                                   |fifo_generator_ramfifo                                     |    77|
-|47    |                    \gntv_or_sync_fifo.gl0.rd                               |rd_logic                                                   |    32|
-|48    |                      \gr1.gr1_int.rfwft                                    |rd_fwft                                                    |    15|
-|49    |                      \grss.rsts                                            |rd_status_flags_ss                                         |     2|
-|50    |                      rpntr                                                 |rd_bin_cntr                                                |    15|
-|51    |                    \gntv_or_sync_fifo.gl0.wr                               |wr_logic                                                   |    28|
-|52    |                      \gwss.wsts                                            |wr_status_flags_ss                                         |     5|
-|53    |                      wpntr                                                 |wr_bin_cntr                                                |    23|
-|54    |                    \gntv_or_sync_fifo.mem                                  |memory                                                     |    11|
-|55    |                      \gdm.dm_gen.dm                                        |dmem                                                       |     6|
-|56    |                    rstblk                                                  |reset_blk_ramfifo__xdcDup__2                               |     6|
-|57    |                      \ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst  |xpm_cdc_async_rst__4                                       |     2|
-|58    |      \USE_WRITE.write_data_inst                                            |axi_protocol_converter_v2_1_17_w_axi3_conv                 |    26|
-+------+----------------------------------------------------------------------------+-----------------------------------------------------------+------+
++------+----------------------------------------------------------------------------+------------------------------------------------------+------+
+|      |Instance                                                                    |Module                                                |Cells |
++------+----------------------------------------------------------------------------+------------------------------------------------------+------+
+|1     |top                                                                         |                                                      |   535|
+|2     |  inst                                                                      |axi_protocol_converter_v2_1_20_axi_protocol_converter |   535|
+|3     |    \gen_axi4_axi3.axi3_conv_inst                                           |axi_protocol_converter_v2_1_20_axi3_conv              |   535|
+|4     |      \USE_WRITE.USE_SPLIT_W.write_resp_inst                                |axi_protocol_converter_v2_1_20_b_downsizer            |    17|
+|5     |      \USE_WRITE.write_addr_inst                                            |axi_protocol_converter_v2_1_20_a_axi3_conv            |   492|
+|6     |        \USE_BURSTS.cmd_queue                                               |axi_data_fifo_v2_1_19_axic_fifo__xdcDup__1            |   113|
+|7     |          inst                                                              |axi_data_fifo_v2_1_19_fifo_gen__xdcDup__1             |   113|
+|8     |            fifo_gen_inst                                                   |fifo_generator_v13_2_5__xdcDup__1                     |    86|
+|9     |              inst_fifo_gen                                                 |fifo_generator_v13_2_5_synth__xdcDup__1               |    86|
+|10    |                \gconvfifo.rf                                               |fifo_generator_top__xdcDup__1                         |    86|
+|11    |                  \grf.rf                                                   |fifo_generator_ramfifo__xdcDup__1                     |    86|
+|12    |                    \gntv_or_sync_fifo.gl0.rd                               |rd_logic_0                                            |    32|
+|13    |                      \gr1.gr1_int.rfwft                                    |rd_fwft_6                                             |    15|
+|14    |                      \grss.rsts                                            |rd_status_flags_ss_7                                  |     2|
+|15    |                      rpntr                                                 |rd_bin_cntr_8                                         |    15|
+|16    |                    \gntv_or_sync_fifo.gl0.wr                               |wr_logic_1                                            |    28|
+|17    |                      \gwss.wsts                                            |wr_status_flags_ss_4                                  |     5|
+|18    |                      wpntr                                                 |wr_bin_cntr_5                                         |    23|
+|19    |                    \gntv_or_sync_fifo.mem                                  |memory_2                                              |    11|
+|20    |                      \gdm.dm_gen.dm                                        |dmem_3                                                |     6|
+|21    |                    rstblk                                                  |reset_blk_ramfifo__xdcDup__1                          |    15|
+|22    |                      \ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst  |xpm_cdc_async_rst__2                                  |     2|
+|23    |        \USE_B_CHANNEL.cmd_b_queue                                          |axi_data_fifo_v2_1_19_axic_fifo                       |   107|
+|24    |          inst                                                              |axi_data_fifo_v2_1_19_fifo_gen                        |   107|
+|25    |            fifo_gen_inst                                                   |fifo_generator_v13_2_5                                |    86|
+|26    |              inst_fifo_gen                                                 |fifo_generator_v13_2_5_synth                          |    86|
+|27    |                \gconvfifo.rf                                               |fifo_generator_top                                    |    86|
+|28    |                  \grf.rf                                                   |fifo_generator_ramfifo                                |    86|
+|29    |                    \gntv_or_sync_fifo.gl0.rd                               |rd_logic                                              |    32|
+|30    |                      \gr1.gr1_int.rfwft                                    |rd_fwft                                               |    15|
+|31    |                      \grss.rsts                                            |rd_status_flags_ss                                    |     2|
+|32    |                      rpntr                                                 |rd_bin_cntr                                           |    15|
+|33    |                    \gntv_or_sync_fifo.gl0.wr                               |wr_logic                                              |    28|
+|34    |                      \gwss.wsts                                            |wr_status_flags_ss                                    |     5|
+|35    |                      wpntr                                                 |wr_bin_cntr                                           |    23|
+|36    |                    \gntv_or_sync_fifo.mem                                  |memory                                                |    11|
+|37    |                      \gdm.dm_gen.dm                                        |dmem                                                  |     6|
+|38    |                    rstblk                                                  |reset_blk_ramfifo                                     |    15|
+|39    |                      \ngwrdrst.grst.g7serrst.gnsckt_wrst.rst_wr_reg2_inst  |xpm_cdc_async_rst                                     |     2|
+|40    |      \USE_WRITE.write_data_inst                                            |axi_protocol_converter_v2_1_20_w_axi3_conv            |    26|
++------+----------------------------------------------------------------------------+------------------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:08 ; elapsed = 00:01:12 . Memory (MB): peak = 905.484 ; gain = 549.555
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:59 ; elapsed = 00:01:07 . Memory (MB): peak = 1095.824 ; gain = 449.086
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 1622 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:59 . Memory (MB): peak = 905.484 ; gain = 264.348
-Synthesis Optimization Complete : Time (s): cpu = 00:01:08 ; elapsed = 00:01:12 . Memory (MB): peak = 905.484 ; gain = 549.555
+Synthesis finished with 0 errors, 0 critical warnings and 1213 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:37 ; elapsed = 00:01:03 . Memory (MB): peak = 1095.824 ; gain = 434.875
+Synthesis Optimization Complete : Time (s): cpu = 00:00:59 ; elapsed = 00:01:07 . Memory (MB): peak = 1095.824 ; gain = 449.086
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 19 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 1103.504 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 10 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1110.324 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 3 instances were transformed.
-  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 2 instances
-  RAM32X1D => RAM32X1D (RAMD32, RAMD32): 1 instances
+  A total of 2 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 2 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-130 Infos, 111 Warnings, 0 Critical Warnings and 0 Errors encountered.
+69 Infos, 102 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:10 ; elapsed = 00:01:15 . Memory (MB): peak = 913.984 ; gain = 569.523
-WARNING: [Constraints 18-5210] No constraint will be written out.
+synth_design: Time (s): cpu = 00:01:14 ; elapsed = 00:01:26 . Memory (MB): peak = 1110.324 ; gain = 768.938
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1110.324 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'E:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.runs/design_1_auto_pc_1_synth_1/design_1_auto_pc_1.dcp' has been generated.
-INFO: [Coretcl 2-1482] Added synthesis output to IP cache for IP e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1.xci
-INFO: [Coretcl 2-1174] Renamed 57 cell refs.
-WARNING: [Constraints 18-5210] No constraint will be written out.
+WARNING: [Common 17-576] 'use_project_ipc' is deprecated. This option is deprecated and no longer used.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_auto_pc_1, cache-ID = 0a59da5ebe5f14f4
+INFO: [Coretcl 2-1174] Renamed 39 cell refs.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1110.324 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'E:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.runs/design_1_auto_pc_1_synth_1/design_1_auto_pc_1.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_auto_pc_1_utilization_synth.rpt -pb design_1_auto_pc_1_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.034 . Memory (MB): peak = 913.984 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Tue Mar  3 09:02:17 2020...
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 17 14:52:36 2020...
+
+*** Running vivado
+    with args -log design_1_auto_pc_1.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_auto_pc_1.tcl
+
+
+****** Vivado v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+CRITICAL WARNING: [Common 17-1240] XILINX_TCLAPP_REPO is pointed to a location 'D:\Xilinx\Vivado\2018.1\data\XilinxTclStore' which does not exist or could not be read. The XilinxTclStore has been reverted to the installation area.
+source design_1_auto_pc_1.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'e:/ip'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2019.2/data/ip'.
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP design_1_auto_pc_1, cache-ID = 0a59da5ebe5f14f4.
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 17 14:53:01 2020...

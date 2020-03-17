@@ -1,4 +1,4 @@
--- (c) Copyright 1995-2018 Xilinx, Inc. All rights reserved.
+-- (c) Copyright 1995-2020 Xilinx, Inc. All rights reserved.
 -- 
 -- This file contains confidential and proprietary information
 -- of Xilinx, Inc. and is protected under U.S. and
@@ -47,14 +47,14 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: xilinx.com:ip:c_shift_ram:12.0
--- IP Revision: 12
+-- IP Revision: 14
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-LIBRARY c_shift_ram_v12_0_12;
-USE c_shift_ram_v12_0_12.c_shift_ram_v12_0_12;
+LIBRARY c_shift_ram_v12_0_14;
+USE c_shift_ram_v12_0_14.c_shift_ram_v12_0_14;
 
 ENTITY maxtri7x7_shift_ram_0 IS
   PORT (
@@ -68,7 +68,7 @@ END maxtri7x7_shift_ram_0;
 ARCHITECTURE maxtri7x7_shift_ram_0_arch OF maxtri7x7_shift_ram_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
   ATTRIBUTE DowngradeIPIdentifiedWarnings OF maxtri7x7_shift_ram_0_arch: ARCHITECTURE IS "yes";
-  COMPONENT c_shift_ram_v12_0_12 IS
+  COMPONENT c_shift_ram_v12_0_14 IS
     GENERIC (
       C_XDEVICEFAMILY : STRING;
       C_VERBOSITY : INTEGER;
@@ -103,26 +103,26 @@ ARCHITECTURE maxtri7x7_shift_ram_0_arch OF maxtri7x7_shift_ram_0 IS
       SINIT : IN STD_LOGIC;
       Q : OUT STD_LOGIC_VECTOR(12 DOWNTO 0)
     );
-  END COMPONENT c_shift_ram_v12_0_12;
+  END COMPONENT c_shift_ram_v12_0_14;
   ATTRIBUTE X_CORE_INFO : STRING;
-  ATTRIBUTE X_CORE_INFO OF maxtri7x7_shift_ram_0_arch: ARCHITECTURE IS "c_shift_ram_v12_0_12,Vivado 2018.1";
+  ATTRIBUTE X_CORE_INFO OF maxtri7x7_shift_ram_0_arch: ARCHITECTURE IS "c_shift_ram_v12_0_14,Vivado 2019.2";
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
-  ATTRIBUTE CHECK_LICENSE_TYPE OF maxtri7x7_shift_ram_0_arch : ARCHITECTURE IS "maxtri7x7_shift_ram_0,c_shift_ram_v12_0_12,{}";
+  ATTRIBUTE CHECK_LICENSE_TYPE OF maxtri7x7_shift_ram_0_arch : ARCHITECTURE IS "maxtri7x7_shift_ram_0,c_shift_ram_v12_0_14,{}";
   ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF maxtri7x7_shift_ram_0_arch: ARCHITECTURE IS "maxtri7x7_shift_ram_0,c_shift_ram_v12_0_12,{x_ipProduct=Vivado 2018.1,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=c_shift_ram,x_ipVersion=12.0,x_ipCoreRevision=12,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_XDEVICEFAMILY=zynq,C_VERBOSITY=0,C_WIDTH=13,C_DEPTH=640,C_ADDR_WIDTH=4,C_SHIFT_TYPE=0,C_OPT_GOAL=0,C_AINIT_VAL=0000000000000,C_SINIT_VAL=0000000000000,C_DEFAULT_DATA=0000000000000,C_HAS_A=0,C_HAS_CE=1,C_REG_LAST_BIT=1,C_SYNC_PRIORITY=1,C_SYNC_ENABLE=0,C_HAS_SCLR=0,C_HAS_SSET=0,C_HAS_SINIT=" & 
+  ATTRIBUTE CORE_GENERATION_INFO OF maxtri7x7_shift_ram_0_arch: ARCHITECTURE IS "maxtri7x7_shift_ram_0,c_shift_ram_v12_0_14,{x_ipProduct=Vivado 2019.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=c_shift_ram,x_ipVersion=12.0,x_ipCoreRevision=14,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_XDEVICEFAMILY=zynq,C_VERBOSITY=0,C_WIDTH=13,C_DEPTH=640,C_ADDR_WIDTH=4,C_SHIFT_TYPE=0,C_OPT_GOAL=0,C_AINIT_VAL=0000000000000,C_SINIT_VAL=0000000000000,C_DEFAULT_DATA=0000000000000,C_HAS_A=0,C_HAS_CE=1,C_REG_LAST_BIT=1,C_SYNC_PRIORITY=1,C_SYNC_ENABLE=0,C_HAS_SCLR=0,C_HAS_SSET=0,C_HAS_SINIT=" & 
 "0,C_MEM_INIT_FILE=no_coe_file_loaded,C_ELABORATION_DIR=./,C_READ_MIF=0,C_PARSER_TYPE=0}";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER OF Q: SIGNAL IS "XIL_INTERFACENAME q_intf, LAYERED_METADATA undef";
   ATTRIBUTE X_INTERFACE_INFO OF Q: SIGNAL IS "xilinx.com:signal:data:1.0 q_intf DATA";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF CE: SIGNAL IS "XIL_INTERFACENAME ce_intf, POLARITY ACTIVE_LOW";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF CE: SIGNAL IS "XIL_INTERFACENAME ce_intf, POLARITY ACTIVE_HIGH";
   ATTRIBUTE X_INTERFACE_INFO OF CE: SIGNAL IS "xilinx.com:signal:clockenable:1.0 ce_intf CE";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF CLK: SIGNAL IS "XIL_INTERFACENAME clk_intf, ASSOCIATED_BUSIF q_intf:sinit_intf:sset_intf:d_intf:a_intf, ASSOCIATED_RESET SCLR, ASSOCIATED_CLKEN CE, FREQ_HZ 100000000, PHASE 0.000";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF CLK: SIGNAL IS "XIL_INTERFACENAME clk_intf, ASSOCIATED_BUSIF q_intf:sinit_intf:sset_intf:d_intf:a_intf, ASSOCIATED_RESET SCLR, ASSOCIATED_CLKEN CE, FREQ_HZ 100000000, PHASE 0.000, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF CLK: SIGNAL IS "xilinx.com:signal:clock:1.0 clk_intf CLK";
   ATTRIBUTE X_INTERFACE_PARAMETER OF D: SIGNAL IS "XIL_INTERFACENAME d_intf, LAYERED_METADATA undef";
   ATTRIBUTE X_INTERFACE_INFO OF D: SIGNAL IS "xilinx.com:signal:data:1.0 d_intf DATA";
 BEGIN
-  U0 : c_shift_ram_v12_0_12
+  U0 : c_shift_ram_v12_0_14
     GENERIC MAP (
       C_XDEVICEFAMILY => "zynq",
       C_VERBOSITY => 0,

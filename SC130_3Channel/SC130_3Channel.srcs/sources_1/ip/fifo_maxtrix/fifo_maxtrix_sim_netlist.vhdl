@@ -1,10 +1,10 @@
--- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+-- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
--- Date        : Sat Jun 22 13:19:33 2019
--- Host        : PS-03 running 64-bit major release  (build 9200)
+-- Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+-- Date        : Tue Mar 17 14:56:10 2020
+-- Host        : VT2OB6D7ZB52FZ0 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
---               D:/Program/FPGA/WORKING/camera30/SC130_3Channel/prj_sc130.srcs/sources_1/ip/fifo_maxtrix/fifo_maxtrix_sim_netlist.vhdl
+--               E:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/ip/fifo_maxtrix/fifo_maxtrix_sim_netlist.vhdl
 -- Design      : fifo_maxtrix
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -21,8 +21,8 @@ entity fifo_maxtrix_blk_mem_gen_prim_wrapper is
     E : in STD_LOGIC_VECTOR ( 0 to 0 );
     tmp_ram_rd_en : in STD_LOGIC;
     srst : in STD_LOGIC;
-    \gcc0.gc0.count_d1_reg[10]\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
-    \gc0.count_d1_reg[10]\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_1\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
     din : in STD_LOGIC_VECTOR ( 12 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -228,10 +228,10 @@ begin
     )
         port map (
       ADDRARDADDR(15) => '1',
-      ADDRARDADDR(14 downto 4) => \gcc0.gc0.count_d1_reg[10]\(10 downto 0),
+      ADDRARDADDR(14 downto 4) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0\(10 downto 0),
       ADDRARDADDR(3 downto 0) => B"1111",
       ADDRBWRADDR(15) => '1',
-      ADDRBWRADDR(14 downto 4) => \gc0.count_d1_reg[10]\(10 downto 0),
+      ADDRBWRADDR(14 downto 4) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_1\(10 downto 0),
       ADDRBWRADDR(3 downto 0) => B"1111",
       CASCADEINA => '0',
       CASCADEINB => '0',
@@ -285,7 +285,7 @@ use UNISIM.VCOMPONENTS.ALL;
 entity fifo_maxtrix_compare is
   port (
     comp0 : out STD_LOGIC;
-    \gc0.count_d1_reg[8]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
+    \gmux.gm[5].gms.ms_0\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     v1_reg : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -303,10 +303,13 @@ architecture STRUCTURE of fifo_maxtrix_compare is
   signal \NLW_gmux.gm[4].gms.ms_CARRY4_DI_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW_gmux.gm[4].gms.ms_CARRY4_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_gmux.gm[4].gms.ms_CARRY4_S_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
+  attribute OPT_MODIFIED : string;
+  attribute OPT_MODIFIED of \gmux.gm[0].gm1.m1_CARRY4\ : label is "MLO";
   attribute XILINX_LEGACY_PRIM : string;
   attribute XILINX_LEGACY_PRIM of \gmux.gm[0].gm1.m1_CARRY4\ : label is "(MUXCY,XORCY)";
   attribute box_type : string;
   attribute box_type of \gmux.gm[0].gm1.m1_CARRY4\ : label is "PRIMITIVE";
+  attribute OPT_MODIFIED of \gmux.gm[4].gms.ms_CARRY4\ : label is "MLO";
   attribute XILINX_LEGACY_PRIM of \gmux.gm[4].gms.ms_CARRY4\ : label is "(MUXCY,XORCY)";
   attribute box_type of \gmux.gm[4].gms.ms_CARRY4\ : label is "PRIMITIVE";
 begin
@@ -320,7 +323,7 @@ begin
       CYINIT => '1',
       DI(3 downto 0) => B"0000",
       O(3 downto 0) => \NLW_gmux.gm[0].gm1.m1_CARRY4_O_UNCONNECTED\(3 downto 0),
-      S(3 downto 0) => \gc0.count_d1_reg[8]\(3 downto 0)
+      S(3 downto 0) => \gmux.gm[5].gms.ms_0\(3 downto 0)
     );
 \gmux.gm[4].gms.ms_CARRY4\: unisim.vcomponents.CARRY4
      port map (
@@ -334,7 +337,7 @@ begin
       O(3 downto 0) => \NLW_gmux.gm[4].gms.ms_CARRY4_O_UNCONNECTED\(3 downto 0),
       S(3 downto 2) => \NLW_gmux.gm[4].gms.ms_CARRY4_S_UNCONNECTED\(3 downto 2),
       S(1) => v1_reg(0),
-      S(0) => \gc0.count_d1_reg[8]\(4)
+      S(0) => \gmux.gm[5].gms.ms_0\(4)
     );
 end STRUCTURE;
 library IEEE;
@@ -344,11 +347,11 @@ use UNISIM.VCOMPONENTS.ALL;
 entity fifo_maxtrix_compare_0 is
   port (
     ram_full_comb : out STD_LOGIC;
-    \gc0.count_d1_reg[8]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
+    \gmux.gm[5].gms.ms_0\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     v1_reg_0 : in STD_LOGIC_VECTOR ( 0 to 0 );
     wr_en : in STD_LOGIC;
     comp0 : in STD_LOGIC;
-    ram_empty_fb_i_reg : in STD_LOGIC;
+    ram_full_i_reg : in STD_LOGIC;
     rd_en : in STD_LOGIC;
     \out\ : in STD_LOGIC
   );
@@ -368,10 +371,13 @@ architecture STRUCTURE of fifo_maxtrix_compare_0 is
   signal \NLW_gmux.gm[4].gms.ms_CARRY4_DI_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW_gmux.gm[4].gms.ms_CARRY4_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_gmux.gm[4].gms.ms_CARRY4_S_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
+  attribute OPT_MODIFIED : string;
+  attribute OPT_MODIFIED of \gmux.gm[0].gm1.m1_CARRY4\ : label is "MLO";
   attribute XILINX_LEGACY_PRIM : string;
   attribute XILINX_LEGACY_PRIM of \gmux.gm[0].gm1.m1_CARRY4\ : label is "(MUXCY,XORCY)";
   attribute box_type : string;
   attribute box_type of \gmux.gm[0].gm1.m1_CARRY4\ : label is "PRIMITIVE";
+  attribute OPT_MODIFIED of \gmux.gm[4].gms.ms_CARRY4\ : label is "MLO";
   attribute XILINX_LEGACY_PRIM of \gmux.gm[4].gms.ms_CARRY4\ : label is "(MUXCY,XORCY)";
   attribute box_type of \gmux.gm[4].gms.ms_CARRY4\ : label is "PRIMITIVE";
 begin
@@ -385,7 +391,7 @@ begin
       CYINIT => '1',
       DI(3 downto 0) => B"0000",
       O(3 downto 0) => \NLW_gmux.gm[0].gm1.m1_CARRY4_O_UNCONNECTED\(3 downto 0),
-      S(3 downto 0) => \gc0.count_d1_reg[8]\(3 downto 0)
+      S(3 downto 0) => \gmux.gm[5].gms.ms_0\(3 downto 0)
     );
 \gmux.gm[4].gms.ms_CARRY4\: unisim.vcomponents.CARRY4
      port map (
@@ -399,7 +405,7 @@ begin
       O(3 downto 0) => \NLW_gmux.gm[4].gms.ms_CARRY4_O_UNCONNECTED\(3 downto 0),
       S(3 downto 2) => \NLW_gmux.gm[4].gms.ms_CARRY4_S_UNCONNECTED\(3 downto 2),
       S(1) => v1_reg_0(0),
-      S(0) => \gc0.count_d1_reg[8]\(4)
+      S(0) => \gmux.gm[5].gms.ms_0\(4)
     );
 ram_full_fb_i_i_1: unisim.vcomponents.LUT6
     generic map(
@@ -409,7 +415,7 @@ ram_full_fb_i_i_1: unisim.vcomponents.LUT6
       I0 => wr_en,
       I1 => comp1,
       I2 => comp0,
-      I3 => ram_empty_fb_i_reg,
+      I3 => ram_full_i_reg,
       I4 => rd_en,
       I5 => \out\,
       O => ram_full_comb
@@ -422,12 +428,12 @@ use UNISIM.VCOMPONENTS.ALL;
 entity fifo_maxtrix_compare_1 is
   port (
     comp0 : out STD_LOGIC;
-    \gc0.count_d1_reg[0]\ : in STD_LOGIC;
-    \gc0.count_d1_reg[2]\ : in STD_LOGIC;
-    \gc0.count_d1_reg[4]\ : in STD_LOGIC;
-    \gc0.count_d1_reg[6]\ : in STD_LOGIC;
-    \gc0.count_d1_reg[8]\ : in STD_LOGIC;
-    \gcc0.gc0.count_d1_reg[10]\ : in STD_LOGIC
+    \gmux.gm[1].gms.ms_0\ : in STD_LOGIC;
+    \gmux.gm[2].gms.ms_0\ : in STD_LOGIC;
+    \gmux.gm[3].gms.ms_0\ : in STD_LOGIC;
+    \gmux.gm[4].gms.ms_0\ : in STD_LOGIC;
+    \gmux.gm[5].gms.ms_0\ : in STD_LOGIC;
+    ram_empty_i_reg : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of fifo_maxtrix_compare_1 : entity is "compare";
@@ -444,10 +450,13 @@ architecture STRUCTURE of fifo_maxtrix_compare_1 is
   signal \NLW_gmux.gm[4].gms.ms_CARRY4_DI_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW_gmux.gm[4].gms.ms_CARRY4_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_gmux.gm[4].gms.ms_CARRY4_S_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
+  attribute OPT_MODIFIED : string;
+  attribute OPT_MODIFIED of \gmux.gm[0].gm1.m1_CARRY4\ : label is "MLO";
   attribute XILINX_LEGACY_PRIM : string;
   attribute XILINX_LEGACY_PRIM of \gmux.gm[0].gm1.m1_CARRY4\ : label is "(MUXCY,XORCY)";
   attribute box_type : string;
   attribute box_type of \gmux.gm[0].gm1.m1_CARRY4\ : label is "PRIMITIVE";
+  attribute OPT_MODIFIED of \gmux.gm[4].gms.ms_CARRY4\ : label is "MLO";
   attribute XILINX_LEGACY_PRIM of \gmux.gm[4].gms.ms_CARRY4\ : label is "(MUXCY,XORCY)";
   attribute box_type of \gmux.gm[4].gms.ms_CARRY4\ : label is "PRIMITIVE";
 begin
@@ -461,10 +470,10 @@ begin
       CYINIT => '1',
       DI(3 downto 0) => B"0000",
       O(3 downto 0) => \NLW_gmux.gm[0].gm1.m1_CARRY4_O_UNCONNECTED\(3 downto 0),
-      S(3) => \gc0.count_d1_reg[6]\,
-      S(2) => \gc0.count_d1_reg[4]\,
-      S(1) => \gc0.count_d1_reg[2]\,
-      S(0) => \gc0.count_d1_reg[0]\
+      S(3) => \gmux.gm[4].gms.ms_0\,
+      S(2) => \gmux.gm[3].gms.ms_0\,
+      S(1) => \gmux.gm[2].gms.ms_0\,
+      S(0) => \gmux.gm[1].gms.ms_0\
     );
 \gmux.gm[4].gms.ms_CARRY4\: unisim.vcomponents.CARRY4
      port map (
@@ -477,8 +486,8 @@ begin
       DI(1 downto 0) => B"00",
       O(3 downto 0) => \NLW_gmux.gm[4].gms.ms_CARRY4_O_UNCONNECTED\(3 downto 0),
       S(3 downto 2) => \NLW_gmux.gm[4].gms.ms_CARRY4_S_UNCONNECTED\(3 downto 2),
-      S(1) => \gcc0.gc0.count_d1_reg[10]\,
-      S(0) => \gc0.count_d1_reg[8]\
+      S(1) => ram_empty_i_reg,
+      S(0) => \gmux.gm[5].gms.ms_0\
     );
 end STRUCTURE;
 library IEEE;
@@ -487,12 +496,12 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity fifo_maxtrix_compare_2 is
   port (
-    ram_empty_i_reg : out STD_LOGIC;
+    rd_en_0 : out STD_LOGIC;
     v1_reg : in STD_LOGIC_VECTOR ( 4 downto 0 );
-    \gcc0.gc0.count_d1_reg[10]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
+    ram_empty_i_reg : in STD_LOGIC_VECTOR ( 0 to 0 );
     rd_en : in STD_LOGIC;
     comp0 : in STD_LOGIC;
-    ram_full_fb_i_reg : in STD_LOGIC;
+    ram_empty_i_reg_0 : in STD_LOGIC;
     wr_en : in STD_LOGIC;
     \out\ : in STD_LOGIC
   );
@@ -512,10 +521,13 @@ architecture STRUCTURE of fifo_maxtrix_compare_2 is
   signal \NLW_gmux.gm[4].gms.ms_CARRY4_DI_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW_gmux.gm[4].gms.ms_CARRY4_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_gmux.gm[4].gms.ms_CARRY4_S_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
+  attribute OPT_MODIFIED : string;
+  attribute OPT_MODIFIED of \gmux.gm[0].gm1.m1_CARRY4\ : label is "MLO";
   attribute XILINX_LEGACY_PRIM : string;
   attribute XILINX_LEGACY_PRIM of \gmux.gm[0].gm1.m1_CARRY4\ : label is "(MUXCY,XORCY)";
   attribute box_type : string;
   attribute box_type of \gmux.gm[0].gm1.m1_CARRY4\ : label is "PRIMITIVE";
+  attribute OPT_MODIFIED of \gmux.gm[4].gms.ms_CARRY4\ : label is "MLO";
   attribute XILINX_LEGACY_PRIM of \gmux.gm[4].gms.ms_CARRY4\ : label is "(MUXCY,XORCY)";
   attribute box_type of \gmux.gm[4].gms.ms_CARRY4\ : label is "PRIMITIVE";
 begin
@@ -542,7 +554,7 @@ begin
       DI(1 downto 0) => B"00",
       O(3 downto 0) => \NLW_gmux.gm[4].gms.ms_CARRY4_O_UNCONNECTED\(3 downto 0),
       S(3 downto 2) => \NLW_gmux.gm[4].gms.ms_CARRY4_S_UNCONNECTED\(3 downto 2),
-      S(1) => \gcc0.gc0.count_d1_reg[10]\(0),
+      S(1) => ram_empty_i_reg(0),
       S(0) => v1_reg(4)
     );
 ram_empty_fb_i_i_1: unisim.vcomponents.LUT6
@@ -553,10 +565,10 @@ ram_empty_fb_i_i_1: unisim.vcomponents.LUT6
       I0 => rd_en,
       I1 => comp1,
       I2 => comp0,
-      I3 => ram_full_fb_i_reg,
+      I3 => ram_empty_i_reg_0,
       I4 => wr_en,
       I5 => \out\,
-      O => ram_empty_i_reg
+      O => rd_en_0
     );
 end STRUCTURE;
 library IEEE;
@@ -567,16 +579,16 @@ entity fifo_maxtrix_rd_bin_cntr is
   port (
     Q : out STD_LOGIC_VECTOR ( 0 to 0 );
     v1_reg : out STD_LOGIC_VECTOR ( 4 downto 0 );
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\ : out STD_LOGIC_VECTOR ( 10 downto 0 );
+    \gc0.count_d1_reg[10]_0\ : out STD_LOGIC_VECTOR ( 10 downto 0 );
     v1_reg_1 : out STD_LOGIC_VECTOR ( 4 downto 0 );
     v1_reg_0 : out STD_LOGIC_VECTOR ( 4 downto 0 );
-    ram_empty_i_reg : out STD_LOGIC;
-    ram_empty_i_reg_0 : out STD_LOGIC;
-    ram_empty_i_reg_1 : out STD_LOGIC;
-    ram_empty_i_reg_2 : out STD_LOGIC;
-    ram_empty_i_reg_3 : out STD_LOGIC;
-    \gcc0.gc0.count_d1_reg[9]\ : in STD_LOGIC_VECTOR ( 9 downto 0 );
-    \gcc0.gc0.count_reg[9]\ : in STD_LOGIC_VECTOR ( 9 downto 0 );
+    \gc0.count_d1_reg[0]_0\ : out STD_LOGIC;
+    \gc0.count_d1_reg[2]_0\ : out STD_LOGIC;
+    \gc0.count_d1_reg[4]_0\ : out STD_LOGIC;
+    \gc0.count_d1_reg[6]_0\ : out STD_LOGIC;
+    \gc0.count_d1_reg[8]_0\ : out STD_LOGIC;
+    \gmux.gm[4].gms.ms\ : in STD_LOGIC_VECTOR ( 9 downto 0 );
+    \gmux.gm[4].gms.ms_0\ : in STD_LOGIC_VECTOR ( 9 downto 0 );
     srst : in STD_LOGIC;
     E : in STD_LOGIC_VECTOR ( 0 to 0 );
     clk : in STD_LOGIC
@@ -586,9 +598,9 @@ entity fifo_maxtrix_rd_bin_cntr is
 end fifo_maxtrix_rd_bin_cntr;
 
 architecture STRUCTURE of fifo_maxtrix_rd_bin_cntr is
-  signal \^device_7series.no_bmm_info.sdp.simple_prim36.ram\ : STD_LOGIC_VECTOR ( 10 downto 0 );
   signal \^q\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \gc0.count[10]_i_2_n_0\ : STD_LOGIC;
+  signal \^gc0.count_d1_reg[10]_0\ : STD_LOGIC_VECTOR ( 10 downto 0 );
   signal plusOp : STD_LOGIC_VECTOR ( 10 downto 0 );
   signal rd_pntr_plus1 : STD_LOGIC_VECTOR ( 9 downto 0 );
   attribute SOFT_HLUTNM : string;
@@ -601,8 +613,8 @@ architecture STRUCTURE of fifo_maxtrix_rd_bin_cntr is
   attribute SOFT_HLUTNM of \gc0.count[8]_i_1\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \gc0.count[9]_i_1\ : label is "soft_lutpair0";
 begin
-  \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\(10 downto 0) <= \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(10 downto 0);
   Q(0) <= \^q\(0);
+  \gc0.count_d1_reg[10]_0\(10 downto 0) <= \^gc0.count_d1_reg[10]_0\(10 downto 0);
 \gc0.count[0]_i_1\: unisim.vcomponents.LUT1
     generic map(
       INIT => X"1"
@@ -742,7 +754,7 @@ begin
       C => clk,
       CE => E(0),
       D => rd_pntr_plus1(0),
-      Q => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(0),
+      Q => \^gc0.count_d1_reg[10]_0\(0),
       R => srst
     );
 \gc0.count_d1_reg[10]\: unisim.vcomponents.FDRE
@@ -753,7 +765,7 @@ begin
       C => clk,
       CE => E(0),
       D => \^q\(0),
-      Q => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(10),
+      Q => \^gc0.count_d1_reg[10]_0\(10),
       R => srst
     );
 \gc0.count_d1_reg[1]\: unisim.vcomponents.FDRE
@@ -764,7 +776,7 @@ begin
       C => clk,
       CE => E(0),
       D => rd_pntr_plus1(1),
-      Q => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(1),
+      Q => \^gc0.count_d1_reg[10]_0\(1),
       R => srst
     );
 \gc0.count_d1_reg[2]\: unisim.vcomponents.FDRE
@@ -775,7 +787,7 @@ begin
       C => clk,
       CE => E(0),
       D => rd_pntr_plus1(2),
-      Q => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(2),
+      Q => \^gc0.count_d1_reg[10]_0\(2),
       R => srst
     );
 \gc0.count_d1_reg[3]\: unisim.vcomponents.FDRE
@@ -786,7 +798,7 @@ begin
       C => clk,
       CE => E(0),
       D => rd_pntr_plus1(3),
-      Q => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(3),
+      Q => \^gc0.count_d1_reg[10]_0\(3),
       R => srst
     );
 \gc0.count_d1_reg[4]\: unisim.vcomponents.FDRE
@@ -797,7 +809,7 @@ begin
       C => clk,
       CE => E(0),
       D => rd_pntr_plus1(4),
-      Q => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(4),
+      Q => \^gc0.count_d1_reg[10]_0\(4),
       R => srst
     );
 \gc0.count_d1_reg[5]\: unisim.vcomponents.FDRE
@@ -808,7 +820,7 @@ begin
       C => clk,
       CE => E(0),
       D => rd_pntr_plus1(5),
-      Q => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(5),
+      Q => \^gc0.count_d1_reg[10]_0\(5),
       R => srst
     );
 \gc0.count_d1_reg[6]\: unisim.vcomponents.FDRE
@@ -819,7 +831,7 @@ begin
       C => clk,
       CE => E(0),
       D => rd_pntr_plus1(6),
-      Q => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(6),
+      Q => \^gc0.count_d1_reg[10]_0\(6),
       R => srst
     );
 \gc0.count_d1_reg[7]\: unisim.vcomponents.FDRE
@@ -830,7 +842,7 @@ begin
       C => clk,
       CE => E(0),
       D => rd_pntr_plus1(7),
-      Q => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(7),
+      Q => \^gc0.count_d1_reg[10]_0\(7),
       R => srst
     );
 \gc0.count_d1_reg[8]\: unisim.vcomponents.FDRE
@@ -841,7 +853,7 @@ begin
       C => clk,
       CE => E(0),
       D => rd_pntr_plus1(8),
-      Q => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(8),
+      Q => \^gc0.count_d1_reg[10]_0\(8),
       R => srst
     );
 \gc0.count_d1_reg[9]\: unisim.vcomponents.FDRE
@@ -852,7 +864,7 @@ begin
       C => clk,
       CE => E(0),
       D => rd_pntr_plus1(9),
-      Q => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(9),
+      Q => \^gc0.count_d1_reg[10]_0\(9),
       R => srst
     );
 \gc0.count_reg[0]\: unisim.vcomponents.FDSE
@@ -981,10 +993,10 @@ begin
       INIT => X"9009"
     )
         port map (
-      I0 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(0),
-      I1 => \gcc0.gc0.count_d1_reg[9]\(0),
-      I2 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(1),
-      I3 => \gcc0.gc0.count_d1_reg[9]\(1),
+      I0 => \^gc0.count_d1_reg[10]_0\(0),
+      I1 => \gmux.gm[4].gms.ms\(0),
+      I2 => \^gc0.count_d1_reg[10]_0\(1),
+      I3 => \gmux.gm[4].gms.ms\(1),
       O => v1_reg(0)
     );
 \gmux.gm[0].gm1.m1_i_1__0\: unisim.vcomponents.LUT4
@@ -993,9 +1005,9 @@ begin
     )
         port map (
       I0 => rd_pntr_plus1(0),
-      I1 => \gcc0.gc0.count_d1_reg[9]\(0),
+      I1 => \gmux.gm[4].gms.ms\(0),
       I2 => rd_pntr_plus1(1),
-      I3 => \gcc0.gc0.count_d1_reg[9]\(1),
+      I3 => \gmux.gm[4].gms.ms\(1),
       O => v1_reg_1(0)
     );
 \gmux.gm[0].gm1.m1_i_1__1\: unisim.vcomponents.LUT4
@@ -1003,10 +1015,10 @@ begin
       INIT => X"9009"
     )
         port map (
-      I0 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(0),
-      I1 => \gcc0.gc0.count_reg[9]\(0),
-      I2 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(1),
-      I3 => \gcc0.gc0.count_reg[9]\(1),
+      I0 => \^gc0.count_d1_reg[10]_0\(0),
+      I1 => \gmux.gm[4].gms.ms_0\(0),
+      I2 => \^gc0.count_d1_reg[10]_0\(1),
+      I3 => \gmux.gm[4].gms.ms_0\(1),
       O => v1_reg_0(0)
     );
 \gmux.gm[0].gm1.m1_i_1__2\: unisim.vcomponents.LUT4
@@ -1014,21 +1026,21 @@ begin
       INIT => X"9009"
     )
         port map (
-      I0 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(0),
-      I1 => \gcc0.gc0.count_d1_reg[9]\(0),
-      I2 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(1),
-      I3 => \gcc0.gc0.count_d1_reg[9]\(1),
-      O => ram_empty_i_reg
+      I0 => \^gc0.count_d1_reg[10]_0\(0),
+      I1 => \gmux.gm[4].gms.ms\(0),
+      I2 => \^gc0.count_d1_reg[10]_0\(1),
+      I3 => \gmux.gm[4].gms.ms\(1),
+      O => \gc0.count_d1_reg[0]_0\
     );
 \gmux.gm[1].gms.ms_i_1\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"9009"
     )
         port map (
-      I0 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(2),
-      I1 => \gcc0.gc0.count_d1_reg[9]\(2),
-      I2 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(3),
-      I3 => \gcc0.gc0.count_d1_reg[9]\(3),
+      I0 => \^gc0.count_d1_reg[10]_0\(2),
+      I1 => \gmux.gm[4].gms.ms\(2),
+      I2 => \^gc0.count_d1_reg[10]_0\(3),
+      I3 => \gmux.gm[4].gms.ms\(3),
       O => v1_reg(1)
     );
 \gmux.gm[1].gms.ms_i_1__0\: unisim.vcomponents.LUT4
@@ -1037,9 +1049,9 @@ begin
     )
         port map (
       I0 => rd_pntr_plus1(2),
-      I1 => \gcc0.gc0.count_d1_reg[9]\(2),
+      I1 => \gmux.gm[4].gms.ms\(2),
       I2 => rd_pntr_plus1(3),
-      I3 => \gcc0.gc0.count_d1_reg[9]\(3),
+      I3 => \gmux.gm[4].gms.ms\(3),
       O => v1_reg_1(1)
     );
 \gmux.gm[1].gms.ms_i_1__1\: unisim.vcomponents.LUT4
@@ -1047,10 +1059,10 @@ begin
       INIT => X"9009"
     )
         port map (
-      I0 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(2),
-      I1 => \gcc0.gc0.count_reg[9]\(2),
-      I2 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(3),
-      I3 => \gcc0.gc0.count_reg[9]\(3),
+      I0 => \^gc0.count_d1_reg[10]_0\(2),
+      I1 => \gmux.gm[4].gms.ms_0\(2),
+      I2 => \^gc0.count_d1_reg[10]_0\(3),
+      I3 => \gmux.gm[4].gms.ms_0\(3),
       O => v1_reg_0(1)
     );
 \gmux.gm[1].gms.ms_i_1__2\: unisim.vcomponents.LUT4
@@ -1058,21 +1070,21 @@ begin
       INIT => X"9009"
     )
         port map (
-      I0 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(2),
-      I1 => \gcc0.gc0.count_d1_reg[9]\(2),
-      I2 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(3),
-      I3 => \gcc0.gc0.count_d1_reg[9]\(3),
-      O => ram_empty_i_reg_0
+      I0 => \^gc0.count_d1_reg[10]_0\(2),
+      I1 => \gmux.gm[4].gms.ms\(2),
+      I2 => \^gc0.count_d1_reg[10]_0\(3),
+      I3 => \gmux.gm[4].gms.ms\(3),
+      O => \gc0.count_d1_reg[2]_0\
     );
 \gmux.gm[2].gms.ms_i_1\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"9009"
     )
         port map (
-      I0 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(4),
-      I1 => \gcc0.gc0.count_d1_reg[9]\(4),
-      I2 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(5),
-      I3 => \gcc0.gc0.count_d1_reg[9]\(5),
+      I0 => \^gc0.count_d1_reg[10]_0\(4),
+      I1 => \gmux.gm[4].gms.ms\(4),
+      I2 => \^gc0.count_d1_reg[10]_0\(5),
+      I3 => \gmux.gm[4].gms.ms\(5),
       O => v1_reg(2)
     );
 \gmux.gm[2].gms.ms_i_1__0\: unisim.vcomponents.LUT4
@@ -1081,9 +1093,9 @@ begin
     )
         port map (
       I0 => rd_pntr_plus1(4),
-      I1 => \gcc0.gc0.count_d1_reg[9]\(4),
+      I1 => \gmux.gm[4].gms.ms\(4),
       I2 => rd_pntr_plus1(5),
-      I3 => \gcc0.gc0.count_d1_reg[9]\(5),
+      I3 => \gmux.gm[4].gms.ms\(5),
       O => v1_reg_1(2)
     );
 \gmux.gm[2].gms.ms_i_1__1\: unisim.vcomponents.LUT4
@@ -1091,10 +1103,10 @@ begin
       INIT => X"9009"
     )
         port map (
-      I0 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(4),
-      I1 => \gcc0.gc0.count_reg[9]\(4),
-      I2 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(5),
-      I3 => \gcc0.gc0.count_reg[9]\(5),
+      I0 => \^gc0.count_d1_reg[10]_0\(4),
+      I1 => \gmux.gm[4].gms.ms_0\(4),
+      I2 => \^gc0.count_d1_reg[10]_0\(5),
+      I3 => \gmux.gm[4].gms.ms_0\(5),
       O => v1_reg_0(2)
     );
 \gmux.gm[2].gms.ms_i_1__2\: unisim.vcomponents.LUT4
@@ -1102,21 +1114,21 @@ begin
       INIT => X"9009"
     )
         port map (
-      I0 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(4),
-      I1 => \gcc0.gc0.count_d1_reg[9]\(4),
-      I2 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(5),
-      I3 => \gcc0.gc0.count_d1_reg[9]\(5),
-      O => ram_empty_i_reg_1
+      I0 => \^gc0.count_d1_reg[10]_0\(4),
+      I1 => \gmux.gm[4].gms.ms\(4),
+      I2 => \^gc0.count_d1_reg[10]_0\(5),
+      I3 => \gmux.gm[4].gms.ms\(5),
+      O => \gc0.count_d1_reg[4]_0\
     );
 \gmux.gm[3].gms.ms_i_1\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"9009"
     )
         port map (
-      I0 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(6),
-      I1 => \gcc0.gc0.count_d1_reg[9]\(6),
-      I2 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(7),
-      I3 => \gcc0.gc0.count_d1_reg[9]\(7),
+      I0 => \^gc0.count_d1_reg[10]_0\(6),
+      I1 => \gmux.gm[4].gms.ms\(6),
+      I2 => \^gc0.count_d1_reg[10]_0\(7),
+      I3 => \gmux.gm[4].gms.ms\(7),
       O => v1_reg(3)
     );
 \gmux.gm[3].gms.ms_i_1__0\: unisim.vcomponents.LUT4
@@ -1125,9 +1137,9 @@ begin
     )
         port map (
       I0 => rd_pntr_plus1(6),
-      I1 => \gcc0.gc0.count_d1_reg[9]\(6),
+      I1 => \gmux.gm[4].gms.ms\(6),
       I2 => rd_pntr_plus1(7),
-      I3 => \gcc0.gc0.count_d1_reg[9]\(7),
+      I3 => \gmux.gm[4].gms.ms\(7),
       O => v1_reg_1(3)
     );
 \gmux.gm[3].gms.ms_i_1__1\: unisim.vcomponents.LUT4
@@ -1135,10 +1147,10 @@ begin
       INIT => X"9009"
     )
         port map (
-      I0 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(6),
-      I1 => \gcc0.gc0.count_reg[9]\(6),
-      I2 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(7),
-      I3 => \gcc0.gc0.count_reg[9]\(7),
+      I0 => \^gc0.count_d1_reg[10]_0\(6),
+      I1 => \gmux.gm[4].gms.ms_0\(6),
+      I2 => \^gc0.count_d1_reg[10]_0\(7),
+      I3 => \gmux.gm[4].gms.ms_0\(7),
       O => v1_reg_0(3)
     );
 \gmux.gm[3].gms.ms_i_1__2\: unisim.vcomponents.LUT4
@@ -1146,21 +1158,21 @@ begin
       INIT => X"9009"
     )
         port map (
-      I0 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(6),
-      I1 => \gcc0.gc0.count_d1_reg[9]\(6),
-      I2 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(7),
-      I3 => \gcc0.gc0.count_d1_reg[9]\(7),
-      O => ram_empty_i_reg_2
+      I0 => \^gc0.count_d1_reg[10]_0\(6),
+      I1 => \gmux.gm[4].gms.ms\(6),
+      I2 => \^gc0.count_d1_reg[10]_0\(7),
+      I3 => \gmux.gm[4].gms.ms\(7),
+      O => \gc0.count_d1_reg[6]_0\
     );
 \gmux.gm[4].gms.ms_i_1\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"9009"
     )
         port map (
-      I0 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(8),
-      I1 => \gcc0.gc0.count_d1_reg[9]\(8),
-      I2 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(9),
-      I3 => \gcc0.gc0.count_d1_reg[9]\(9),
+      I0 => \^gc0.count_d1_reg[10]_0\(8),
+      I1 => \gmux.gm[4].gms.ms\(8),
+      I2 => \^gc0.count_d1_reg[10]_0\(9),
+      I3 => \gmux.gm[4].gms.ms\(9),
       O => v1_reg(4)
     );
 \gmux.gm[4].gms.ms_i_1__0\: unisim.vcomponents.LUT4
@@ -1169,9 +1181,9 @@ begin
     )
         port map (
       I0 => rd_pntr_plus1(8),
-      I1 => \gcc0.gc0.count_d1_reg[9]\(8),
+      I1 => \gmux.gm[4].gms.ms\(8),
       I2 => rd_pntr_plus1(9),
-      I3 => \gcc0.gc0.count_d1_reg[9]\(9),
+      I3 => \gmux.gm[4].gms.ms\(9),
       O => v1_reg_1(4)
     );
 \gmux.gm[4].gms.ms_i_1__1\: unisim.vcomponents.LUT4
@@ -1179,10 +1191,10 @@ begin
       INIT => X"9009"
     )
         port map (
-      I0 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(8),
-      I1 => \gcc0.gc0.count_reg[9]\(8),
-      I2 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(9),
-      I3 => \gcc0.gc0.count_reg[9]\(9),
+      I0 => \^gc0.count_d1_reg[10]_0\(8),
+      I1 => \gmux.gm[4].gms.ms_0\(8),
+      I2 => \^gc0.count_d1_reg[10]_0\(9),
+      I3 => \gmux.gm[4].gms.ms_0\(9),
       O => v1_reg_0(4)
     );
 \gmux.gm[4].gms.ms_i_1__2\: unisim.vcomponents.LUT4
@@ -1190,11 +1202,36 @@ begin
       INIT => X"9009"
     )
         port map (
-      I0 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(8),
-      I1 => \gcc0.gc0.count_d1_reg[9]\(8),
-      I2 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(9),
-      I3 => \gcc0.gc0.count_d1_reg[9]\(9),
-      O => ram_empty_i_reg_3
+      I0 => \^gc0.count_d1_reg[10]_0\(8),
+      I1 => \gmux.gm[4].gms.ms\(8),
+      I2 => \^gc0.count_d1_reg[10]_0\(9),
+      I3 => \gmux.gm[4].gms.ms\(9),
+      O => \gc0.count_d1_reg[8]_0\
+    );
+end STRUCTURE;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+library UNISIM;
+use UNISIM.VCOMPONENTS.ALL;
+entity fifo_maxtrix_reset_blk_ramfifo is
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of fifo_maxtrix_reset_blk_ramfifo : entity is "reset_blk_ramfifo";
+end fifo_maxtrix_reset_blk_ramfifo;
+
+architecture STRUCTURE of fifo_maxtrix_reset_blk_ramfifo is
+  signal rst_wr_reg2 : STD_LOGIC;
+  attribute async_reg : string;
+  attribute async_reg of rst_wr_reg2 : signal is "true";
+  attribute msgon : string;
+  attribute msgon of rst_wr_reg2 : signal is "true";
+begin
+rstblki_0: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"2"
+    )
+        port map (
+      I0 => '0',
+      O => rst_wr_reg2
     );
 end STRUCTURE;
 library IEEE;
@@ -1205,12 +1242,12 @@ entity fifo_maxtrix_wr_bin_cntr is
   port (
     Q : out STD_LOGIC_VECTOR ( 9 downto 0 );
     v1_reg : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\ : out STD_LOGIC_VECTOR ( 10 downto 0 );
-    ram_empty_i_reg : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \gcc0.gc0.count_d1_reg[10]_0\ : out STD_LOGIC_VECTOR ( 10 downto 0 );
+    \gcc0.gc0.count_d1_reg[10]_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     v1_reg_0 : out STD_LOGIC_VECTOR ( 0 to 0 );
-    ram_empty_i_reg_0 : out STD_LOGIC;
-    \gc0.count_d1_reg[10]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
-    \gc0.count_reg[10]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
+    \gcc0.gc0.count_d1_reg[10]_2\ : out STD_LOGIC;
+    \gmux.gm[5].gms.ms\ : in STD_LOGIC_VECTOR ( 0 to 0 );
+    \gmux.gm[5].gms.ms_0\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     srst : in STD_LOGIC;
     E : in STD_LOGIC_VECTOR ( 0 to 0 );
     clk : in STD_LOGIC
@@ -1220,11 +1257,11 @@ entity fifo_maxtrix_wr_bin_cntr is
 end fifo_maxtrix_wr_bin_cntr;
 
 architecture STRUCTURE of fifo_maxtrix_wr_bin_cntr is
-  signal \^device_7series.no_bmm_info.sdp.simple_prim36.ram\ : STD_LOGIC_VECTOR ( 10 downto 0 );
   signal \^q\ : STD_LOGIC_VECTOR ( 9 downto 0 );
   signal \gcc0.gc0.count[10]_i_2_n_0\ : STD_LOGIC;
-  signal p_12_out : STD_LOGIC_VECTOR ( 10 to 10 );
+  signal \^gcc0.gc0.count_d1_reg[10]_0\ : STD_LOGIC_VECTOR ( 10 downto 0 );
   signal \plusOp__0\ : STD_LOGIC_VECTOR ( 10 downto 0 );
+  signal wr_pntr_plus1 : STD_LOGIC_VECTOR ( 10 to 10 );
   attribute SOFT_HLUTNM : string;
   attribute SOFT_HLUTNM of \gcc0.gc0.count[1]_i_1\ : label is "soft_lutpair7";
   attribute SOFT_HLUTNM of \gcc0.gc0.count[2]_i_1\ : label is "soft_lutpair7";
@@ -1235,8 +1272,8 @@ architecture STRUCTURE of fifo_maxtrix_wr_bin_cntr is
   attribute SOFT_HLUTNM of \gcc0.gc0.count[8]_i_1\ : label is "soft_lutpair4";
   attribute SOFT_HLUTNM of \gcc0.gc0.count[9]_i_1\ : label is "soft_lutpair4";
 begin
-  \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\(10 downto 0) <= \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(10 downto 0);
   Q(9 downto 0) <= \^q\(9 downto 0);
+  \gcc0.gc0.count_d1_reg[10]_0\(10 downto 0) <= \^gcc0.gc0.count_d1_reg[10]_0\(10 downto 0);
 \gcc0.gc0.count[0]_i_1\: unisim.vcomponents.LUT1
     generic map(
       INIT => X"1"
@@ -1255,7 +1292,7 @@ begin
       I2 => \gcc0.gc0.count[10]_i_2_n_0\,
       I3 => \^q\(7),
       I4 => \^q\(9),
-      I5 => p_12_out(10),
+      I5 => wr_pntr_plus1(10),
       O => \plusOp__0\(10)
     );
 \gcc0.gc0.count[10]_i_2\: unisim.vcomponents.LUT6
@@ -1376,7 +1413,7 @@ begin
       C => clk,
       CE => E(0),
       D => \^q\(0),
-      Q => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(0),
+      Q => \^gcc0.gc0.count_d1_reg[10]_0\(0),
       R => srst
     );
 \gcc0.gc0.count_d1_reg[10]\: unisim.vcomponents.FDRE
@@ -1386,8 +1423,8 @@ begin
         port map (
       C => clk,
       CE => E(0),
-      D => p_12_out(10),
-      Q => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(10),
+      D => wr_pntr_plus1(10),
+      Q => \^gcc0.gc0.count_d1_reg[10]_0\(10),
       R => srst
     );
 \gcc0.gc0.count_d1_reg[1]\: unisim.vcomponents.FDRE
@@ -1398,7 +1435,7 @@ begin
       C => clk,
       CE => E(0),
       D => \^q\(1),
-      Q => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(1),
+      Q => \^gcc0.gc0.count_d1_reg[10]_0\(1),
       R => srst
     );
 \gcc0.gc0.count_d1_reg[2]\: unisim.vcomponents.FDRE
@@ -1409,7 +1446,7 @@ begin
       C => clk,
       CE => E(0),
       D => \^q\(2),
-      Q => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(2),
+      Q => \^gcc0.gc0.count_d1_reg[10]_0\(2),
       R => srst
     );
 \gcc0.gc0.count_d1_reg[3]\: unisim.vcomponents.FDRE
@@ -1420,7 +1457,7 @@ begin
       C => clk,
       CE => E(0),
       D => \^q\(3),
-      Q => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(3),
+      Q => \^gcc0.gc0.count_d1_reg[10]_0\(3),
       R => srst
     );
 \gcc0.gc0.count_d1_reg[4]\: unisim.vcomponents.FDRE
@@ -1431,7 +1468,7 @@ begin
       C => clk,
       CE => E(0),
       D => \^q\(4),
-      Q => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(4),
+      Q => \^gcc0.gc0.count_d1_reg[10]_0\(4),
       R => srst
     );
 \gcc0.gc0.count_d1_reg[5]\: unisim.vcomponents.FDRE
@@ -1442,7 +1479,7 @@ begin
       C => clk,
       CE => E(0),
       D => \^q\(5),
-      Q => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(5),
+      Q => \^gcc0.gc0.count_d1_reg[10]_0\(5),
       R => srst
     );
 \gcc0.gc0.count_d1_reg[6]\: unisim.vcomponents.FDRE
@@ -1453,7 +1490,7 @@ begin
       C => clk,
       CE => E(0),
       D => \^q\(6),
-      Q => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(6),
+      Q => \^gcc0.gc0.count_d1_reg[10]_0\(6),
       R => srst
     );
 \gcc0.gc0.count_d1_reg[7]\: unisim.vcomponents.FDRE
@@ -1464,7 +1501,7 @@ begin
       C => clk,
       CE => E(0),
       D => \^q\(7),
-      Q => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(7),
+      Q => \^gcc0.gc0.count_d1_reg[10]_0\(7),
       R => srst
     );
 \gcc0.gc0.count_d1_reg[8]\: unisim.vcomponents.FDRE
@@ -1475,7 +1512,7 @@ begin
       C => clk,
       CE => E(0),
       D => \^q\(8),
-      Q => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(8),
+      Q => \^gcc0.gc0.count_d1_reg[10]_0\(8),
       R => srst
     );
 \gcc0.gc0.count_d1_reg[9]\: unisim.vcomponents.FDRE
@@ -1486,7 +1523,7 @@ begin
       C => clk,
       CE => E(0),
       D => \^q\(9),
-      Q => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(9),
+      Q => \^gcc0.gc0.count_d1_reg[10]_0\(9),
       R => srst
     );
 \gcc0.gc0.count_reg[0]\: unisim.vcomponents.FDSE
@@ -1508,7 +1545,7 @@ begin
       C => clk,
       CE => E(0),
       D => \plusOp__0\(10),
-      Q => p_12_out(10),
+      Q => wr_pntr_plus1(10),
       R => srst
     );
 \gcc0.gc0.count_reg[1]\: unisim.vcomponents.FDRE
@@ -1615,8 +1652,8 @@ begin
       INIT => X"9"
     )
         port map (
-      I0 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(10),
-      I1 => \gc0.count_d1_reg[10]\(0),
+      I0 => \^gcc0.gc0.count_d1_reg[10]_0\(10),
+      I1 => \gmux.gm[5].gms.ms\(0),
       O => v1_reg(0)
     );
 \gmux.gm[5].gms.ms_i_1__0\: unisim.vcomponents.LUT2
@@ -1624,17 +1661,17 @@ begin
       INIT => X"9"
     )
         port map (
-      I0 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(10),
-      I1 => \gc0.count_reg[10]\(0),
-      O => ram_empty_i_reg(0)
+      I0 => \^gcc0.gc0.count_d1_reg[10]_0\(10),
+      I1 => \gmux.gm[5].gms.ms_0\(0),
+      O => \gcc0.gc0.count_d1_reg[10]_1\(0)
     );
 \gmux.gm[5].gms.ms_i_1__1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"9"
     )
         port map (
-      I0 => p_12_out(10),
-      I1 => \gc0.count_d1_reg[10]\(0),
+      I0 => wr_pntr_plus1(10),
+      I1 => \gmux.gm[5].gms.ms\(0),
       O => v1_reg_0(0)
     );
 \gmux.gm[5].gms.ms_i_1__2\: unisim.vcomponents.LUT2
@@ -1642,9 +1679,9 @@ begin
       INIT => X"9"
     )
         port map (
-      I0 => \^device_7series.no_bmm_info.sdp.simple_prim36.ram\(10),
-      I1 => \gc0.count_d1_reg[10]\(0),
-      O => ram_empty_i_reg_0
+      I0 => \^gcc0.gc0.count_d1_reg[10]_0\(10),
+      I1 => \gmux.gm[5].gms.ms\(0),
+      O => \gcc0.gc0.count_d1_reg[10]_2\
     );
 end STRUCTURE;
 library IEEE;
@@ -1658,8 +1695,8 @@ entity fifo_maxtrix_blk_mem_gen_prim_width is
     E : in STD_LOGIC_VECTOR ( 0 to 0 );
     tmp_ram_rd_en : in STD_LOGIC;
     srst : in STD_LOGIC;
-    \gcc0.gc0.count_d1_reg[10]\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
-    \gc0.count_d1_reg[10]\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
     din : in STD_LOGIC_VECTOR ( 12 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -1670,12 +1707,12 @@ architecture STRUCTURE of fifo_maxtrix_blk_mem_gen_prim_width is
 begin
 \prim_noinit.ram\: entity work.fifo_maxtrix_blk_mem_gen_prim_wrapper
      port map (
+      \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0\(10 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\(10 downto 0),
+      \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_1\(10 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0\(10 downto 0),
       E(0) => E(0),
       clk => clk,
       din(12 downto 0) => din(12 downto 0),
       dout(12 downto 0) => dout(12 downto 0),
-      \gc0.count_d1_reg[10]\(10 downto 0) => \gc0.count_d1_reg[10]\(10 downto 0),
-      \gcc0.gc0.count_d1_reg[10]\(10 downto 0) => \gcc0.gc0.count_d1_reg[10]\(10 downto 0),
       srst => srst,
       tmp_ram_rd_en => tmp_ram_rd_en
     );
@@ -1690,18 +1727,18 @@ entity fifo_maxtrix_rd_status_flags_ss is
     empty : out STD_LOGIC;
     tmp_ram_rd_en : out STD_LOGIC;
     E : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \gc0.count_d1_reg[0]\ : in STD_LOGIC;
-    \gc0.count_d1_reg[2]\ : in STD_LOGIC;
-    \gc0.count_d1_reg[4]\ : in STD_LOGIC;
-    \gc0.count_d1_reg[6]\ : in STD_LOGIC;
-    \gc0.count_d1_reg[8]\ : in STD_LOGIC;
-    \gcc0.gc0.count_d1_reg[10]\ : in STD_LOGIC;
+    \gmux.gm[1].gms.ms\ : in STD_LOGIC;
+    \gmux.gm[2].gms.ms\ : in STD_LOGIC;
+    \gmux.gm[3].gms.ms\ : in STD_LOGIC;
+    \gmux.gm[4].gms.ms\ : in STD_LOGIC;
+    \gmux.gm[5].gms.ms\ : in STD_LOGIC;
+    ram_empty_i_reg_0 : in STD_LOGIC;
     v1_reg : in STD_LOGIC_VECTOR ( 4 downto 0 );
-    \gcc0.gc0.count_d1_reg[10]_0\ : in STD_LOGIC_VECTOR ( 0 to 0 );
+    ram_empty_i_reg_1 : in STD_LOGIC_VECTOR ( 0 to 0 );
     srst : in STD_LOGIC;
     clk : in STD_LOGIC;
     rd_en : in STD_LOGIC;
-    ram_full_fb_i_reg : in STD_LOGIC;
+    ram_empty_i_reg_2 : in STD_LOGIC;
     wr_en : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -1740,21 +1777,21 @@ begin
 c1: entity work.fifo_maxtrix_compare_1
      port map (
       comp0 => comp0,
-      \gc0.count_d1_reg[0]\ => \gc0.count_d1_reg[0]\,
-      \gc0.count_d1_reg[2]\ => \gc0.count_d1_reg[2]\,
-      \gc0.count_d1_reg[4]\ => \gc0.count_d1_reg[4]\,
-      \gc0.count_d1_reg[6]\ => \gc0.count_d1_reg[6]\,
-      \gc0.count_d1_reg[8]\ => \gc0.count_d1_reg[8]\,
-      \gcc0.gc0.count_d1_reg[10]\ => \gcc0.gc0.count_d1_reg[10]\
+      \gmux.gm[1].gms.ms_0\ => \gmux.gm[1].gms.ms\,
+      \gmux.gm[2].gms.ms_0\ => \gmux.gm[2].gms.ms\,
+      \gmux.gm[3].gms.ms_0\ => \gmux.gm[3].gms.ms\,
+      \gmux.gm[4].gms.ms_0\ => \gmux.gm[4].gms.ms\,
+      \gmux.gm[5].gms.ms_0\ => \gmux.gm[5].gms.ms\,
+      ram_empty_i_reg => ram_empty_i_reg_0
     );
 c2: entity work.fifo_maxtrix_compare_2
      port map (
       comp0 => comp0,
-      \gcc0.gc0.count_d1_reg[10]\(0) => \gcc0.gc0.count_d1_reg[10]_0\(0),
       \out\ => ram_empty_fb_i,
-      ram_empty_i_reg => c2_n_0,
-      ram_full_fb_i_reg => ram_full_fb_i_reg,
+      ram_empty_i_reg(0) => ram_empty_i_reg_1(0),
+      ram_empty_i_reg_0 => ram_empty_i_reg_2,
       rd_en => rd_en,
+      rd_en_0 => c2_n_0,
       v1_reg(4 downto 0) => v1_reg(4 downto 0),
       wr_en => wr_en
     );
@@ -1799,14 +1836,14 @@ entity fifo_maxtrix_wr_status_flags_ss is
     \out\ : out STD_LOGIC;
     full : out STD_LOGIC;
     E : out STD_LOGIC_VECTOR ( 0 to 0 );
-    \gc0.count_d1_reg[8]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
+    \gmux.gm[5].gms.ms\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     v1_reg : in STD_LOGIC_VECTOR ( 0 to 0 );
-    \gc0.count_d1_reg[8]_0\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
+    \gmux.gm[5].gms.ms_0\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     v1_reg_0 : in STD_LOGIC_VECTOR ( 0 to 0 );
     srst : in STD_LOGIC;
     clk : in STD_LOGIC;
     wr_en : in STD_LOGIC;
-    ram_empty_fb_i_reg : in STD_LOGIC;
+    ram_full_i_reg_0 : in STD_LOGIC;
     rd_en : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -1848,16 +1885,16 @@ begin
 c0: entity work.fifo_maxtrix_compare
      port map (
       comp0 => comp0,
-      \gc0.count_d1_reg[8]\(4 downto 0) => \gc0.count_d1_reg[8]\(4 downto 0),
+      \gmux.gm[5].gms.ms_0\(4 downto 0) => \gmux.gm[5].gms.ms\(4 downto 0),
       v1_reg(0) => v1_reg(0)
     );
 c1: entity work.fifo_maxtrix_compare_0
      port map (
       comp0 => comp0,
-      \gc0.count_d1_reg[8]\(4 downto 0) => \gc0.count_d1_reg[8]_0\(4 downto 0),
+      \gmux.gm[5].gms.ms_0\(4 downto 0) => \gmux.gm[5].gms.ms_0\(4 downto 0),
       \out\ => ram_full_fb_i,
-      ram_empty_fb_i_reg => ram_empty_fb_i_reg,
       ram_full_comb => ram_full_comb,
+      ram_full_i_reg => ram_full_i_reg_0,
       rd_en => rd_en,
       v1_reg_0(0) => v1_reg_0(0),
       wr_en => wr_en
@@ -1912,8 +1949,8 @@ entity fifo_maxtrix_blk_mem_gen_generic_cstr is
     E : in STD_LOGIC_VECTOR ( 0 to 0 );
     tmp_ram_rd_en : in STD_LOGIC;
     srst : in STD_LOGIC;
-    \gcc0.gc0.count_d1_reg[10]\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
-    \gc0.count_d1_reg[10]\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
     din : in STD_LOGIC_VECTOR ( 12 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -1924,12 +1961,12 @@ architecture STRUCTURE of fifo_maxtrix_blk_mem_gen_generic_cstr is
 begin
 \ramloop[0].ram.r\: entity work.fifo_maxtrix_blk_mem_gen_prim_width
      port map (
+      \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\(10 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\(10 downto 0),
+      \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0\(10 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0\(10 downto 0),
       E(0) => E(0),
       clk => clk,
       din(12 downto 0) => din(12 downto 0),
       dout(12 downto 0) => dout(12 downto 0),
-      \gc0.count_d1_reg[10]\(10 downto 0) => \gc0.count_d1_reg[10]\(10 downto 0),
-      \gcc0.gc0.count_d1_reg[10]\(10 downto 0) => \gcc0.gc0.count_d1_reg[10]\(10 downto 0),
       srst => srst,
       tmp_ram_rd_en => tmp_ram_rd_en
     );
@@ -1945,17 +1982,17 @@ entity fifo_maxtrix_rd_logic is
     tmp_ram_rd_en : out STD_LOGIC;
     Q : out STD_LOGIC_VECTOR ( 0 to 0 );
     v1_reg : out STD_LOGIC_VECTOR ( 4 downto 0 );
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\ : out STD_LOGIC_VECTOR ( 10 downto 0 );
+    \gc0.count_d1_reg[10]\ : out STD_LOGIC_VECTOR ( 10 downto 0 );
     v1_reg_0 : out STD_LOGIC_VECTOR ( 4 downto 0 );
-    \gcc0.gc0.count_d1_reg[10]\ : in STD_LOGIC;
-    \gcc0.gc0.count_d1_reg[10]_0\ : in STD_LOGIC_VECTOR ( 0 to 0 );
+    ram_empty_i_reg : in STD_LOGIC;
+    ram_empty_i_reg_0 : in STD_LOGIC_VECTOR ( 0 to 0 );
     srst : in STD_LOGIC;
     clk : in STD_LOGIC;
     rd_en : in STD_LOGIC;
-    ram_full_fb_i_reg : in STD_LOGIC;
+    ram_empty_i_reg_1 : in STD_LOGIC;
     wr_en : in STD_LOGIC;
-    \gcc0.gc0.count_d1_reg[9]\ : in STD_LOGIC_VECTOR ( 9 downto 0 );
-    \gcc0.gc0.count_reg[9]\ : in STD_LOGIC_VECTOR ( 9 downto 0 )
+    \gmux.gm[4].gms.ms\ : in STD_LOGIC_VECTOR ( 9 downto 0 );
+    \gmux.gm[4].gms.ms_0\ : in STD_LOGIC_VECTOR ( 9 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of fifo_maxtrix_rd_logic : entity is "rd_logic";
@@ -1963,7 +2000,7 @@ end fifo_maxtrix_rd_logic;
 
 architecture STRUCTURE of fifo_maxtrix_rd_logic is
   signal \c2/v1_reg\ : STD_LOGIC_VECTOR ( 4 downto 0 );
-  signal p_7_out : STD_LOGIC;
+  signal ram_rd_en : STD_LOGIC;
   signal rpntr_n_27 : STD_LOGIC;
   signal rpntr_n_28 : STD_LOGIC;
   signal rpntr_n_29 : STD_LOGIC;
@@ -1972,18 +2009,18 @@ architecture STRUCTURE of fifo_maxtrix_rd_logic is
 begin
 \grss.rsts\: entity work.fifo_maxtrix_rd_status_flags_ss
      port map (
-      E(0) => p_7_out,
+      E(0) => ram_rd_en,
       clk => clk,
       empty => empty,
-      \gc0.count_d1_reg[0]\ => rpntr_n_27,
-      \gc0.count_d1_reg[2]\ => rpntr_n_28,
-      \gc0.count_d1_reg[4]\ => rpntr_n_29,
-      \gc0.count_d1_reg[6]\ => rpntr_n_30,
-      \gc0.count_d1_reg[8]\ => rpntr_n_31,
-      \gcc0.gc0.count_d1_reg[10]\ => \gcc0.gc0.count_d1_reg[10]\,
-      \gcc0.gc0.count_d1_reg[10]_0\(0) => \gcc0.gc0.count_d1_reg[10]_0\(0),
+      \gmux.gm[1].gms.ms\ => rpntr_n_27,
+      \gmux.gm[2].gms.ms\ => rpntr_n_28,
+      \gmux.gm[3].gms.ms\ => rpntr_n_29,
+      \gmux.gm[4].gms.ms\ => rpntr_n_30,
+      \gmux.gm[5].gms.ms\ => rpntr_n_31,
       \out\ => \out\,
-      ram_full_fb_i_reg => ram_full_fb_i_reg,
+      ram_empty_i_reg_0 => ram_empty_i_reg,
+      ram_empty_i_reg_1(0) => ram_empty_i_reg_0(0),
+      ram_empty_i_reg_2 => ram_empty_i_reg_1,
       rd_en => rd_en,
       srst => srst,
       tmp_ram_rd_en => tmp_ram_rd_en,
@@ -1992,17 +2029,17 @@ begin
     );
 rpntr: entity work.fifo_maxtrix_rd_bin_cntr
      port map (
-      \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\(10 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\(10 downto 0),
-      E(0) => p_7_out,
+      E(0) => ram_rd_en,
       Q(0) => Q(0),
       clk => clk,
-      \gcc0.gc0.count_d1_reg[9]\(9 downto 0) => \gcc0.gc0.count_d1_reg[9]\(9 downto 0),
-      \gcc0.gc0.count_reg[9]\(9 downto 0) => \gcc0.gc0.count_reg[9]\(9 downto 0),
-      ram_empty_i_reg => rpntr_n_27,
-      ram_empty_i_reg_0 => rpntr_n_28,
-      ram_empty_i_reg_1 => rpntr_n_29,
-      ram_empty_i_reg_2 => rpntr_n_30,
-      ram_empty_i_reg_3 => rpntr_n_31,
+      \gc0.count_d1_reg[0]_0\ => rpntr_n_27,
+      \gc0.count_d1_reg[10]_0\(10 downto 0) => \gc0.count_d1_reg[10]\(10 downto 0),
+      \gc0.count_d1_reg[2]_0\ => rpntr_n_28,
+      \gc0.count_d1_reg[4]_0\ => rpntr_n_29,
+      \gc0.count_d1_reg[6]_0\ => rpntr_n_30,
+      \gc0.count_d1_reg[8]_0\ => rpntr_n_31,
+      \gmux.gm[4].gms.ms\(9 downto 0) => \gmux.gm[4].gms.ms\(9 downto 0),
+      \gmux.gm[4].gms.ms_0\(9 downto 0) => \gmux.gm[4].gms.ms_0\(9 downto 0),
       srst => srst,
       v1_reg(4 downto 0) => v1_reg(4 downto 0),
       v1_reg_0(4 downto 0) => v1_reg_0(4 downto 0),
@@ -2019,18 +2056,18 @@ entity fifo_maxtrix_wr_logic is
     full : out STD_LOGIC;
     E : out STD_LOGIC_VECTOR ( 0 to 0 );
     Q : out STD_LOGIC_VECTOR ( 9 downto 0 );
-    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\ : out STD_LOGIC_VECTOR ( 10 downto 0 );
-    ram_empty_i_reg : out STD_LOGIC_VECTOR ( 0 to 0 );
-    ram_empty_i_reg_0 : out STD_LOGIC;
-    \gc0.count_d1_reg[8]\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
-    \gc0.count_d1_reg[8]_0\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
+    \gcc0.gc0.count_d1_reg[10]\ : out STD_LOGIC_VECTOR ( 10 downto 0 );
+    \gcc0.gc0.count_d1_reg[10]_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \gcc0.gc0.count_d1_reg[10]_1\ : out STD_LOGIC;
+    \gmux.gm[5].gms.ms\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
+    \gmux.gm[5].gms.ms_0\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     srst : in STD_LOGIC;
     clk : in STD_LOGIC;
     wr_en : in STD_LOGIC;
-    ram_empty_fb_i_reg : in STD_LOGIC;
+    ram_full_i_reg : in STD_LOGIC;
     rd_en : in STD_LOGIC;
-    \gc0.count_d1_reg[10]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
-    \gc0.count_reg[10]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
+    \gmux.gm[5].gms.ms_1\ : in STD_LOGIC_VECTOR ( 0 to 0 );
+    \gmux.gm[5].gms.ms_2\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of fifo_maxtrix_wr_logic : entity is "wr_logic";
@@ -2047,10 +2084,10 @@ begin
       E(0) => \^e\(0),
       clk => clk,
       full => full,
-      \gc0.count_d1_reg[8]\(4 downto 0) => \gc0.count_d1_reg[8]\(4 downto 0),
-      \gc0.count_d1_reg[8]_0\(4 downto 0) => \gc0.count_d1_reg[8]_0\(4 downto 0),
+      \gmux.gm[5].gms.ms\(4 downto 0) => \gmux.gm[5].gms.ms\(4 downto 0),
+      \gmux.gm[5].gms.ms_0\(4 downto 0) => \gmux.gm[5].gms.ms_0\(4 downto 0),
       \out\ => \out\,
-      ram_empty_fb_i_reg => ram_empty_fb_i_reg,
+      ram_full_i_reg_0 => ram_full_i_reg,
       rd_en => rd_en,
       srst => srst,
       v1_reg(0) => \c0/v1_reg\(5),
@@ -2059,14 +2096,14 @@ begin
     );
 wpntr: entity work.fifo_maxtrix_wr_bin_cntr
      port map (
-      \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\(10 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\(10 downto 0),
       E(0) => \^e\(0),
       Q(9 downto 0) => Q(9 downto 0),
       clk => clk,
-      \gc0.count_d1_reg[10]\(0) => \gc0.count_d1_reg[10]\(0),
-      \gc0.count_reg[10]\(0) => \gc0.count_reg[10]\(0),
-      ram_empty_i_reg(0) => ram_empty_i_reg(0),
-      ram_empty_i_reg_0 => ram_empty_i_reg_0,
+      \gcc0.gc0.count_d1_reg[10]_0\(10 downto 0) => \gcc0.gc0.count_d1_reg[10]\(10 downto 0),
+      \gcc0.gc0.count_d1_reg[10]_1\(0) => \gcc0.gc0.count_d1_reg[10]_0\(0),
+      \gcc0.gc0.count_d1_reg[10]_2\ => \gcc0.gc0.count_d1_reg[10]_1\,
+      \gmux.gm[5].gms.ms\(0) => \gmux.gm[5].gms.ms_1\(0),
+      \gmux.gm[5].gms.ms_0\(0) => \gmux.gm[5].gms.ms_2\(0),
       srst => srst,
       v1_reg(0) => \c0/v1_reg\(5),
       v1_reg_0(0) => \c1/v1_reg\(5)
@@ -2083,8 +2120,8 @@ entity fifo_maxtrix_blk_mem_gen_top is
     E : in STD_LOGIC_VECTOR ( 0 to 0 );
     tmp_ram_rd_en : in STD_LOGIC;
     srst : in STD_LOGIC;
-    \gcc0.gc0.count_d1_reg[10]\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
-    \gc0.count_d1_reg[10]\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
     din : in STD_LOGIC_VECTOR ( 12 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -2095,12 +2132,12 @@ architecture STRUCTURE of fifo_maxtrix_blk_mem_gen_top is
 begin
 \valid.cstr\: entity work.fifo_maxtrix_blk_mem_gen_generic_cstr
      port map (
+      \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\(10 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\(10 downto 0),
+      \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0\(10 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0\(10 downto 0),
       E(0) => E(0),
       clk => clk,
       din(12 downto 0) => din(12 downto 0),
       dout(12 downto 0) => dout(12 downto 0),
-      \gc0.count_d1_reg[10]\(10 downto 0) => \gc0.count_d1_reg[10]\(10 downto 0),
-      \gcc0.gc0.count_d1_reg[10]\(10 downto 0) => \gcc0.gc0.count_d1_reg[10]\(10 downto 0),
       srst => srst,
       tmp_ram_rd_en => tmp_ram_rd_en
     );
@@ -2109,31 +2146,31 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity fifo_maxtrix_blk_mem_gen_v8_4_1_synth is
+entity fifo_maxtrix_blk_mem_gen_v8_4_4_synth is
   port (
     dout : out STD_LOGIC_VECTOR ( 12 downto 0 );
     clk : in STD_LOGIC;
     E : in STD_LOGIC_VECTOR ( 0 to 0 );
     tmp_ram_rd_en : in STD_LOGIC;
     srst : in STD_LOGIC;
-    \gcc0.gc0.count_d1_reg[10]\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
-    \gc0.count_d1_reg[10]\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
     din : in STD_LOGIC_VECTOR ( 12 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of fifo_maxtrix_blk_mem_gen_v8_4_1_synth : entity is "blk_mem_gen_v8_4_1_synth";
-end fifo_maxtrix_blk_mem_gen_v8_4_1_synth;
+  attribute ORIG_REF_NAME of fifo_maxtrix_blk_mem_gen_v8_4_4_synth : entity is "blk_mem_gen_v8_4_4_synth";
+end fifo_maxtrix_blk_mem_gen_v8_4_4_synth;
 
-architecture STRUCTURE of fifo_maxtrix_blk_mem_gen_v8_4_1_synth is
+architecture STRUCTURE of fifo_maxtrix_blk_mem_gen_v8_4_4_synth is
 begin
 \gnbram.gnativebmg.native_blk_mem_gen\: entity work.fifo_maxtrix_blk_mem_gen_top
      port map (
+      \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\(10 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\(10 downto 0),
+      \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0\(10 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0\(10 downto 0),
       E(0) => E(0),
       clk => clk,
       din(12 downto 0) => din(12 downto 0),
       dout(12 downto 0) => dout(12 downto 0),
-      \gc0.count_d1_reg[10]\(10 downto 0) => \gc0.count_d1_reg[10]\(10 downto 0),
-      \gcc0.gc0.count_d1_reg[10]\(10 downto 0) => \gcc0.gc0.count_d1_reg[10]\(10 downto 0),
       srst => srst,
       tmp_ram_rd_en => tmp_ram_rd_en
     );
@@ -2142,31 +2179,31 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity fifo_maxtrix_blk_mem_gen_v8_4_1 is
+entity fifo_maxtrix_blk_mem_gen_v8_4_4 is
   port (
     dout : out STD_LOGIC_VECTOR ( 12 downto 0 );
     clk : in STD_LOGIC;
     E : in STD_LOGIC_VECTOR ( 0 to 0 );
     tmp_ram_rd_en : in STD_LOGIC;
     srst : in STD_LOGIC;
-    \gcc0.gc0.count_d1_reg[10]\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
-    \gc0.count_d1_reg[10]\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
     din : in STD_LOGIC_VECTOR ( 12 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of fifo_maxtrix_blk_mem_gen_v8_4_1 : entity is "blk_mem_gen_v8_4_1";
-end fifo_maxtrix_blk_mem_gen_v8_4_1;
+  attribute ORIG_REF_NAME of fifo_maxtrix_blk_mem_gen_v8_4_4 : entity is "blk_mem_gen_v8_4_4";
+end fifo_maxtrix_blk_mem_gen_v8_4_4;
 
-architecture STRUCTURE of fifo_maxtrix_blk_mem_gen_v8_4_1 is
+architecture STRUCTURE of fifo_maxtrix_blk_mem_gen_v8_4_4 is
 begin
-inst_blk_mem_gen: entity work.fifo_maxtrix_blk_mem_gen_v8_4_1_synth
+inst_blk_mem_gen: entity work.fifo_maxtrix_blk_mem_gen_v8_4_4_synth
      port map (
+      \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\(10 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\(10 downto 0),
+      \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0\(10 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0\(10 downto 0),
       E(0) => E(0),
       clk => clk,
       din(12 downto 0) => din(12 downto 0),
       dout(12 downto 0) => dout(12 downto 0),
-      \gc0.count_d1_reg[10]\(10 downto 0) => \gc0.count_d1_reg[10]\(10 downto 0),
-      \gcc0.gc0.count_d1_reg[10]\(10 downto 0) => \gcc0.gc0.count_d1_reg[10]\(10 downto 0),
       srst => srst,
       tmp_ram_rd_en => tmp_ram_rd_en
     );
@@ -2182,8 +2219,8 @@ entity fifo_maxtrix_memory is
     E : in STD_LOGIC_VECTOR ( 0 to 0 );
     tmp_ram_rd_en : in STD_LOGIC;
     srst : in STD_LOGIC;
-    \gcc0.gc0.count_d1_reg[10]\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
-    \gc0.count_d1_reg[10]\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
+    \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0\ : in STD_LOGIC_VECTOR ( 10 downto 0 );
     din : in STD_LOGIC_VECTOR ( 12 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -2192,14 +2229,14 @@ end fifo_maxtrix_memory;
 
 architecture STRUCTURE of fifo_maxtrix_memory is
 begin
-\gbm.gbmg.gbmga.ngecc.bmg\: entity work.fifo_maxtrix_blk_mem_gen_v8_4_1
+\gbm.gbmg.gbmga.ngecc.bmg\: entity work.fifo_maxtrix_blk_mem_gen_v8_4_4
      port map (
+      \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\(10 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\(10 downto 0),
+      \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0\(10 downto 0) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0\(10 downto 0),
       E(0) => E(0),
       clk => clk,
       din(12 downto 0) => din(12 downto 0),
       dout(12 downto 0) => dout(12 downto 0),
-      \gc0.count_d1_reg[10]\(10 downto 0) => \gc0.count_d1_reg[10]\(10 downto 0),
-      \gcc0.gc0.count_d1_reg[10]\(10 downto 0) => \gcc0.gc0.count_d1_reg[10]\(10 downto 0),
       srst => srst,
       tmp_ram_rd_en => tmp_ram_rd_en
     );
@@ -2224,31 +2261,31 @@ entity fifo_maxtrix_fifo_generator_ramfifo is
 end fifo_maxtrix_fifo_generator_ramfifo;
 
 architecture STRUCTURE of fifo_maxtrix_fifo_generator_ramfifo is
+  signal empty_fb_i : STD_LOGIC;
   signal \gntv_or_sync_fifo.gl0.wr_n_0\ : STD_LOGIC;
   signal \gntv_or_sync_fifo.gl0.wr_n_25\ : STD_LOGIC;
   signal \grss.rsts/c2/v1_reg\ : STD_LOGIC_VECTOR ( 5 to 5 );
   signal \gwss.wsts/c0/v1_reg\ : STD_LOGIC_VECTOR ( 4 downto 0 );
   signal \gwss.wsts/c1/v1_reg\ : STD_LOGIC_VECTOR ( 4 downto 0 );
-  signal p_0_out : STD_LOGIC_VECTOR ( 10 downto 0 );
-  signal p_11_out : STD_LOGIC_VECTOR ( 10 downto 0 );
-  signal p_12_out : STD_LOGIC_VECTOR ( 9 downto 0 );
-  signal p_17_out : STD_LOGIC;
-  signal p_2_out : STD_LOGIC;
+  signal ram_wr_en : STD_LOGIC;
+  signal rd_pntr : STD_LOGIC_VECTOR ( 10 downto 0 );
   signal rd_pntr_plus1 : STD_LOGIC_VECTOR ( 10 to 10 );
   signal tmp_ram_rd_en : STD_LOGIC;
+  signal wr_pntr : STD_LOGIC_VECTOR ( 10 downto 0 );
+  signal wr_pntr_plus1 : STD_LOGIC_VECTOR ( 9 downto 0 );
 begin
 \gntv_or_sync_fifo.gl0.rd\: entity work.fifo_maxtrix_rd_logic
      port map (
-      \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\(10 downto 0) => p_0_out(10 downto 0),
       Q(0) => rd_pntr_plus1(10),
       clk => clk,
       empty => empty,
-      \gcc0.gc0.count_d1_reg[10]\ => \gntv_or_sync_fifo.gl0.wr_n_25\,
-      \gcc0.gc0.count_d1_reg[10]_0\(0) => \grss.rsts/c2/v1_reg\(5),
-      \gcc0.gc0.count_d1_reg[9]\(9 downto 0) => p_11_out(9 downto 0),
-      \gcc0.gc0.count_reg[9]\(9 downto 0) => p_12_out(9 downto 0),
-      \out\ => p_2_out,
-      ram_full_fb_i_reg => \gntv_or_sync_fifo.gl0.wr_n_0\,
+      \gc0.count_d1_reg[10]\(10 downto 0) => rd_pntr(10 downto 0),
+      \gmux.gm[4].gms.ms\(9 downto 0) => wr_pntr(9 downto 0),
+      \gmux.gm[4].gms.ms_0\(9 downto 0) => wr_pntr_plus1(9 downto 0),
+      \out\ => empty_fb_i,
+      ram_empty_i_reg => \gntv_or_sync_fifo.gl0.wr_n_25\,
+      ram_empty_i_reg_0(0) => \grss.rsts/c2/v1_reg\(5),
+      ram_empty_i_reg_1 => \gntv_or_sync_fifo.gl0.wr_n_0\,
       rd_en => rd_en,
       srst => srst,
       tmp_ram_rd_en => tmp_ram_rd_en,
@@ -2258,31 +2295,31 @@ begin
     );
 \gntv_or_sync_fifo.gl0.wr\: entity work.fifo_maxtrix_wr_logic
      port map (
-      \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\(10 downto 0) => p_11_out(10 downto 0),
-      E(0) => p_17_out,
-      Q(9 downto 0) => p_12_out(9 downto 0),
+      E(0) => ram_wr_en,
+      Q(9 downto 0) => wr_pntr_plus1(9 downto 0),
       clk => clk,
       full => full,
-      \gc0.count_d1_reg[10]\(0) => p_0_out(10),
-      \gc0.count_d1_reg[8]\(4 downto 0) => \gwss.wsts/c0/v1_reg\(4 downto 0),
-      \gc0.count_d1_reg[8]_0\(4 downto 0) => \gwss.wsts/c1/v1_reg\(4 downto 0),
-      \gc0.count_reg[10]\(0) => rd_pntr_plus1(10),
+      \gcc0.gc0.count_d1_reg[10]\(10 downto 0) => wr_pntr(10 downto 0),
+      \gcc0.gc0.count_d1_reg[10]_0\(0) => \grss.rsts/c2/v1_reg\(5),
+      \gcc0.gc0.count_d1_reg[10]_1\ => \gntv_or_sync_fifo.gl0.wr_n_25\,
+      \gmux.gm[5].gms.ms\(4 downto 0) => \gwss.wsts/c0/v1_reg\(4 downto 0),
+      \gmux.gm[5].gms.ms_0\(4 downto 0) => \gwss.wsts/c1/v1_reg\(4 downto 0),
+      \gmux.gm[5].gms.ms_1\(0) => rd_pntr(10),
+      \gmux.gm[5].gms.ms_2\(0) => rd_pntr_plus1(10),
       \out\ => \gntv_or_sync_fifo.gl0.wr_n_0\,
-      ram_empty_fb_i_reg => p_2_out,
-      ram_empty_i_reg(0) => \grss.rsts/c2/v1_reg\(5),
-      ram_empty_i_reg_0 => \gntv_or_sync_fifo.gl0.wr_n_25\,
+      ram_full_i_reg => empty_fb_i,
       rd_en => rd_en,
       srst => srst,
       wr_en => wr_en
     );
 \gntv_or_sync_fifo.mem\: entity work.fifo_maxtrix_memory
      port map (
-      E(0) => p_17_out,
+      \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram\(10 downto 0) => wr_pntr(10 downto 0),
+      \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM36.ram_0\(10 downto 0) => rd_pntr(10 downto 0),
+      E(0) => ram_wr_en,
       clk => clk,
       din(12 downto 0) => din(12 downto 0),
       dout(12 downto 0) => dout(12 downto 0),
-      \gc0.count_d1_reg[10]\(10 downto 0) => p_0_out(10 downto 0),
-      \gcc0.gc0.count_d1_reg[10]\(10 downto 0) => p_11_out(10 downto 0),
       srst => srst,
       tmp_ram_rd_en => tmp_ram_rd_en
     );
@@ -2324,7 +2361,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity fifo_maxtrix_fifo_generator_v13_2_2_synth is
+entity fifo_maxtrix_fifo_generator_v13_2_5_synth is
   port (
     dout : out STD_LOGIC_VECTOR ( 12 downto 0 );
     empty : out STD_LOGIC;
@@ -2336,10 +2373,10 @@ entity fifo_maxtrix_fifo_generator_v13_2_2_synth is
     wr_en : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of fifo_maxtrix_fifo_generator_v13_2_2_synth : entity is "fifo_generator_v13_2_2_synth";
-end fifo_maxtrix_fifo_generator_v13_2_2_synth;
+  attribute ORIG_REF_NAME of fifo_maxtrix_fifo_generator_v13_2_5_synth : entity is "fifo_generator_v13_2_5_synth";
+end fifo_maxtrix_fifo_generator_v13_2_5_synth;
 
-architecture STRUCTURE of fifo_maxtrix_fifo_generator_v13_2_2_synth is
+architecture STRUCTURE of fifo_maxtrix_fifo_generator_v13_2_5_synth is
 begin
 \gconvfifo.rf\: entity work.fifo_maxtrix_fifo_generator_top
      port map (
@@ -2357,7 +2394,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity fifo_maxtrix_fifo_generator_v13_2_2 is
+entity fifo_maxtrix_fifo_generator_v13_2_5 is
   port (
     backup : in STD_LOGIC;
     backup_marker : in STD_LOGIC;
@@ -2592,414 +2629,414 @@ entity fifo_maxtrix_fifo_generator_v13_2_2 is
     axis_prog_empty : out STD_LOGIC
   );
   attribute C_ADD_NGC_CONSTRAINT : integer;
-  attribute C_ADD_NGC_CONSTRAINT of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_ADD_NGC_CONSTRAINT of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_APPLICATION_TYPE_AXIS : integer;
-  attribute C_APPLICATION_TYPE_AXIS of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_APPLICATION_TYPE_AXIS of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_APPLICATION_TYPE_RACH : integer;
-  attribute C_APPLICATION_TYPE_RACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_APPLICATION_TYPE_RACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_APPLICATION_TYPE_RDCH : integer;
-  attribute C_APPLICATION_TYPE_RDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_APPLICATION_TYPE_RDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_APPLICATION_TYPE_WACH : integer;
-  attribute C_APPLICATION_TYPE_WACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_APPLICATION_TYPE_WACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_APPLICATION_TYPE_WDCH : integer;
-  attribute C_APPLICATION_TYPE_WDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_APPLICATION_TYPE_WDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_APPLICATION_TYPE_WRCH : integer;
-  attribute C_APPLICATION_TYPE_WRCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_APPLICATION_TYPE_WRCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_AXIS_TDATA_WIDTH : integer;
-  attribute C_AXIS_TDATA_WIDTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 8;
+  attribute C_AXIS_TDATA_WIDTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 8;
   attribute C_AXIS_TDEST_WIDTH : integer;
-  attribute C_AXIS_TDEST_WIDTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_AXIS_TDEST_WIDTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_AXIS_TID_WIDTH : integer;
-  attribute C_AXIS_TID_WIDTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_AXIS_TID_WIDTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_AXIS_TKEEP_WIDTH : integer;
-  attribute C_AXIS_TKEEP_WIDTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_AXIS_TKEEP_WIDTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_AXIS_TSTRB_WIDTH : integer;
-  attribute C_AXIS_TSTRB_WIDTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_AXIS_TSTRB_WIDTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_AXIS_TUSER_WIDTH : integer;
-  attribute C_AXIS_TUSER_WIDTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 4;
+  attribute C_AXIS_TUSER_WIDTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 4;
   attribute C_AXIS_TYPE : integer;
-  attribute C_AXIS_TYPE of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_AXIS_TYPE of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_AXI_ADDR_WIDTH : integer;
-  attribute C_AXI_ADDR_WIDTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 32;
+  attribute C_AXI_ADDR_WIDTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 32;
   attribute C_AXI_ARUSER_WIDTH : integer;
-  attribute C_AXI_ARUSER_WIDTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_AXI_ARUSER_WIDTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_AXI_AWUSER_WIDTH : integer;
-  attribute C_AXI_AWUSER_WIDTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_AXI_AWUSER_WIDTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_AXI_BUSER_WIDTH : integer;
-  attribute C_AXI_BUSER_WIDTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_AXI_BUSER_WIDTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_AXI_DATA_WIDTH : integer;
-  attribute C_AXI_DATA_WIDTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 64;
+  attribute C_AXI_DATA_WIDTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 64;
   attribute C_AXI_ID_WIDTH : integer;
-  attribute C_AXI_ID_WIDTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_AXI_ID_WIDTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_AXI_LEN_WIDTH : integer;
-  attribute C_AXI_LEN_WIDTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 8;
+  attribute C_AXI_LEN_WIDTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 8;
   attribute C_AXI_LOCK_WIDTH : integer;
-  attribute C_AXI_LOCK_WIDTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_AXI_LOCK_WIDTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_AXI_RUSER_WIDTH : integer;
-  attribute C_AXI_RUSER_WIDTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_AXI_RUSER_WIDTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_AXI_TYPE : integer;
-  attribute C_AXI_TYPE of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_AXI_TYPE of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_AXI_WUSER_WIDTH : integer;
-  attribute C_AXI_WUSER_WIDTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_AXI_WUSER_WIDTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_COMMON_CLOCK : integer;
-  attribute C_COMMON_CLOCK of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_COMMON_CLOCK of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_COUNT_TYPE : integer;
-  attribute C_COUNT_TYPE of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_COUNT_TYPE of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_DATA_COUNT_WIDTH : integer;
-  attribute C_DATA_COUNT_WIDTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 11;
+  attribute C_DATA_COUNT_WIDTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 11;
   attribute C_DEFAULT_VALUE : string;
-  attribute C_DEFAULT_VALUE of fifo_maxtrix_fifo_generator_v13_2_2 : entity is "BlankString";
+  attribute C_DEFAULT_VALUE of fifo_maxtrix_fifo_generator_v13_2_5 : entity is "BlankString";
   attribute C_DIN_WIDTH : integer;
-  attribute C_DIN_WIDTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 13;
+  attribute C_DIN_WIDTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 13;
   attribute C_DIN_WIDTH_AXIS : integer;
-  attribute C_DIN_WIDTH_AXIS of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_DIN_WIDTH_AXIS of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_DIN_WIDTH_RACH : integer;
-  attribute C_DIN_WIDTH_RACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 32;
+  attribute C_DIN_WIDTH_RACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 32;
   attribute C_DIN_WIDTH_RDCH : integer;
-  attribute C_DIN_WIDTH_RDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 64;
+  attribute C_DIN_WIDTH_RDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 64;
   attribute C_DIN_WIDTH_WACH : integer;
-  attribute C_DIN_WIDTH_WACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_DIN_WIDTH_WACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_DIN_WIDTH_WDCH : integer;
-  attribute C_DIN_WIDTH_WDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 64;
+  attribute C_DIN_WIDTH_WDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 64;
   attribute C_DIN_WIDTH_WRCH : integer;
-  attribute C_DIN_WIDTH_WRCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 2;
+  attribute C_DIN_WIDTH_WRCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 2;
   attribute C_DOUT_RST_VAL : string;
-  attribute C_DOUT_RST_VAL of fifo_maxtrix_fifo_generator_v13_2_2 : entity is "0";
+  attribute C_DOUT_RST_VAL of fifo_maxtrix_fifo_generator_v13_2_5 : entity is "0";
   attribute C_DOUT_WIDTH : integer;
-  attribute C_DOUT_WIDTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 13;
+  attribute C_DOUT_WIDTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 13;
   attribute C_ENABLE_RLOCS : integer;
-  attribute C_ENABLE_RLOCS of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_ENABLE_RLOCS of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_ENABLE_RST_SYNC : integer;
-  attribute C_ENABLE_RST_SYNC of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_ENABLE_RST_SYNC of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_EN_SAFETY_CKT : integer;
-  attribute C_EN_SAFETY_CKT of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_EN_SAFETY_CKT of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_ERROR_INJECTION_TYPE : integer;
-  attribute C_ERROR_INJECTION_TYPE of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_ERROR_INJECTION_TYPE of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_ERROR_INJECTION_TYPE_AXIS : integer;
-  attribute C_ERROR_INJECTION_TYPE_AXIS of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_ERROR_INJECTION_TYPE_AXIS of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_ERROR_INJECTION_TYPE_RACH : integer;
-  attribute C_ERROR_INJECTION_TYPE_RACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_ERROR_INJECTION_TYPE_RACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_ERROR_INJECTION_TYPE_RDCH : integer;
-  attribute C_ERROR_INJECTION_TYPE_RDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_ERROR_INJECTION_TYPE_RDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_ERROR_INJECTION_TYPE_WACH : integer;
-  attribute C_ERROR_INJECTION_TYPE_WACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_ERROR_INJECTION_TYPE_WACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_ERROR_INJECTION_TYPE_WDCH : integer;
-  attribute C_ERROR_INJECTION_TYPE_WDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_ERROR_INJECTION_TYPE_WDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_ERROR_INJECTION_TYPE_WRCH : integer;
-  attribute C_ERROR_INJECTION_TYPE_WRCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_ERROR_INJECTION_TYPE_WRCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_FAMILY : string;
-  attribute C_FAMILY of fifo_maxtrix_fifo_generator_v13_2_2 : entity is "zynq";
+  attribute C_FAMILY of fifo_maxtrix_fifo_generator_v13_2_5 : entity is "zynq";
   attribute C_FULL_FLAGS_RST_VAL : integer;
-  attribute C_FULL_FLAGS_RST_VAL of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_FULL_FLAGS_RST_VAL of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_ALMOST_EMPTY : integer;
-  attribute C_HAS_ALMOST_EMPTY of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_ALMOST_EMPTY of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_ALMOST_FULL : integer;
-  attribute C_HAS_ALMOST_FULL of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_ALMOST_FULL of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_AXIS_TDATA : integer;
-  attribute C_HAS_AXIS_TDATA of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_HAS_AXIS_TDATA of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_HAS_AXIS_TDEST : integer;
-  attribute C_HAS_AXIS_TDEST of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_AXIS_TDEST of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_AXIS_TID : integer;
-  attribute C_HAS_AXIS_TID of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_AXIS_TID of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_AXIS_TKEEP : integer;
-  attribute C_HAS_AXIS_TKEEP of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_AXIS_TKEEP of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_AXIS_TLAST : integer;
-  attribute C_HAS_AXIS_TLAST of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_AXIS_TLAST of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_AXIS_TREADY : integer;
-  attribute C_HAS_AXIS_TREADY of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_HAS_AXIS_TREADY of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_HAS_AXIS_TSTRB : integer;
-  attribute C_HAS_AXIS_TSTRB of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_AXIS_TSTRB of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_AXIS_TUSER : integer;
-  attribute C_HAS_AXIS_TUSER of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_HAS_AXIS_TUSER of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_HAS_AXI_ARUSER : integer;
-  attribute C_HAS_AXI_ARUSER of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_AXI_ARUSER of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_AXI_AWUSER : integer;
-  attribute C_HAS_AXI_AWUSER of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_AXI_AWUSER of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_AXI_BUSER : integer;
-  attribute C_HAS_AXI_BUSER of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_AXI_BUSER of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_AXI_ID : integer;
-  attribute C_HAS_AXI_ID of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_AXI_ID of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_AXI_RD_CHANNEL : integer;
-  attribute C_HAS_AXI_RD_CHANNEL of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_HAS_AXI_RD_CHANNEL of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_HAS_AXI_RUSER : integer;
-  attribute C_HAS_AXI_RUSER of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_AXI_RUSER of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_AXI_WR_CHANNEL : integer;
-  attribute C_HAS_AXI_WR_CHANNEL of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_HAS_AXI_WR_CHANNEL of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_HAS_AXI_WUSER : integer;
-  attribute C_HAS_AXI_WUSER of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_AXI_WUSER of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_BACKUP : integer;
-  attribute C_HAS_BACKUP of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_BACKUP of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_DATA_COUNT : integer;
-  attribute C_HAS_DATA_COUNT of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_DATA_COUNT of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_DATA_COUNTS_AXIS : integer;
-  attribute C_HAS_DATA_COUNTS_AXIS of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_DATA_COUNTS_AXIS of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_DATA_COUNTS_RACH : integer;
-  attribute C_HAS_DATA_COUNTS_RACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_DATA_COUNTS_RACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_DATA_COUNTS_RDCH : integer;
-  attribute C_HAS_DATA_COUNTS_RDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_DATA_COUNTS_RDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_DATA_COUNTS_WACH : integer;
-  attribute C_HAS_DATA_COUNTS_WACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_DATA_COUNTS_WACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_DATA_COUNTS_WDCH : integer;
-  attribute C_HAS_DATA_COUNTS_WDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_DATA_COUNTS_WDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_DATA_COUNTS_WRCH : integer;
-  attribute C_HAS_DATA_COUNTS_WRCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_DATA_COUNTS_WRCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_INT_CLK : integer;
-  attribute C_HAS_INT_CLK of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_INT_CLK of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_MASTER_CE : integer;
-  attribute C_HAS_MASTER_CE of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_MASTER_CE of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_MEMINIT_FILE : integer;
-  attribute C_HAS_MEMINIT_FILE of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_MEMINIT_FILE of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_OVERFLOW : integer;
-  attribute C_HAS_OVERFLOW of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_OVERFLOW of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_PROG_FLAGS_AXIS : integer;
-  attribute C_HAS_PROG_FLAGS_AXIS of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_PROG_FLAGS_AXIS of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_PROG_FLAGS_RACH : integer;
-  attribute C_HAS_PROG_FLAGS_RACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_PROG_FLAGS_RACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_PROG_FLAGS_RDCH : integer;
-  attribute C_HAS_PROG_FLAGS_RDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_PROG_FLAGS_RDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_PROG_FLAGS_WACH : integer;
-  attribute C_HAS_PROG_FLAGS_WACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_PROG_FLAGS_WACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_PROG_FLAGS_WDCH : integer;
-  attribute C_HAS_PROG_FLAGS_WDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_PROG_FLAGS_WDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_PROG_FLAGS_WRCH : integer;
-  attribute C_HAS_PROG_FLAGS_WRCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_PROG_FLAGS_WRCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_RD_DATA_COUNT : integer;
-  attribute C_HAS_RD_DATA_COUNT of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_RD_DATA_COUNT of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_RD_RST : integer;
-  attribute C_HAS_RD_RST of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_RD_RST of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_RST : integer;
-  attribute C_HAS_RST of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_RST of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_SLAVE_CE : integer;
-  attribute C_HAS_SLAVE_CE of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_SLAVE_CE of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_SRST : integer;
-  attribute C_HAS_SRST of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_HAS_SRST of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_HAS_UNDERFLOW : integer;
-  attribute C_HAS_UNDERFLOW of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_UNDERFLOW of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_VALID : integer;
-  attribute C_HAS_VALID of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_VALID of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_WR_ACK : integer;
-  attribute C_HAS_WR_ACK of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_WR_ACK of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_WR_DATA_COUNT : integer;
-  attribute C_HAS_WR_DATA_COUNT of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_WR_DATA_COUNT of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_HAS_WR_RST : integer;
-  attribute C_HAS_WR_RST of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_HAS_WR_RST of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_IMPLEMENTATION_TYPE : integer;
-  attribute C_IMPLEMENTATION_TYPE of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_IMPLEMENTATION_TYPE of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_IMPLEMENTATION_TYPE_AXIS : integer;
-  attribute C_IMPLEMENTATION_TYPE_AXIS of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_IMPLEMENTATION_TYPE_AXIS of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_IMPLEMENTATION_TYPE_RACH : integer;
-  attribute C_IMPLEMENTATION_TYPE_RACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_IMPLEMENTATION_TYPE_RACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_IMPLEMENTATION_TYPE_RDCH : integer;
-  attribute C_IMPLEMENTATION_TYPE_RDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_IMPLEMENTATION_TYPE_RDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_IMPLEMENTATION_TYPE_WACH : integer;
-  attribute C_IMPLEMENTATION_TYPE_WACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_IMPLEMENTATION_TYPE_WACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_IMPLEMENTATION_TYPE_WDCH : integer;
-  attribute C_IMPLEMENTATION_TYPE_WDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_IMPLEMENTATION_TYPE_WDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_IMPLEMENTATION_TYPE_WRCH : integer;
-  attribute C_IMPLEMENTATION_TYPE_WRCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_IMPLEMENTATION_TYPE_WRCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_INIT_WR_PNTR_VAL : integer;
-  attribute C_INIT_WR_PNTR_VAL of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_INIT_WR_PNTR_VAL of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_INTERFACE_TYPE : integer;
-  attribute C_INTERFACE_TYPE of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_INTERFACE_TYPE of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_MEMORY_TYPE : integer;
-  attribute C_MEMORY_TYPE of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_MEMORY_TYPE of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_MIF_FILE_NAME : string;
-  attribute C_MIF_FILE_NAME of fifo_maxtrix_fifo_generator_v13_2_2 : entity is "BlankString";
+  attribute C_MIF_FILE_NAME of fifo_maxtrix_fifo_generator_v13_2_5 : entity is "BlankString";
   attribute C_MSGON_VAL : integer;
-  attribute C_MSGON_VAL of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_MSGON_VAL of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_OPTIMIZATION_MODE : integer;
-  attribute C_OPTIMIZATION_MODE of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_OPTIMIZATION_MODE of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_OVERFLOW_LOW : integer;
-  attribute C_OVERFLOW_LOW of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_OVERFLOW_LOW of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_POWER_SAVING_MODE : integer;
-  attribute C_POWER_SAVING_MODE of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_POWER_SAVING_MODE of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_PRELOAD_LATENCY : integer;
-  attribute C_PRELOAD_LATENCY of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_PRELOAD_LATENCY of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_PRELOAD_REGS : integer;
-  attribute C_PRELOAD_REGS of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_PRELOAD_REGS of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_PRIM_FIFO_TYPE : string;
-  attribute C_PRIM_FIFO_TYPE of fifo_maxtrix_fifo_generator_v13_2_2 : entity is "2kx18";
+  attribute C_PRIM_FIFO_TYPE of fifo_maxtrix_fifo_generator_v13_2_5 : entity is "2kx18";
   attribute C_PRIM_FIFO_TYPE_AXIS : string;
-  attribute C_PRIM_FIFO_TYPE_AXIS of fifo_maxtrix_fifo_generator_v13_2_2 : entity is "1kx18";
+  attribute C_PRIM_FIFO_TYPE_AXIS of fifo_maxtrix_fifo_generator_v13_2_5 : entity is "1kx18";
   attribute C_PRIM_FIFO_TYPE_RACH : string;
-  attribute C_PRIM_FIFO_TYPE_RACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is "512x36";
+  attribute C_PRIM_FIFO_TYPE_RACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is "512x36";
   attribute C_PRIM_FIFO_TYPE_RDCH : string;
-  attribute C_PRIM_FIFO_TYPE_RDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is "1kx36";
+  attribute C_PRIM_FIFO_TYPE_RDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is "1kx36";
   attribute C_PRIM_FIFO_TYPE_WACH : string;
-  attribute C_PRIM_FIFO_TYPE_WACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is "512x36";
+  attribute C_PRIM_FIFO_TYPE_WACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is "512x36";
   attribute C_PRIM_FIFO_TYPE_WDCH : string;
-  attribute C_PRIM_FIFO_TYPE_WDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is "1kx36";
+  attribute C_PRIM_FIFO_TYPE_WDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is "1kx36";
   attribute C_PRIM_FIFO_TYPE_WRCH : string;
-  attribute C_PRIM_FIFO_TYPE_WRCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is "512x36";
+  attribute C_PRIM_FIFO_TYPE_WRCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is "512x36";
   attribute C_PROG_EMPTY_THRESH_ASSERT_VAL : integer;
-  attribute C_PROG_EMPTY_THRESH_ASSERT_VAL of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 2;
+  attribute C_PROG_EMPTY_THRESH_ASSERT_VAL of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 2;
   attribute C_PROG_EMPTY_THRESH_ASSERT_VAL_AXIS : integer;
-  attribute C_PROG_EMPTY_THRESH_ASSERT_VAL_AXIS of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1022;
+  attribute C_PROG_EMPTY_THRESH_ASSERT_VAL_AXIS of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1022;
   attribute C_PROG_EMPTY_THRESH_ASSERT_VAL_RACH : integer;
-  attribute C_PROG_EMPTY_THRESH_ASSERT_VAL_RACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1022;
+  attribute C_PROG_EMPTY_THRESH_ASSERT_VAL_RACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1022;
   attribute C_PROG_EMPTY_THRESH_ASSERT_VAL_RDCH : integer;
-  attribute C_PROG_EMPTY_THRESH_ASSERT_VAL_RDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1022;
+  attribute C_PROG_EMPTY_THRESH_ASSERT_VAL_RDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1022;
   attribute C_PROG_EMPTY_THRESH_ASSERT_VAL_WACH : integer;
-  attribute C_PROG_EMPTY_THRESH_ASSERT_VAL_WACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1022;
+  attribute C_PROG_EMPTY_THRESH_ASSERT_VAL_WACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1022;
   attribute C_PROG_EMPTY_THRESH_ASSERT_VAL_WDCH : integer;
-  attribute C_PROG_EMPTY_THRESH_ASSERT_VAL_WDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1022;
+  attribute C_PROG_EMPTY_THRESH_ASSERT_VAL_WDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1022;
   attribute C_PROG_EMPTY_THRESH_ASSERT_VAL_WRCH : integer;
-  attribute C_PROG_EMPTY_THRESH_ASSERT_VAL_WRCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1022;
+  attribute C_PROG_EMPTY_THRESH_ASSERT_VAL_WRCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1022;
   attribute C_PROG_EMPTY_THRESH_NEGATE_VAL : integer;
-  attribute C_PROG_EMPTY_THRESH_NEGATE_VAL of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 3;
+  attribute C_PROG_EMPTY_THRESH_NEGATE_VAL of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 3;
   attribute C_PROG_EMPTY_TYPE : integer;
-  attribute C_PROG_EMPTY_TYPE of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_PROG_EMPTY_TYPE of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_PROG_EMPTY_TYPE_AXIS : integer;
-  attribute C_PROG_EMPTY_TYPE_AXIS of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_PROG_EMPTY_TYPE_AXIS of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_PROG_EMPTY_TYPE_RACH : integer;
-  attribute C_PROG_EMPTY_TYPE_RACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_PROG_EMPTY_TYPE_RACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_PROG_EMPTY_TYPE_RDCH : integer;
-  attribute C_PROG_EMPTY_TYPE_RDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_PROG_EMPTY_TYPE_RDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_PROG_EMPTY_TYPE_WACH : integer;
-  attribute C_PROG_EMPTY_TYPE_WACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_PROG_EMPTY_TYPE_WACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_PROG_EMPTY_TYPE_WDCH : integer;
-  attribute C_PROG_EMPTY_TYPE_WDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_PROG_EMPTY_TYPE_WDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_PROG_EMPTY_TYPE_WRCH : integer;
-  attribute C_PROG_EMPTY_TYPE_WRCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_PROG_EMPTY_TYPE_WRCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_PROG_FULL_THRESH_ASSERT_VAL : integer;
-  attribute C_PROG_FULL_THRESH_ASSERT_VAL of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 2046;
+  attribute C_PROG_FULL_THRESH_ASSERT_VAL of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 2046;
   attribute C_PROG_FULL_THRESH_ASSERT_VAL_AXIS : integer;
-  attribute C_PROG_FULL_THRESH_ASSERT_VAL_AXIS of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1023;
+  attribute C_PROG_FULL_THRESH_ASSERT_VAL_AXIS of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1023;
   attribute C_PROG_FULL_THRESH_ASSERT_VAL_RACH : integer;
-  attribute C_PROG_FULL_THRESH_ASSERT_VAL_RACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1023;
+  attribute C_PROG_FULL_THRESH_ASSERT_VAL_RACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1023;
   attribute C_PROG_FULL_THRESH_ASSERT_VAL_RDCH : integer;
-  attribute C_PROG_FULL_THRESH_ASSERT_VAL_RDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1023;
+  attribute C_PROG_FULL_THRESH_ASSERT_VAL_RDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1023;
   attribute C_PROG_FULL_THRESH_ASSERT_VAL_WACH : integer;
-  attribute C_PROG_FULL_THRESH_ASSERT_VAL_WACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1023;
+  attribute C_PROG_FULL_THRESH_ASSERT_VAL_WACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1023;
   attribute C_PROG_FULL_THRESH_ASSERT_VAL_WDCH : integer;
-  attribute C_PROG_FULL_THRESH_ASSERT_VAL_WDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1023;
+  attribute C_PROG_FULL_THRESH_ASSERT_VAL_WDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1023;
   attribute C_PROG_FULL_THRESH_ASSERT_VAL_WRCH : integer;
-  attribute C_PROG_FULL_THRESH_ASSERT_VAL_WRCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1023;
+  attribute C_PROG_FULL_THRESH_ASSERT_VAL_WRCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1023;
   attribute C_PROG_FULL_THRESH_NEGATE_VAL : integer;
-  attribute C_PROG_FULL_THRESH_NEGATE_VAL of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 2045;
+  attribute C_PROG_FULL_THRESH_NEGATE_VAL of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 2045;
   attribute C_PROG_FULL_TYPE : integer;
-  attribute C_PROG_FULL_TYPE of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_PROG_FULL_TYPE of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_PROG_FULL_TYPE_AXIS : integer;
-  attribute C_PROG_FULL_TYPE_AXIS of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_PROG_FULL_TYPE_AXIS of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_PROG_FULL_TYPE_RACH : integer;
-  attribute C_PROG_FULL_TYPE_RACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_PROG_FULL_TYPE_RACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_PROG_FULL_TYPE_RDCH : integer;
-  attribute C_PROG_FULL_TYPE_RDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_PROG_FULL_TYPE_RDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_PROG_FULL_TYPE_WACH : integer;
-  attribute C_PROG_FULL_TYPE_WACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_PROG_FULL_TYPE_WACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_PROG_FULL_TYPE_WDCH : integer;
-  attribute C_PROG_FULL_TYPE_WDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_PROG_FULL_TYPE_WDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_PROG_FULL_TYPE_WRCH : integer;
-  attribute C_PROG_FULL_TYPE_WRCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_PROG_FULL_TYPE_WRCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_RACH_TYPE : integer;
-  attribute C_RACH_TYPE of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_RACH_TYPE of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_RDCH_TYPE : integer;
-  attribute C_RDCH_TYPE of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_RDCH_TYPE of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_RD_DATA_COUNT_WIDTH : integer;
-  attribute C_RD_DATA_COUNT_WIDTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 11;
+  attribute C_RD_DATA_COUNT_WIDTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 11;
   attribute C_RD_DEPTH : integer;
-  attribute C_RD_DEPTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 2048;
+  attribute C_RD_DEPTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 2048;
   attribute C_RD_FREQ : integer;
-  attribute C_RD_FREQ of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_RD_FREQ of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_RD_PNTR_WIDTH : integer;
-  attribute C_RD_PNTR_WIDTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 11;
+  attribute C_RD_PNTR_WIDTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 11;
   attribute C_REG_SLICE_MODE_AXIS : integer;
-  attribute C_REG_SLICE_MODE_AXIS of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_REG_SLICE_MODE_AXIS of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_REG_SLICE_MODE_RACH : integer;
-  attribute C_REG_SLICE_MODE_RACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_REG_SLICE_MODE_RACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_REG_SLICE_MODE_RDCH : integer;
-  attribute C_REG_SLICE_MODE_RDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_REG_SLICE_MODE_RDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_REG_SLICE_MODE_WACH : integer;
-  attribute C_REG_SLICE_MODE_WACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_REG_SLICE_MODE_WACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_REG_SLICE_MODE_WDCH : integer;
-  attribute C_REG_SLICE_MODE_WDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_REG_SLICE_MODE_WDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_REG_SLICE_MODE_WRCH : integer;
-  attribute C_REG_SLICE_MODE_WRCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_REG_SLICE_MODE_WRCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_SELECT_XPM : integer;
-  attribute C_SELECT_XPM of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_SELECT_XPM of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_SYNCHRONIZER_STAGE : integer;
-  attribute C_SYNCHRONIZER_STAGE of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 2;
+  attribute C_SYNCHRONIZER_STAGE of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 2;
   attribute C_UNDERFLOW_LOW : integer;
-  attribute C_UNDERFLOW_LOW of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_UNDERFLOW_LOW of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_USE_COMMON_OVERFLOW : integer;
-  attribute C_USE_COMMON_OVERFLOW of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_USE_COMMON_OVERFLOW of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_USE_COMMON_UNDERFLOW : integer;
-  attribute C_USE_COMMON_UNDERFLOW of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_USE_COMMON_UNDERFLOW of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_USE_DEFAULT_SETTINGS : integer;
-  attribute C_USE_DEFAULT_SETTINGS of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_USE_DEFAULT_SETTINGS of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_USE_DOUT_RST : integer;
-  attribute C_USE_DOUT_RST of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_USE_DOUT_RST of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_USE_ECC : integer;
-  attribute C_USE_ECC of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_USE_ECC of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_USE_ECC_AXIS : integer;
-  attribute C_USE_ECC_AXIS of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_USE_ECC_AXIS of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_USE_ECC_RACH : integer;
-  attribute C_USE_ECC_RACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_USE_ECC_RACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_USE_ECC_RDCH : integer;
-  attribute C_USE_ECC_RDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_USE_ECC_RDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_USE_ECC_WACH : integer;
-  attribute C_USE_ECC_WACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_USE_ECC_WACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_USE_ECC_WDCH : integer;
-  attribute C_USE_ECC_WDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_USE_ECC_WDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_USE_ECC_WRCH : integer;
-  attribute C_USE_ECC_WRCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_USE_ECC_WRCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_USE_EMBEDDED_REG : integer;
-  attribute C_USE_EMBEDDED_REG of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_USE_EMBEDDED_REG of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_USE_FIFO16_FLAGS : integer;
-  attribute C_USE_FIFO16_FLAGS of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_USE_FIFO16_FLAGS of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_USE_FWFT_DATA_COUNT : integer;
-  attribute C_USE_FWFT_DATA_COUNT of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_USE_FWFT_DATA_COUNT of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_USE_PIPELINE_REG : integer;
-  attribute C_USE_PIPELINE_REG of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_USE_PIPELINE_REG of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_VALID_LOW : integer;
-  attribute C_VALID_LOW of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_VALID_LOW of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_WACH_TYPE : integer;
-  attribute C_WACH_TYPE of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_WACH_TYPE of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_WDCH_TYPE : integer;
-  attribute C_WDCH_TYPE of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_WDCH_TYPE of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_WRCH_TYPE : integer;
-  attribute C_WRCH_TYPE of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_WRCH_TYPE of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_WR_ACK_LOW : integer;
-  attribute C_WR_ACK_LOW of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 0;
+  attribute C_WR_ACK_LOW of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 0;
   attribute C_WR_DATA_COUNT_WIDTH : integer;
-  attribute C_WR_DATA_COUNT_WIDTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 11;
+  attribute C_WR_DATA_COUNT_WIDTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 11;
   attribute C_WR_DEPTH : integer;
-  attribute C_WR_DEPTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 2048;
+  attribute C_WR_DEPTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 2048;
   attribute C_WR_DEPTH_AXIS : integer;
-  attribute C_WR_DEPTH_AXIS of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1024;
+  attribute C_WR_DEPTH_AXIS of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1024;
   attribute C_WR_DEPTH_RACH : integer;
-  attribute C_WR_DEPTH_RACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 16;
+  attribute C_WR_DEPTH_RACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 16;
   attribute C_WR_DEPTH_RDCH : integer;
-  attribute C_WR_DEPTH_RDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1024;
+  attribute C_WR_DEPTH_RDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1024;
   attribute C_WR_DEPTH_WACH : integer;
-  attribute C_WR_DEPTH_WACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 16;
+  attribute C_WR_DEPTH_WACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 16;
   attribute C_WR_DEPTH_WDCH : integer;
-  attribute C_WR_DEPTH_WDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1024;
+  attribute C_WR_DEPTH_WDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1024;
   attribute C_WR_DEPTH_WRCH : integer;
-  attribute C_WR_DEPTH_WRCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 16;
+  attribute C_WR_DEPTH_WRCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 16;
   attribute C_WR_FREQ : integer;
-  attribute C_WR_FREQ of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_WR_FREQ of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute C_WR_PNTR_WIDTH : integer;
-  attribute C_WR_PNTR_WIDTH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 11;
+  attribute C_WR_PNTR_WIDTH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 11;
   attribute C_WR_PNTR_WIDTH_AXIS : integer;
-  attribute C_WR_PNTR_WIDTH_AXIS of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 10;
+  attribute C_WR_PNTR_WIDTH_AXIS of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 10;
   attribute C_WR_PNTR_WIDTH_RACH : integer;
-  attribute C_WR_PNTR_WIDTH_RACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 4;
+  attribute C_WR_PNTR_WIDTH_RACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 4;
   attribute C_WR_PNTR_WIDTH_RDCH : integer;
-  attribute C_WR_PNTR_WIDTH_RDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 10;
+  attribute C_WR_PNTR_WIDTH_RDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 10;
   attribute C_WR_PNTR_WIDTH_WACH : integer;
-  attribute C_WR_PNTR_WIDTH_WACH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 4;
+  attribute C_WR_PNTR_WIDTH_WACH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 4;
   attribute C_WR_PNTR_WIDTH_WDCH : integer;
-  attribute C_WR_PNTR_WIDTH_WDCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 10;
+  attribute C_WR_PNTR_WIDTH_WDCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 10;
   attribute C_WR_PNTR_WIDTH_WRCH : integer;
-  attribute C_WR_PNTR_WIDTH_WRCH of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 4;
+  attribute C_WR_PNTR_WIDTH_WRCH of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 4;
   attribute C_WR_RESPONSE_LATENCY : integer;
-  attribute C_WR_RESPONSE_LATENCY of fifo_maxtrix_fifo_generator_v13_2_2 : entity is 1;
+  attribute C_WR_RESPONSE_LATENCY of fifo_maxtrix_fifo_generator_v13_2_5 : entity is 1;
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of fifo_maxtrix_fifo_generator_v13_2_2 : entity is "fifo_generator_v13_2_2";
-end fifo_maxtrix_fifo_generator_v13_2_2;
+  attribute ORIG_REF_NAME of fifo_maxtrix_fifo_generator_v13_2_5 : entity is "fifo_generator_v13_2_5";
+end fifo_maxtrix_fifo_generator_v13_2_5;
 
-architecture STRUCTURE of fifo_maxtrix_fifo_generator_v13_2_2 is
+architecture STRUCTURE of fifo_maxtrix_fifo_generator_v13_2_5 is
   signal \<const0>\ : STD_LOGIC;
   signal \<const1>\ : STD_LOGIC;
 begin
@@ -3539,7 +3576,7 @@ VCC: unisim.vcomponents.VCC
      port map (
       P => \<const1>\
     );
-inst_fifo_gen: entity work.fifo_maxtrix_fifo_generator_v13_2_2_synth
+inst_fifo_gen: entity work.fifo_maxtrix_fifo_generator_v13_2_5_synth
      port map (
       clk => clk,
       din(12 downto 0) => din(12 downto 0),
@@ -3569,11 +3606,11 @@ entity fifo_maxtrix is
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of fifo_maxtrix : entity is true;
   attribute CHECK_LICENSE_TYPE : string;
-  attribute CHECK_LICENSE_TYPE of fifo_maxtrix : entity is "fifo_maxtrix,fifo_generator_v13_2_2,{}";
+  attribute CHECK_LICENSE_TYPE of fifo_maxtrix : entity is "fifo_maxtrix,fifo_generator_v13_2_5,{}";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of fifo_maxtrix : entity is "yes";
   attribute x_core_info : string;
-  attribute x_core_info of fifo_maxtrix : entity is "fifo_generator_v13_2_2,Vivado 2018.2";
+  attribute x_core_info of fifo_maxtrix : entity is "fifo_generator_v13_2_5,Vivado 2019.2";
 end fifo_maxtrix;
 
 architecture STRUCTURE of fifo_maxtrix is
@@ -4107,7 +4144,7 @@ architecture STRUCTURE of fifo_maxtrix is
   attribute x_interface_info : string;
   attribute x_interface_info of clk : signal is "xilinx.com:signal:clock:1.0 core_clk CLK";
   attribute x_interface_parameter : string;
-  attribute x_interface_parameter of clk : signal is "XIL_INTERFACENAME core_clk, FREQ_HZ 100000000, PHASE 0.000";
+  attribute x_interface_parameter of clk : signal is "XIL_INTERFACENAME core_clk, FREQ_HZ 100000000, PHASE 0.000, INSERT_VIP 0";
   attribute x_interface_info of empty : signal is "xilinx.com:interface:fifo_read:1.0 FIFO_READ EMPTY";
   attribute x_interface_info of full : signal is "xilinx.com:interface:fifo_write:1.0 FIFO_WRITE FULL";
   attribute x_interface_info of rd_en : signal is "xilinx.com:interface:fifo_read:1.0 FIFO_READ RD_EN";
@@ -4115,7 +4152,7 @@ architecture STRUCTURE of fifo_maxtrix is
   attribute x_interface_info of din : signal is "xilinx.com:interface:fifo_write:1.0 FIFO_WRITE WR_DATA";
   attribute x_interface_info of dout : signal is "xilinx.com:interface:fifo_read:1.0 FIFO_READ RD_DATA";
 begin
-U0: entity work.fifo_maxtrix_fifo_generator_v13_2_2
+U0: entity work.fifo_maxtrix_fifo_generator_v13_2_5
      port map (
       almost_empty => NLW_U0_almost_empty_UNCONNECTED,
       almost_full => NLW_U0_almost_full_UNCONNECTED,

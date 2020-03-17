@@ -31,6 +31,7 @@ set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_repo_paths e:/ip [current_project]
+update_ip_catalog
 set_property ip_output_repo e:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_ip -quiet E:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0.xci
@@ -48,9 +49,9 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 }
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
-set_param ips.enableIPCacheLiteLoad 0
+set_param ips.enableIPCacheLiteLoad 1
 
-set cached_ip [config_ip_cache -export -no_bom -use_project_ipc -dir E:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.runs/design_1_clk_wiz_0_0_synth_1 -new_name design_1_clk_wiz_0_0 -ip [get_ips design_1_clk_wiz_0_0]]
+set cached_ip [config_ip_cache -export -no_bom  -dir E:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.runs/design_1_clk_wiz_0_0_synth_1 -new_name design_1_clk_wiz_0_0 -ip [get_ips design_1_clk_wiz_0_0]]
 
 if { $cached_ip eq {} } {
 close [open __synthesis_is_running__ w]

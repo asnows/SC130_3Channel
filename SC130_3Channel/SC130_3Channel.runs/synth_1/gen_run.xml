@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1583196781">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1584429328">
   <File Type="PA-TCL" Name="top.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="top_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="top_reports.tcl"/>
@@ -11,24 +11,6 @@
   <File Type="VDS-TIMING-PB" Name="top_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/ip/maxtri7x7_shift_ram_0/maxtri7x7_shift_ram_0.xci">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../../prj_sc030_V2.0_emmc/prj_ocr/prj_ocr.srcs/sources_1/ip/maxtri7x7_shift_ram_0/maxtri7x7_shift_ram_0.xci"/>
-        <Attr Name="ImportTime" Val="1543461083"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/ip/normalize_bram/normalize_bram.xci">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../../prj_sc030_V2.0_emmc/prj_ocr/prj_ocr.srcs/sources_1/ip/normalize_bram/normalize_bram.xci"/>
-        <Attr Name="ImportTime" Val="1539056031"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/bd/design_1/design_1.bd">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../../T6/T6/T6.srcs/sources_1/bd/design_1/design_1.bd"/>
@@ -230,7 +212,7 @@
     <File Path="$PSRCDIR/sources_1/imports/hdl/design_1_wrapper.v">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PSRCDIR/sources_1/bd/design_1/hdl/design_1_wrapper.v"/>
-        <Attr Name="ImportTime" Val="1583196553"/>
+        <Attr Name="ImportTime" Val="1584427666"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -256,29 +238,38 @@
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>
   </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
   <Strategy Version="1" Minor="2">
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2015"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_auto_pc_3"/>
-  <BlockFileSet Type="BlockSrcs" Name="gray_count_bram"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_axi_vdma_0_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_axi_vdma_1_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="fifo_generator_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="axis_dwidth_converter_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_clk_wiz_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_axi_vdma_imgCapture1_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="fifo_maxtrix"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_axi_vdma_imgCapture_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_processing_system7_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_rst_processing_system7_0_100M_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_axi_vdma_0_2"/>
+  <BlockFileSet Type="BlockSrcs" Name="fifo_maxtrix"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_axi_vdma_imgCapture1_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_axi_gpio_0_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_xbar_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_xbar_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_xbar_3"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_clk_wiz_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_axi_vdma_0_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_axi_vdma_1_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="maxtri7x7_shift_ram_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_axi_vdma_0_2"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_xbar_2"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_axi_vdma_imgCapture_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_auto_pc_4"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_auto_pc_2"/>
-  <BlockFileSet Type="BlockSrcs" Name="design_1_auto_pc_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_xbar_4"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_auto_pc_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_auto_pc_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_auto_pc_2"/>
+  <BlockFileSet Type="BlockSrcs" Name="gray_count_bram"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_auto_pc_3"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_auto_pc_4"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_axi_gpio_2_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="normalize_bram"/>
+  <BlockFileSet Type="BlockSrcs" Name="fifo_generator_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="axis_dwidth_converter_0"/>
 </GenRun>

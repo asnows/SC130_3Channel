@@ -1,7 +1,7 @@
-Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Tue Mar  3 09:04:19 2020
+| Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+| Date         : Tue Mar 17 15:12:25 2020
 | Host         : VT2OB6D7ZB52FZ0 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
 | Design       : top
@@ -30,15 +30,15 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                | 4260 |     0 |     53200 |  8.01 |
-|   LUT as Logic             | 4199 |     0 |     53200 |  7.89 |
-|   LUT as Memory            |   61 |     0 |     17400 |  0.35 |
+| Slice LUTs*                | 3994 |     0 |     53200 |  7.51 |
+|   LUT as Logic             | 3899 |     0 |     53200 |  7.33 |
+|   LUT as Memory            |   95 |     0 |     17400 |  0.55 |
 |     LUT as Distributed RAM |    0 |     0 |           |       |
-|     LUT as Shift Register  |   61 |     0 |           |       |
-| Slice Registers            | 4393 |     0 |    106400 |  4.13 |
-|   Register as Flip Flop    | 4393 |     0 |    106400 |  4.13 |
+|     LUT as Shift Register  |   95 |     0 |           |       |
+| Slice Registers            | 4240 |     0 |    106400 |  3.98 |
+|   Register as Flip Flop    | 4240 |     0 |    106400 |  3.98 |
 |   Register as Latch        |    0 |     0 |    106400 |  0.00 |
-| F7 Muxes                   |   68 |     0 |     26600 |  0.26 |
+| F7 Muxes                   |   64 |     0 |     26600 |  0.24 |
 | F8 Muxes                   |    0 |     0 |     13300 |  0.00 |
 +----------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -58,8 +58,8 @@ Table of Contents
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
-| 24    |          Yes |         Set |            - |
-| 4369  |          Yes |       Reset |            - |
+| 17    |          Yes |         Set |            - |
+| 4223  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -149,18 +149,18 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     | 4369 |        Flop & Latch |
-| LUT2     | 1696 |                 LUT |
-| LUT3     | 1187 |                 LUT |
-| LUT4     | 1081 |                 LUT |
-| CARRY4   |  771 |          CarryLogic |
-| LUT6     |  646 |                 LUT |
-| LUT5     |  621 |                 LUT |
-| LUT1     |  150 |                 LUT |
-| MUXF7    |   68 |               MuxFx |
-| SRL16E   |   61 |  Distributed Memory |
-| FDSE     |   24 |        Flop & Latch |
+| FDRE     | 4223 |        Flop & Latch |
+| LUT2     | 1552 |                 LUT |
+| LUT4     | 1048 |                 LUT |
+| LUT3     | 1030 |                 LUT |
+| CARRY4   |  747 |          CarryLogic |
+| LUT6     |  619 |                 LUT |
+| LUT5     |  572 |                 LUT |
+| LUT1     |  151 |                 LUT |
+| SRL16E   |   95 |  Distributed Memory |
+| MUXF7    |   64 |               MuxFx |
 | IBUF     |   17 |                  IO |
+| FDSE     |   17 |        Flop & Latch |
 | OBUF     |    5 |                  IO |
 | OBUFT    |    3 |                  IO |
 | DSP48E1  |    2 |    Block Arithmetic |
@@ -178,9 +178,9 @@ Table of Contents
 | normalize_bram                           |    1 |
 | gray_count_bram                          |    1 |
 | fifo_generator_0                         |    1 |
+| design_1_xbar_4                          |    1 |
+| design_1_xbar_3                          |    1 |
 | design_1_xbar_2                          |    1 |
-| design_1_xbar_1                          |    1 |
-| design_1_xbar_0                          |    1 |
 | design_1_rst_processing_system7_0_100M_0 |    1 |
 | design_1_processing_system7_0_0          |    1 |
 | design_1_clk_wiz_0_0                     |    1 |
@@ -189,7 +189,9 @@ Table of Contents
 | design_1_axi_vdma_1_0                    |    1 |
 | design_1_axi_vdma_0_2                    |    1 |
 | design_1_axi_vdma_0_1                    |    1 |
+| design_1_axi_gpio_2_0                    |    1 |
 | design_1_axi_gpio_0_1                    |    1 |
+| design_1_axi_gpio_0_0                    |    1 |
 | design_1_auto_pc_4                       |    1 |
 | design_1_auto_pc_3                       |    1 |
 | design_1_auto_pc_2                       |    1 |

@@ -1,6 +1,0 @@
-verilog xil_defaultlib  \
-"../../../../prj_ocr.srcs/sources_1/ip/gray_count_bram/sim/gray_count_bram.v" \
-
-verilog xil_defaultlib "glbl.v"
-
-nosort

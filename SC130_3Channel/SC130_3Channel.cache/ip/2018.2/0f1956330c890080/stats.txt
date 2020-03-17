@@ -1,4 +1,0 @@
-NumberHits:1
-Timestamp: Tue Mar 03 01:02:09 UTC 2020
-VLNV: xilinx.com:ip:axi_vdma:6.3
-SynthRuntime: 363

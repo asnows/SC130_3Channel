@@ -1,10 +1,10 @@
-// Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+// Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-// Date        : Fri Apr 19 16:27:47 2019
-// Host        : PS-03 running 64-bit major release  (build 9200)
+// Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+// Date        : Tue Mar 17 14:56:24 2020
+// Host        : VT2OB6D7ZB52FZ0 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
-//               D:/Program/FPGA/WORKING/prj_sc130/prj_sc130.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0_stub.v
+//               E:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/ip/fifo_generator_0/fifo_generator_0_stub.v
 // Design      : fifo_generator_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg400-1
@@ -13,7 +13,7 @@
 // This empty module with port declaration file causes synthesis tools to infer a black box for IP.
 // The synthesis directives are for Synopsys Synplify support to prevent IO buffer insertion.
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
-(* x_core_info = "fifo_generator_v13_2_2,Vivado 2018.2" *)
+(* x_core_info = "fifo_generator_v13_2_5,Vivado 2019.2" *)
 module fifo_generator_0(m_aclk, s_aclk, s_aresetn, s_axis_tvalid, 
   s_axis_tready, s_axis_tdata, s_axis_tlast, s_axis_tuser, m_axis_tvalid, m_axis_tready, 
   m_axis_tdata, m_axis_tlast, m_axis_tuser)

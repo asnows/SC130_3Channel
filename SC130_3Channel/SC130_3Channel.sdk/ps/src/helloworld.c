@@ -58,12 +58,37 @@ int main()
     //print("Hello World\n\r");
     //Image_init();
 
-    p_dptr = 0x43000000;
+
 
 
 
         print("Hello World\n\r");
-        *p_dptr = 0x00FF;
+        p_dptr = 0x43c00000;
+		for(int i=0;i<16;i++)
+		{
+
+			printf("p_dptr = %x\n\r",*p_dptr);
+			p_dptr ++;
+
+		}
+
+		p_dptr = 0x43c00000;
+        for(int i=0;i<16;i++)
+        {
+        	*p_dptr = i;
+        	p_dptr ++;
+
+        }
+
+        p_dptr = 0x43c00000;
+        for(int i=0;i<16;i++)
+        {
+
+        	printf("p_dptr = %x\n\r",*p_dptr);
+        	p_dptr ++;
+
+        }
+
 
         //*((unsigned int * )0x4C300000) = 0x00FF;
 

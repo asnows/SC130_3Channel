@@ -1,10 +1,10 @@
--- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+-- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
--- Date        : Fri Apr 19 16:27:48 2019
--- Host        : PS-03 running 64-bit major release  (build 9200)
+-- Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+-- Date        : Tue Mar 17 14:56:24 2020
+-- Host        : VT2OB6D7ZB52FZ0 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
---               D:/Program/FPGA/WORKING/prj_sc130/prj_sc130.srcs/sources_1/ip/axis_dwidth_converter_0/axis_dwidth_converter_0_sim_netlist.vhdl
+--               E:/WorkSpace/project/FPGA/SC130_3Channel/SC130_3Channel/SC130_3Channel.srcs/sources_1/ip/axis_dwidth_converter_0/axis_dwidth_converter_0_sim_netlist.vhdl
 -- Design      : axis_dwidth_converter_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -14,12 +14,12 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axisc_upsizer is
+entity axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axisc_upsizer is
   port (
     m_axis_tkeep : out STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axis_tlast : out STD_LOGIC;
-    m_axis_tvalid : out STD_LOGIC;
-    s_axis_tready : out STD_LOGIC;
+    \state_reg[1]_0\ : out STD_LOGIC;
+    \state_reg[0]_0\ : out STD_LOGIC;
     m_axis_tdata : out STD_LOGIC_VECTOR ( 127 downto 0 );
     m_axis_tuser : out STD_LOGIC_VECTOR ( 15 downto 0 );
     s_axis_tlast : in STD_LOGIC;
@@ -32,10 +32,10 @@ entity axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axisc_upsizer is
     s_axis_tvalid : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axisc_upsizer : entity is "axis_dwidth_converter_v1_1_16_axisc_upsizer";
-end axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axisc_upsizer;
+  attribute ORIG_REF_NAME of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axisc_upsizer : entity is "axis_dwidth_converter_v1_1_19_axisc_upsizer";
+end axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axisc_upsizer;
 
-architecture STRUCTURE of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axisc_upsizer is
+architecture STRUCTURE of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axisc_upsizer is
   signal acc_data : STD_LOGIC;
   signal \acc_data[127]_i_1_n_0\ : STD_LOGIC;
   signal \acc_keep[15]_i_2_n_0\ : STD_LOGIC;
@@ -49,7 +49,6 @@ architecture STRUCTURE of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_
   signal \gen_data_accumulator[2].acc_keep[11]_i_1_n_0\ : STD_LOGIC;
   signal \^m_axis_tkeep\ : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal \^m_axis_tlast\ : STD_LOGIC;
-  signal \^m_axis_tvalid\ : STD_LOGIC;
   signal p_1_in2_in : STD_LOGIC;
   signal r0_data : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal r0_last : STD_LOGIC;
@@ -64,7 +63,6 @@ architecture STRUCTURE of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_
   signal \r0_reg_sel_reg_n_0_[1]\ : STD_LOGIC;
   signal \r0_reg_sel_reg_n_0_[2]\ : STD_LOGIC;
   signal r0_user : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal \^s_axis_tready\ : STD_LOGIC;
   signal state : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \state[0]_i_1_n_0\ : STD_LOGIC;
   signal \state[1]_i_1_n_0\ : STD_LOGIC;
@@ -72,12 +70,14 @@ architecture STRUCTURE of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_
   signal \state[2]_i_1_n_0\ : STD_LOGIC;
   signal \state[2]_i_2_n_0\ : STD_LOGIC;
   signal \state[2]_i_3_n_0\ : STD_LOGIC;
+  signal \^state_reg[0]_0\ : STD_LOGIC;
+  signal \^state_reg[1]_0\ : STD_LOGIC;
   signal \state_reg_n_0_[2]\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
   attribute SOFT_HLUTNM of \gen_data_accumulator[1].acc_keep[7]_i_1\ : label is "soft_lutpair1";
   attribute SOFT_HLUTNM of \gen_data_accumulator[2].acc_keep[11]_i_1\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \r0_reg_sel[1]_i_1\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \r0_reg_sel[2]_i_1\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \r0_reg_sel[3]_i_1\ : label is "soft_lutpair0";
   attribute FSM_ENCODING : string;
   attribute FSM_ENCODING of \state_reg[0]\ : label is "none";
   attribute FSM_ENCODING of \state_reg[1]\ : label is "none";
@@ -85,16 +85,16 @@ architecture STRUCTURE of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_
 begin
   m_axis_tkeep(2 downto 0) <= \^m_axis_tkeep\(2 downto 0);
   m_axis_tlast <= \^m_axis_tlast\;
-  m_axis_tvalid <= \^m_axis_tvalid\;
-  s_axis_tready <= \^s_axis_tready\;
+  \state_reg[0]_0\ <= \^state_reg[0]_0\;
+  \state_reg[1]_0\ <= \^state_reg[1]_0\;
 \acc_data[127]_i_1\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"08"
     )
         port map (
       I0 => aclken,
-      I1 => \^s_axis_tready\,
-      I2 => \^m_axis_tvalid\,
+      I1 => \^state_reg[0]_0\,
+      I2 => \^state_reg[1]_0\,
       O => \acc_data[127]_i_1_n_0\
     );
 \acc_data[31]_i_1\: unisim.vcomponents.LUT5
@@ -102,9 +102,9 @@ begin
       INIT => X"40000000"
     )
         port map (
-      I0 => \^m_axis_tvalid\,
+      I0 => \^state_reg[1]_0\,
       I1 => \state_reg_n_0_[2]\,
-      I2 => \^s_axis_tready\,
+      I2 => \^state_reg[0]_0\,
       I3 => aclken,
       I4 => \r0_reg_sel_reg_n_0_[0]\,
       O => acc_data
@@ -626,12 +626,12 @@ begin
       INIT => X"BF15FF00FF00FF00"
     )
         port map (
-      I0 => \^m_axis_tvalid\,
+      I0 => \^state_reg[1]_0\,
       I1 => r0_last_reg_n_0,
       I2 => \state_reg_n_0_[2]\,
       I3 => \^m_axis_tkeep\(2),
       I4 => aclken,
-      I5 => \^s_axis_tready\,
+      I5 => \^state_reg[0]_0\,
       O => \acc_keep[15]_i_2_n_0\
     );
 \acc_keep[15]_i_3\: unisim.vcomponents.LUT5
@@ -639,11 +639,11 @@ begin
       INIT => X"B1F0F0F0"
     )
         port map (
-      I0 => \^m_axis_tvalid\,
+      I0 => \^state_reg[1]_0\,
       I1 => \state_reg_n_0_[2]\,
       I2 => \^m_axis_tkeep\(2),
       I3 => aclken,
-      I4 => \^s_axis_tready\,
+      I4 => \^state_reg[0]_0\,
       O => \acc_keep[15]_i_3_n_0\
     );
 \acc_keep_reg[15]\: unisim.vcomponents.FDRE
@@ -666,9 +666,9 @@ acc_last_i_1: unisim.vcomponents.LUT6
       INIT => X"FFFFFFFF40000000"
     )
         port map (
-      I0 => \^m_axis_tvalid\,
+      I0 => \^state_reg[1]_0\,
       I1 => aclken,
-      I2 => \^s_axis_tready\,
+      I2 => \^state_reg[0]_0\,
       I3 => r0_last_reg_n_0,
       I4 => \state_reg_n_0_[2]\,
       I5 => acc_last_i_2_n_0,
@@ -681,7 +681,7 @@ acc_last_i_2: unisim.vcomponents.LUT5
         port map (
       I0 => s_axis_tlast,
       I1 => \state_reg_n_0_[2]\,
-      I2 => \^m_axis_tvalid\,
+      I2 => \^state_reg[1]_0\,
       I3 => aclken,
       I4 => \^m_axis_tlast\,
       O => acc_last_i_2_n_0
@@ -763,9 +763,9 @@ acc_last_reg: unisim.vcomponents.FDRE
       INIT => X"40000000"
     )
         port map (
-      I0 => \^m_axis_tvalid\,
+      I0 => \^state_reg[1]_0\,
       I1 => \state_reg_n_0_[2]\,
-      I2 => \^s_axis_tready\,
+      I2 => \^state_reg[0]_0\,
       I3 => aclken,
       I4 => \r0_reg_sel_reg_n_0_[1]\,
       O => \gen_data_accumulator[1].acc_data[63]_i_1_n_0\
@@ -1083,9 +1083,9 @@ acc_last_reg: unisim.vcomponents.FDRE
         port map (
       I0 => aclken,
       I1 => \r0_reg_sel_reg_n_0_[2]\,
-      I2 => \^s_axis_tready\,
+      I2 => \^state_reg[0]_0\,
       I3 => \state_reg_n_0_[2]\,
-      I4 => \^m_axis_tvalid\,
+      I4 => \^state_reg[1]_0\,
       O => \gen_data_accumulator[2].acc_data[95]_i_1_n_0\
     );
 \gen_data_accumulator[2].acc_data_reg[64]\: unisim.vcomponents.FDRE
@@ -1399,7 +1399,7 @@ acc_last_reg: unisim.vcomponents.FDRE
       INIT => X"8"
     )
         port map (
-      I0 => \^s_axis_tready\,
+      I0 => \^state_reg[0]_0\,
       I1 => aclken,
       O => r0_last
     );
@@ -1675,7 +1675,7 @@ r0_last_reg: unisim.vcomponents.FDRE
       I0 => \r0_reg_sel[3]_i_2_n_0\,
       I1 => \r0_reg_sel_reg_n_0_[0]\,
       I2 => areset_r,
-      I3 => \^m_axis_tvalid\,
+      I3 => \^state_reg[1]_0\,
       I4 => aclken,
       I5 => m_axis_tready,
       O => \r0_reg_sel[0]_i_1_n_0\
@@ -1719,9 +1719,9 @@ r0_last_reg: unisim.vcomponents.FDRE
     )
         port map (
       I0 => aclken,
-      I1 => \^s_axis_tready\,
+      I1 => \^state_reg[0]_0\,
       I2 => \state_reg_n_0_[2]\,
-      I3 => \^m_axis_tvalid\,
+      I3 => \^state_reg[1]_0\,
       O => \r0_reg_sel[3]_i_2_n_0\
     );
 \r0_reg_sel[3]_i_3\: unisim.vcomponents.LUT4
@@ -1731,7 +1731,7 @@ r0_last_reg: unisim.vcomponents.FDRE
         port map (
       I0 => m_axis_tready,
       I1 => aclken,
-      I2 => \^m_axis_tvalid\,
+      I2 => \^state_reg[1]_0\,
       I3 => areset_r,
       O => \r0_reg_sel[3]_i_3_n_0\
     );
@@ -1816,7 +1816,7 @@ r0_last_reg: unisim.vcomponents.FDRE
       INIT => X"00E2"
     )
         port map (
-      I0 => \^s_axis_tready\,
+      I0 => \^state_reg[0]_0\,
       I1 => aclken,
       I2 => state(0),
       I3 => areset_r,
@@ -1828,10 +1828,10 @@ r0_last_reg: unisim.vcomponents.FDRE
     )
         port map (
       I0 => m_axis_tready,
-      I1 => \^m_axis_tvalid\,
+      I1 => \^state_reg[1]_0\,
       I2 => r0_last_reg_n_0,
       I3 => s_axis_tvalid,
-      I4 => \^s_axis_tready\,
+      I4 => \^state_reg[0]_0\,
       I5 => \state_reg_n_0_[2]\,
       O => state(0)
     );
@@ -1840,7 +1840,7 @@ r0_last_reg: unisim.vcomponents.FDRE
       INIT => X"00000000626262EA"
     )
         port map (
-      I0 => \^m_axis_tvalid\,
+      I0 => \^state_reg[1]_0\,
       I1 => aclken,
       I2 => \state[1]_i_2_n_0\,
       I3 => m_axis_tready,
@@ -1858,7 +1858,7 @@ r0_last_reg: unisim.vcomponents.FDRE
       I2 => \state_reg_n_0_[2]\,
       I3 => p_1_in2_in,
       I4 => s_axis_tvalid,
-      I5 => \^s_axis_tready\,
+      I5 => \^state_reg[0]_0\,
       O => \state[1]_i_2_n_0\
     );
 \state[2]_i_1\: unisim.vcomponents.LUT6
@@ -1869,7 +1869,7 @@ r0_last_reg: unisim.vcomponents.FDRE
       I0 => \state_reg_n_0_[2]\,
       I1 => aclken,
       I2 => \state[2]_i_2_n_0\,
-      I3 => \^m_axis_tvalid\,
+      I3 => \^state_reg[1]_0\,
       I4 => \state[2]_i_3_n_0\,
       I5 => areset_r,
       O => \state[2]_i_1_n_0\
@@ -1884,7 +1884,7 @@ r0_last_reg: unisim.vcomponents.FDRE
       I2 => \state_reg_n_0_[2]\,
       I3 => p_1_in2_in,
       I4 => s_axis_tvalid,
-      I5 => \^s_axis_tready\,
+      I5 => \^state_reg[0]_0\,
       O => \state[2]_i_2_n_0\
     );
 \state[2]_i_3\: unisim.vcomponents.LUT4
@@ -1894,7 +1894,7 @@ r0_last_reg: unisim.vcomponents.FDRE
         port map (
       I0 => \state_reg_n_0_[2]\,
       I1 => s_axis_tvalid,
-      I2 => \^s_axis_tready\,
+      I2 => \^state_reg[0]_0\,
       I3 => m_axis_tready,
       O => \state[2]_i_3_n_0\
     );
@@ -1906,7 +1906,7 @@ r0_last_reg: unisim.vcomponents.FDRE
       C => aclk,
       CE => '1',
       D => \state[0]_i_1_n_0\,
-      Q => \^s_axis_tready\,
+      Q => \^state_reg[0]_0\,
       R => '0'
     );
 \state_reg[1]\: unisim.vcomponents.FDRE
@@ -1917,7 +1917,7 @@ r0_last_reg: unisim.vcomponents.FDRE
       C => aclk,
       CE => '1',
       D => \state[1]_i_1_n_0\,
-      Q => \^m_axis_tvalid\,
+      Q => \^state_reg[1]_0\,
       R => '0'
     );
 \state_reg[2]\: unisim.vcomponents.FDRE
@@ -1936,7 +1936,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter is
+entity axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter is
   port (
     aclk : in STD_LOGIC;
     aresetn : in STD_LOGIC;
@@ -1961,86 +1961,86 @@ entity axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_convert
     m_axis_tuser : out STD_LOGIC_VECTOR ( 15 downto 0 )
   );
   attribute C_AXIS_SIGNAL_SET : string;
-  attribute C_AXIS_SIGNAL_SET of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is "32'b00000000000000000000000010010011";
+  attribute C_AXIS_SIGNAL_SET of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is "32'b00000000000000000000000010010011";
   attribute C_AXIS_TDEST_WIDTH : integer;
-  attribute C_AXIS_TDEST_WIDTH of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 1;
+  attribute C_AXIS_TDEST_WIDTH of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 1;
   attribute C_AXIS_TID_WIDTH : integer;
-  attribute C_AXIS_TID_WIDTH of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 1;
+  attribute C_AXIS_TID_WIDTH of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 1;
   attribute C_FAMILY : string;
-  attribute C_FAMILY of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is "zynq";
+  attribute C_FAMILY of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is "zynq";
   attribute C_M_AXIS_TDATA_WIDTH : integer;
-  attribute C_M_AXIS_TDATA_WIDTH of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 128;
+  attribute C_M_AXIS_TDATA_WIDTH of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 128;
   attribute C_M_AXIS_TUSER_WIDTH : integer;
-  attribute C_M_AXIS_TUSER_WIDTH of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 16;
+  attribute C_M_AXIS_TUSER_WIDTH of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 16;
   attribute C_S_AXIS_TDATA_WIDTH : integer;
-  attribute C_S_AXIS_TDATA_WIDTH of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 32;
+  attribute C_S_AXIS_TDATA_WIDTH of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 32;
   attribute C_S_AXIS_TUSER_WIDTH : integer;
-  attribute C_S_AXIS_TUSER_WIDTH of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 4;
+  attribute C_S_AXIS_TUSER_WIDTH of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 4;
   attribute DowngradeIPIdentifiedWarnings : string;
-  attribute DowngradeIPIdentifiedWarnings of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is "yes";
+  attribute DowngradeIPIdentifiedWarnings of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is "yes";
   attribute G_INDX_SS_TDATA : integer;
-  attribute G_INDX_SS_TDATA of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 1;
+  attribute G_INDX_SS_TDATA of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 1;
   attribute G_INDX_SS_TDEST : integer;
-  attribute G_INDX_SS_TDEST of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 6;
+  attribute G_INDX_SS_TDEST of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 6;
   attribute G_INDX_SS_TID : integer;
-  attribute G_INDX_SS_TID of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 5;
+  attribute G_INDX_SS_TID of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 5;
   attribute G_INDX_SS_TKEEP : integer;
-  attribute G_INDX_SS_TKEEP of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 3;
+  attribute G_INDX_SS_TKEEP of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 3;
   attribute G_INDX_SS_TLAST : integer;
-  attribute G_INDX_SS_TLAST of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 4;
+  attribute G_INDX_SS_TLAST of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 4;
   attribute G_INDX_SS_TREADY : integer;
-  attribute G_INDX_SS_TREADY of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 0;
+  attribute G_INDX_SS_TREADY of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 0;
   attribute G_INDX_SS_TSTRB : integer;
-  attribute G_INDX_SS_TSTRB of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 2;
+  attribute G_INDX_SS_TSTRB of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 2;
   attribute G_INDX_SS_TUSER : integer;
-  attribute G_INDX_SS_TUSER of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 7;
+  attribute G_INDX_SS_TUSER of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 7;
   attribute G_MASK_SS_TDATA : integer;
-  attribute G_MASK_SS_TDATA of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 2;
+  attribute G_MASK_SS_TDATA of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 2;
   attribute G_MASK_SS_TDEST : integer;
-  attribute G_MASK_SS_TDEST of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 64;
+  attribute G_MASK_SS_TDEST of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 64;
   attribute G_MASK_SS_TID : integer;
-  attribute G_MASK_SS_TID of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 32;
+  attribute G_MASK_SS_TID of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 32;
   attribute G_MASK_SS_TKEEP : integer;
-  attribute G_MASK_SS_TKEEP of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 8;
+  attribute G_MASK_SS_TKEEP of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 8;
   attribute G_MASK_SS_TLAST : integer;
-  attribute G_MASK_SS_TLAST of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 16;
+  attribute G_MASK_SS_TLAST of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 16;
   attribute G_MASK_SS_TREADY : integer;
-  attribute G_MASK_SS_TREADY of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 1;
+  attribute G_MASK_SS_TREADY of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 1;
   attribute G_MASK_SS_TSTRB : integer;
-  attribute G_MASK_SS_TSTRB of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 4;
+  attribute G_MASK_SS_TSTRB of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 4;
   attribute G_MASK_SS_TUSER : integer;
-  attribute G_MASK_SS_TUSER of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 128;
+  attribute G_MASK_SS_TUSER of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 128;
   attribute G_TASK_SEVERITY_ERR : integer;
-  attribute G_TASK_SEVERITY_ERR of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 2;
+  attribute G_TASK_SEVERITY_ERR of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 2;
   attribute G_TASK_SEVERITY_INFO : integer;
-  attribute G_TASK_SEVERITY_INFO of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 0;
+  attribute G_TASK_SEVERITY_INFO of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 0;
   attribute G_TASK_SEVERITY_WARNING : integer;
-  attribute G_TASK_SEVERITY_WARNING of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 1;
+  attribute G_TASK_SEVERITY_WARNING of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 1;
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is "axis_dwidth_converter_v1_1_16_axis_dwidth_converter";
+  attribute ORIG_REF_NAME of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is "axis_dwidth_converter_v1_1_19_axis_dwidth_converter";
   attribute P_AXIS_SIGNAL_SET : string;
-  attribute P_AXIS_SIGNAL_SET of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is "32'b00000000000000000000000010011011";
+  attribute P_AXIS_SIGNAL_SET of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is "32'b00000000000000000000000010011011";
   attribute P_D1_REG_CONFIG : integer;
-  attribute P_D1_REG_CONFIG of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 0;
+  attribute P_D1_REG_CONFIG of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 0;
   attribute P_D1_TUSER_WIDTH : integer;
-  attribute P_D1_TUSER_WIDTH of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 4;
+  attribute P_D1_TUSER_WIDTH of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 4;
   attribute P_D2_TDATA_WIDTH : integer;
-  attribute P_D2_TDATA_WIDTH of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 128;
+  attribute P_D2_TDATA_WIDTH of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 128;
   attribute P_D2_TUSER_WIDTH : integer;
-  attribute P_D2_TUSER_WIDTH of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 16;
+  attribute P_D2_TUSER_WIDTH of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 16;
   attribute P_D3_REG_CONFIG : integer;
-  attribute P_D3_REG_CONFIG of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 0;
+  attribute P_D3_REG_CONFIG of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 0;
   attribute P_D3_TUSER_WIDTH : integer;
-  attribute P_D3_TUSER_WIDTH of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 16;
+  attribute P_D3_TUSER_WIDTH of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 16;
   attribute P_M_RATIO : integer;
-  attribute P_M_RATIO of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 1;
+  attribute P_M_RATIO of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 1;
   attribute P_SS_TKEEP_REQUIRED : integer;
-  attribute P_SS_TKEEP_REQUIRED of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 8;
+  attribute P_SS_TKEEP_REQUIRED of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 8;
   attribute P_S_RATIO : integer;
-  attribute P_S_RATIO of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter : entity is 4;
-end axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter;
+  attribute P_S_RATIO of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter : entity is 4;
+end axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter;
 
-architecture STRUCTURE of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter is
+architecture STRUCTURE of axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter is
   signal \<const0>\ : STD_LOGIC;
   signal \<const1>\ : STD_LOGIC;
   signal areset_r : STD_LOGIC;
@@ -2108,7 +2108,7 @@ areset_r_reg: unisim.vcomponents.FDRE
       Q => areset_r,
       R => '0'
     );
-\gen_upsizer_conversion.axisc_upsizer_0\: entity work.axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axisc_upsizer
+\gen_upsizer_conversion.axisc_upsizer_0\: entity work.axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axisc_upsizer
      port map (
       aclk => aclk,
       aclken => aclken,
@@ -2120,12 +2120,12 @@ areset_r_reg: unisim.vcomponents.FDRE
       m_axis_tlast => m_axis_tlast,
       m_axis_tready => m_axis_tready,
       m_axis_tuser(15 downto 0) => m_axis_tuser(15 downto 0),
-      m_axis_tvalid => m_axis_tvalid,
       s_axis_tdata(31 downto 0) => s_axis_tdata(31 downto 0),
       s_axis_tlast => s_axis_tlast,
-      s_axis_tready => s_axis_tready,
       s_axis_tuser(3 downto 0) => s_axis_tuser(3 downto 0),
-      s_axis_tvalid => s_axis_tvalid
+      s_axis_tvalid => s_axis_tvalid,
+      \state_reg[0]_0\ => s_axis_tready,
+      \state_reg[1]_0\ => m_axis_tvalid
     );
 end STRUCTURE;
 library IEEE;
@@ -2151,11 +2151,11 @@ entity axis_dwidth_converter_0 is
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of axis_dwidth_converter_0 : entity is true;
   attribute CHECK_LICENSE_TYPE : string;
-  attribute CHECK_LICENSE_TYPE of axis_dwidth_converter_0 : entity is "axis_dwidth_converter_0,axis_dwidth_converter_v1_1_16_axis_dwidth_converter,{}";
+  attribute CHECK_LICENSE_TYPE of axis_dwidth_converter_0 : entity is "axis_dwidth_converter_0,axis_dwidth_converter_v1_1_19_axis_dwidth_converter,{}";
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of axis_dwidth_converter_0 : entity is "yes";
   attribute X_CORE_INFO : string;
-  attribute X_CORE_INFO of axis_dwidth_converter_0 : entity is "axis_dwidth_converter_v1_1_16_axis_dwidth_converter,Vivado 2018.2";
+  attribute X_CORE_INFO of axis_dwidth_converter_0 : entity is "axis_dwidth_converter_v1_1_19_axis_dwidth_converter,Vivado 2019.2";
 end axis_dwidth_converter_0;
 
 architecture STRUCTURE of axis_dwidth_converter_0 is
@@ -2240,9 +2240,9 @@ architecture STRUCTURE of axis_dwidth_converter_0 is
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of aclk : signal is "xilinx.com:signal:clock:1.0 CLKIF CLK";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of aclk : signal is "XIL_INTERFACENAME CLKIF, FREQ_HZ 10000000, PHASE 0.000";
+  attribute X_INTERFACE_PARAMETER of aclk : signal is "XIL_INTERFACENAME CLKIF, FREQ_HZ 10000000, PHASE 0.000, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of aresetn : signal is "xilinx.com:signal:reset:1.0 RSTIF RST";
-  attribute X_INTERFACE_PARAMETER of aresetn : signal is "XIL_INTERFACENAME RSTIF, POLARITY ACTIVE_LOW";
+  attribute X_INTERFACE_PARAMETER of aresetn : signal is "XIL_INTERFACENAME RSTIF, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of m_axis_tlast : signal is "xilinx.com:interface:axis:1.0 M_AXIS TLAST";
   attribute X_INTERFACE_INFO of m_axis_tready : signal is "xilinx.com:interface:axis:1.0 M_AXIS TREADY";
   attribute X_INTERFACE_INFO of m_axis_tvalid : signal is "xilinx.com:interface:axis:1.0 M_AXIS TVALID";
@@ -2252,12 +2252,12 @@ architecture STRUCTURE of axis_dwidth_converter_0 is
   attribute X_INTERFACE_INFO of m_axis_tdata : signal is "xilinx.com:interface:axis:1.0 M_AXIS TDATA";
   attribute X_INTERFACE_INFO of m_axis_tkeep : signal is "xilinx.com:interface:axis:1.0 M_AXIS TKEEP";
   attribute X_INTERFACE_INFO of m_axis_tuser : signal is "xilinx.com:interface:axis:1.0 M_AXIS TUSER";
-  attribute X_INTERFACE_PARAMETER of m_axis_tuser : signal is "XIL_INTERFACENAME M_AXIS, TDATA_NUM_BYTES 16, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 16, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef";
+  attribute X_INTERFACE_PARAMETER of m_axis_tuser : signal is "XIL_INTERFACENAME M_AXIS, TDATA_NUM_BYTES 16, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 16, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of s_axis_tdata : signal is "xilinx.com:interface:axis:1.0 S_AXIS TDATA";
   attribute X_INTERFACE_INFO of s_axis_tuser : signal is "xilinx.com:interface:axis:1.0 S_AXIS TUSER";
-  attribute X_INTERFACE_PARAMETER of s_axis_tuser : signal is "XIL_INTERFACENAME S_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 4, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef";
+  attribute X_INTERFACE_PARAMETER of s_axis_tuser : signal is "XIL_INTERFACENAME S_AXIS, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 4, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.000, LAYERED_METADATA undef, INSERT_VIP 0";
 begin
-inst: entity work.axis_dwidth_converter_0_axis_dwidth_converter_v1_1_16_axis_dwidth_converter
+inst: entity work.axis_dwidth_converter_0_axis_dwidth_converter_v1_1_19_axis_dwidth_converter
      port map (
       aclk => aclk,
       aclken => '1',

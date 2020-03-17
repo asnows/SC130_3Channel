@@ -48,7 +48,7 @@
 `timescale 1ps/1ps
 `default_nettype none
 
-module axis_register_slice_v1_1_17_tdm_sample (
+module axis_register_slice_v1_1_20_tdm_sample (
 ///////////////////////////////////////////////////////////////////////////////
 // Port Declarations
 ///////////////////////////////////////////////////////////////////////////////
@@ -100,6 +100,189 @@ reg                sample_cycle_d;
 endmodule // tdm_sample
 
 `default_nettype wire
+
+
+//  (c) Copyright 2019 Xilinx, Inc. All rights reserved.
+//
+//  This file contains confidential and proprietary information
+//  of Xilinx, Inc. and is protected under U.S. and
+//  international copyright and other intellectual property
+//  laws.
+//
+//  DISCLAIMER
+//  This disclaimer is not a license and does not grant any
+//  rights to the materials distributed herewith. Except as
+//  otherwise provided in a valid license issued to you by
+//  Xilinx, and to the maximum extent permitted by applicable
+//  law: (1) THESE MATERIALS ARE MADE AVAILABLE "AS IS" AND
+//  WITH ALL FAULTS, AND XILINX HEREBY DISCLAIMS ALL WARRANTIES
+//  AND CONDITIONS, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING
+//  BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, NON-
+//  INFRINGEMENT, OR FITNESS FOR ANY PARTICULAR PURPOSE; and
+//  (2) Xilinx shall not be liable (whether in contract or tort,
+//  including negligence, or under any other theory of
+//  liability) for any loss or damage of any kind or nature
+//  related to, arising under or in connection with these
+//  materials, including for any direct, or any indirect,
+//  special, incidental, or consequential loss or damage
+//  (including loss of data, profits, goodwill, or any type of
+//  loss or damage suffered as a result of any action brought
+//  by a third party) even if such damage or loss was
+//  reasonably foreseeable or Xilinx had been advised of the
+//  possibility of the same.
+//
+//  CRITICAL APPLICATIONS
+//  Xilinx products are not designed or intended to be fail-
+//  safe, or for use in any application requiring fail-safe
+//  performance, such as life-support or safety devices or
+//  systems, Class III medical devices, nuclear facilities,
+//  applications related to the deployment of airbags, or any
+//  other applications that could lead to death, personal
+//  injury, or severe property or environmental damage
+//  (individually and collectively, "Critical
+//  Applications"). Customer assumes the sole risk and
+//  liability of any use of Xilinx products in Critical
+//  Applications, subject only to applicable laws and
+//  regulations governing limitations on product liability.
+//
+//  THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS
+//  PART OF THIS FILE AT ALL TIMES. 
+//-----------------------------------------------------------------------------
+
+`timescale 1ps/1ps
+
+module axis_register_slice_v1_1_20_test_master #
+  (
+   parameter integer C_DATA_WIDTH = 32
+   )
+  (
+   // System Signals
+   input wire ACLK,
+   input wire ACLKEN,
+   input wire ARESET,
+
+   // Master side
+   (* dont_touch="true" *) output wire [C_DATA_WIDTH-1:0] M_PAYLOAD_DATA,
+   (* dont_touch="true" *) output wire M_VALID,
+   input  wire M_READY
+   );
+
+    //**********************************************
+    reg [C_DATA_WIDTH-1:0] payld_i = {C_DATA_WIDTH{1'b0}};
+    reg tvalid_i = 1'b0;
+    
+    assign M_VALID = tvalid_i;
+    assign M_PAYLOAD_DATA = payld_i;
+    
+    always @(posedge ACLK) begin
+      if (ARESET) begin
+        tvalid_i <= 1'b0;
+        payld_i <= {C_DATA_WIDTH{1'b0}};
+      end else if (ACLKEN) begin
+        if (M_READY && tvalid_i) begin
+          tvalid_i <= 1'b0;
+          payld_i <= {payld_i[C_DATA_WIDTH-2 : 0], ~payld_i[C_DATA_WIDTH-1]};
+        end else begin
+          tvalid_i <= 1'b1;
+        end
+      end
+    end
+  
+endmodule
+
+`default_nettype wire
+
+
+//  (c) Copyright 2019 Xilinx, Inc. All rights reserved.
+//
+//  This file contains confidential and proprietary information
+//  of Xilinx, Inc. and is protected under U.S. and
+//  international copyright and other intellectual property
+//  laws.
+//
+//  DISCLAIMER
+//  This disclaimer is not a license and does not grant any
+//  rights to the materials distributed herewith. Except as
+//  otherwise provided in a valid license issued to you by
+//  Xilinx, and to the maximum extent permitted by applicable
+//  law: (1) THESE MATERIALS ARE MADE AVAILABLE "AS IS" AND
+//  WITH ALL FAULTS, AND XILINX HEREBY DISCLAIMS ALL WARRANTIES
+//  AND CONDITIONS, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING
+//  BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, NON-
+//  INFRINGEMENT, OR FITNESS FOR ANY PARTICULAR PURPOSE; and
+//  (2) Xilinx shall not be liable (whether in contract or tort,
+//  including negligence, or under any other theory of
+//  liability) for any loss or damage of any kind or nature
+//  related to, arising under or in connection with these
+//  materials, including for any direct, or any indirect,
+//  special, incidental, or consequential loss or damage
+//  (including loss of data, profits, goodwill, or any type of
+//  loss or damage suffered as a result of any action brought
+//  by a third party) even if such damage or loss was
+//  reasonably foreseeable or Xilinx had been advised of the
+//  possibility of the same.
+//
+//  CRITICAL APPLICATIONS
+//  Xilinx products are not designed or intended to be fail-
+//  safe, or for use in any application requiring fail-safe
+//  performance, such as life-support or safety devices or
+//  systems, Class III medical devices, nuclear facilities,
+//  applications related to the deployment of airbags, or any
+//  other applications that could lead to death, personal
+//  injury, or severe property or environmental damage
+//  (individually and collectively, "Critical
+//  Applications"). Customer assumes the sole risk and
+//  liability of any use of Xilinx products in Critical
+//  Applications, subject only to applicable laws and
+//  regulations governing limitations on product liability.
+//
+//  THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS
+//  PART OF THIS FILE AT ALL TIMES. 
+//-----------------------------------------------------------------------------
+
+`timescale 1ps/1ps
+
+module axis_register_slice_v1_1_20_test_slave #
+  (
+   parameter integer C_DATA_WIDTH = 32
+   )
+  (
+   // System Signals
+   input wire ACLK,
+   input wire ACLKEN,
+   input wire ARESET,
+
+   // Slave side
+   input  wire [C_DATA_WIDTH-1:0] S_PAYLOAD_DATA,
+   input  wire S_VALID,
+   (* dont_touch="true" *) output wire S_READY
+
+   );
+
+    reg                       valid_d = 1'b0;
+    reg [C_DATA_WIDTH-1:0]    payld_i = {C_DATA_WIDTH{1'b0}};
+    reg                       ready_i = 1'b0;
+
+    assign S_READY = ready_i;
+
+    always @(posedge ACLK) begin
+      if(ARESET) begin
+        ready_i <= 1'b0;
+        payld_i <= {C_DATA_WIDTH{1'b0}};
+      end else if (ACLKEN) begin
+        valid_d <= S_VALID;
+        if (S_VALID & ready_i) begin
+          payld_i <= S_PAYLOAD_DATA;
+          ready_i <= 1'b0;
+        end else begin
+          payld_i <= payld_i>>1;
+          ready_i <= payld_i[0] ? valid_d : S_VALID;
+        end
+      end
+    end
+  
+endmodule
+
 
 
 // -- (c) Copyright 2010 - 2018 Xilinx, Inc. All rights reserved.
@@ -162,7 +345,7 @@ endmodule // tdm_sample
 
 `timescale 1ps/1ps
 (* DowngradeIPIdentifiedWarnings="yes" *) 
-module axis_register_slice_v1_1_17_multi_slr #
+module axis_register_slice_v1_1_20_multi_slr #
   (
    parameter C_FAMILY     = "virtex6",
    parameter integer C_DATA_WIDTH = 32,
@@ -197,7 +380,7 @@ module axis_register_slice_v1_1_17_multi_slr #
   
   if (C_NUM_SLR_CROSSINGS==0) begin : single_slr
     
-    axis_register_slice_v1_1_17_single_slr # (
+    axis_register_slice_v1_1_20_single_slr # (
       .C_FAMILY     ( C_FAMILY              ) ,
       .C_DATA_WIDTH ( C_DATA_WIDTH ) ,
       .C_PIPELINES  (C_PIPELINES_MASTER) 
@@ -221,7 +404,7 @@ module axis_register_slice_v1_1_17_multi_slr #
     wire src_reset;
     wire src_ready;
         
-    axis_register_slice_v1_1_17_source_region_slr # (
+    axis_register_slice_v1_1_20_source_region_slr # (
       .C_FAMILY     ( C_FAMILY ) ,
       .C_DATA_WIDTH ( C_DATA_WIDTH ) ,
       .C_SLR_WIDTH  ( C_DATA_WIDTH ),
@@ -242,7 +425,7 @@ module axis_register_slice_v1_1_17_multi_slr #
       .laguna_m_ready     ( src_ready   )
     );
     
-    axis_register_slice_v1_1_17_dest_region_slr #(
+    axis_register_slice_v1_1_20_dest_region_slr #(
       .C_FAMILY     ( C_FAMILY         ) ,
       .C_REG_CONFIG ( P_MULTI_SLR ) ,
       .C_DATA_WIDTH ( C_DATA_WIDTH ) ,
@@ -275,7 +458,7 @@ module axis_register_slice_v1_1_17_multi_slr #
   wire dest_ready;
   wire dest_reset;
       
-    axis_register_slice_v1_1_17_source_region_slr # (
+    axis_register_slice_v1_1_20_source_region_slr # (
       .C_FAMILY     ( C_FAMILY ) ,
       .C_DATA_WIDTH ( C_DATA_WIDTH ) ,
       .C_SLR_WIDTH  ( C_DATA_WIDTH ),
@@ -296,7 +479,7 @@ module axis_register_slice_v1_1_17_multi_slr #
       .laguna_m_ready     ( src_ready   )
     );
     
-    axis_register_slice_v1_1_17_middle_region_slr #(
+    axis_register_slice_v1_1_20_middle_region_slr #(
       .C_FAMILY     ( C_FAMILY         ) ,
       .C_DATA_WIDTH ( C_DATA_WIDTH ) ,
       .C_PIPELINES  (C_PIPELINES_MIDDLE),
@@ -316,7 +499,7 @@ module axis_register_slice_v1_1_17_multi_slr #
       .laguna_m_ready     ( dest_ready   )
     );
     
-    axis_register_slice_v1_1_17_dest_region_slr #(
+    axis_register_slice_v1_1_20_dest_region_slr #(
       .C_FAMILY     ( C_FAMILY         ) ,
       .C_REG_CONFIG ( P_MULTI_SLR ) ,
       .C_DATA_WIDTH ( C_DATA_WIDTH ) ,
@@ -353,7 +536,7 @@ module axis_register_slice_v1_1_17_multi_slr #
   wire dest_ready;
   wire dest_reset;
       
-    axis_register_slice_v1_1_17_source_region_slr # (
+    axis_register_slice_v1_1_20_source_region_slr # (
       .C_FAMILY     ( C_FAMILY ) ,
       .C_DATA_WIDTH ( C_DATA_WIDTH ) ,
       .C_SLR_WIDTH  ( C_DATA_WIDTH ),
@@ -374,7 +557,7 @@ module axis_register_slice_v1_1_17_multi_slr #
       .laguna_m_ready     ( src_ready   )
     );
     
-    axis_register_slice_v1_1_17_middle_region_slr #(
+    axis_register_slice_v1_1_20_middle_region_slr #(
       .C_FAMILY     ( C_FAMILY         ) ,
       .C_DATA_WIDTH ( C_DATA_WIDTH ) ,
       .C_PIPELINES  (C_PIPELINES_MIDDLE),
@@ -394,7 +577,7 @@ module axis_register_slice_v1_1_17_multi_slr #
       .laguna_m_ready     ( mid_ready   )
     );
     
-    axis_register_slice_v1_1_17_middle_region_slr #(
+    axis_register_slice_v1_1_20_middle_region_slr #(
       .C_FAMILY     ( C_FAMILY         ) ,
       .C_DATA_WIDTH ( C_DATA_WIDTH ) ,
       .C_PIPELINES  (C_PIPELINES_MIDDLE),
@@ -414,7 +597,7 @@ module axis_register_slice_v1_1_17_multi_slr #
       .laguna_m_ready     ( dest_ready   )
     );
     
-    axis_register_slice_v1_1_17_dest_region_slr #(
+    axis_register_slice_v1_1_20_dest_region_slr #(
       .C_FAMILY     ( C_FAMILY         ) ,
       .C_REG_CONFIG ( P_MULTI_SLR ) ,
       .C_DATA_WIDTH ( C_DATA_WIDTH ) ,
@@ -443,7 +626,7 @@ endmodule  // multi_slr
 
 `timescale 1ps/1ps
 (* DowngradeIPIdentifiedWarnings="yes" *) 
-module axis_register_slice_v1_1_17_middle_region_slr #
+module axis_register_slice_v1_1_20_middle_region_slr #
   (
    parameter C_FAMILY     = "virtex6",
    parameter integer C_DATA_WIDTH = 32,
@@ -572,7 +755,7 @@ endmodule  // middle_region_slr
 
 `timescale 1ps/1ps
 (* DowngradeIPIdentifiedWarnings="yes" *) 
-module axis_register_slice_v1_1_17_source_region_slr #
+module axis_register_slice_v1_1_20_source_region_slr #
   (
    parameter C_FAMILY     = "virtex6",
    parameter integer C_REG_CONFIG = 12,
@@ -652,7 +835,7 @@ module axis_register_slice_v1_1_17_source_region_slr #
       end
     end
 
-    axis_register_slice_v1_1_17_tdm_sample tdm_sample_inst (
+    axis_register_slice_v1_1_20_tdm_sample tdm_sample_inst (
       .slow_clk     (ACLK),
       .fast_clk     (ACLK2X),
       .sample_cycle (sample_cycle)
@@ -751,7 +934,7 @@ endmodule  // source_region_slr
 
 `timescale 1ps/1ps
 (* DowngradeIPIdentifiedWarnings="yes" *)
-module axis_register_slice_v1_1_17_dest_region_slr #
+module axis_register_slice_v1_1_20_dest_region_slr #
   (
    parameter C_FAMILY     = "virtex6",
    parameter integer C_REG_CONFIG = 12,
@@ -955,7 +1138,7 @@ module axis_register_slice_v1_1_17_dest_region_slr #
         .D   (laguna_s_handshake)
      );
         
-    axis_register_slice_v1_1_17_axic_reg_srl_fifo #
+    axis_register_slice_v1_1_20_axic_reg_srl_fifo #
       (
        .C_FIFO_WIDTH (C_DATA_WIDTH), 
        .C_FIFO_SIZE  ((C_PIPELINES+C_SOURCE_LATENCY>14) ? 6 : (C_PIPELINES+C_SOURCE_LATENCY>6) ? 5 : 4)  
@@ -978,7 +1161,7 @@ endmodule  // dest_region_slr
 
 `timescale 1ps/1ps
 (* DowngradeIPIdentifiedWarnings="yes" *)
-module axis_register_slice_v1_1_17_single_slr #
+module axis_register_slice_v1_1_20_single_slr #
   (
    parameter C_FAMILY     = "virtex6",
    parameter integer C_DATA_WIDTH = 32,
@@ -1116,7 +1299,7 @@ module axis_register_slice_v1_1_17_single_slr #
     
     end else begin : srl_fifo
     
-      axis_register_slice_v1_1_17_axic_reg_srl_fifo #
+      axis_register_slice_v1_1_20_axic_reg_srl_fifo #
         (
          .C_FIFO_WIDTH (C_DATA_WIDTH), 
          .C_FIFO_SIZE  ((C_PIPELINES>12) ? 5 : 4)  
@@ -1139,7 +1322,7 @@ module axis_register_slice_v1_1_17_single_slr #
 endmodule  // single_slr
 
 (* DowngradeIPIdentifiedWarnings="yes" *) 
-module axis_register_slice_v1_1_17_axic_reg_srl_fifo #
+module axis_register_slice_v1_1_20_axic_reg_srl_fifo #
   // FIFO with no s_ready back-pressure; must guarantee parent will never push beyond full
   (
    parameter integer C_FIFO_WIDTH  = 1,      // Width of s_mesg/m_mesg.
@@ -1342,7 +1525,7 @@ module axis_register_slice_v1_1_17_axic_reg_srl_fifo #
     // Instantiate SRLs
     //---------------------------------------------------------------------------
     for (i=0;i<C_FIFO_WIDTH;i=i+1) begin : srl
-      (* keep_hierarchy = "yes" *) axis_register_slice_v1_1_17_srl_rtl #
+      (* keep_hierarchy = "yes" *) axis_register_slice_v1_1_20_srl_rtl #
         (
          .C_A_WIDTH (C_FIFO_SIZE)
         )
@@ -1361,7 +1544,7 @@ endmodule  // axic_reg_srl_fifo
 
 `timescale 1ps/1ps
 (* DowngradeIPIdentifiedWarnings="yes" *) 
-module axis_register_slice_v1_1_17_srl_rtl #
+module axis_register_slice_v1_1_20_srl_rtl #
   (
    parameter         C_A_WIDTH = 2          // Address Width (>= 1)
    )
@@ -1382,6 +1565,317 @@ module axis_register_slice_v1_1_17_srl_rtl #
     assign q = shift_reg[a];
 
 endmodule  // srl_rtl
+
+
+// -- (c) Copyright 2019 Xilinx, Inc. All rights reserved.
+// --
+// -- This file contains confidential and proprietary information
+// -- of Xilinx, Inc. and is protected under U.S. and 
+// -- international copyright and other intellectual property
+// -- laws.
+// --
+// -- DISCLAIMER
+// -- This disclaimer is not a license and does not grant any
+// -- rights to the materials distributed herewith. Except as
+// -- otherwise provided in a valid license issued to you by
+// -- Xilinx, and to the maximum extent permitted by applicable
+// -- law: (1) THESE MATERIALS ARE MADE AVAILABLE "AS IS" AND
+// -- WITH ALL FAULTS, AND XILINX HEREBY DISCLAIMS ALL WARRANTIES
+// -- AND CONDITIONS, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING
+// -- BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, NON-
+// -- INFRINGEMENT, OR FITNESS FOR ANY PARTICULAR PURPOSE; and
+// -- (2) Xilinx shall not be liable (whether in contract or tort,
+// -- including negligence, or under any other theory of
+// -- liability) for any loss or damage of any kind or nature
+// -- related to, arising under or in connection with these
+// -- materials, including for any direct, or any indirect,
+// -- special, incidental, or consequential loss or damage
+// -- (including loss of data, profits, goodwill, or any type of
+// -- loss or damage suffered as a result of any action brought
+// -- by a third party) even if such damage or loss was
+// -- reasonably foreseeable or Xilinx had been advised of the
+// -- possibility of the same.
+// --
+// -- CRITICAL APPLICATIONS
+// -- Xilinx products are not designed or intended to be fail-
+// -- safe, or for use in any application requiring fail-safe
+// -- performance, such as life-support or safety devices or
+// -- systems, Class III medical devices, nuclear facilities,
+// -- applications related to the deployment of airbags, or any
+// -- other applications that could lead to death, personal
+// -- injury, or severe property or environmental damage
+// -- (individually and collectively, "Critical
+// -- Applications"). Customer assumes the sole risk and
+// -- liability of any use of Xilinx products in Critical
+// -- Applications, subject only to applicable laws and
+// -- regulations governing limitations on product liability.
+// --
+// -- THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS
+// -- PART OF THIS FILE AT ALL TIMES.
+//-----------------------------------------------------------------------------
+
+`timescale 1ps/1ps
+(* DowngradeIPIdentifiedWarnings="yes" *) 
+(* autopipeline_module="yes" *)
+module axis_register_slice_v1_1_20_auto_slr #
+  (
+   parameter integer C_DATA_WIDTH = 32
+   )
+  (
+   // System Signals
+   input wire ACLK,
+   input wire ACLKEN,
+   input wire ARESET,
+
+   // Slave side
+   input  wire [C_DATA_WIDTH-1:0] S_PAYLOAD_DATA,
+   input  wire S_VALID,
+   output wire S_READY,
+
+   // Master side
+   output wire [C_DATA_WIDTH-1:0] M_PAYLOAD_DATA,
+   output wire M_VALID,
+   input  wire M_READY
+   );
+
+    wire                    handshake_pipe;
+    wire                    ready_pipe;
+    wire [C_DATA_WIDTH-1:0] payload_pipe;
+    (* keep="true" *)                                                                reg  s_aclear = 1'b0;
+    (* autopipeline_group="fwd",autopipeline_limit=24,autopipeline_include="resp" *) reg  s_areset_fwd   = 1'b0;
+    (* autopipeline_group="resp" *)                                                  reg  s_areset_resp  = 1'b0;
+    (* keep="true" *)                                                                reg  s_areset_resp2 = 1'b0;
+    (* keep="true" *)                                                                reg  m_aclear = 1'b0;
+    (* autopipeline_group="fwd",autopipeline_limit=24,autopipeline_include="resp" *) reg  m_areset_fwd   = 1'b0;
+    (* autopipeline_group="resp" *)                                                  reg  m_areset_resp  = 1'b0;
+    (* keep="true" *)                                                                reg  m_areset_resp2 = 1'b0;
+    
+  // Global Reset pipelining
+  
+    always @(posedge ACLK) begin
+      s_aclear       <= ARESET;
+      s_areset_fwd   <= ARESET; 
+      s_areset_resp  <= s_areset_fwd;  // Auto-pipeline
+      s_areset_resp2 <= s_areset_resp; // Auto-pipeline
+    end
+    
+    always @(posedge ACLK) begin
+      m_aclear       <= ARESET;
+      m_areset_fwd   <= ARESET; 
+      m_areset_resp  <= m_areset_fwd;  // Auto-pipeline
+      m_areset_resp2 <= m_areset_resp; // Auto-pipeline
+    end
+    
+  // Source-side submodule
+    
+    axis_register_slice_v1_1_20_auto_src #
+      (
+       .C_DATA_WIDTH (C_DATA_WIDTH)
+      )
+      slr_auto_src
+      (
+       .ACLK             (ACLK),    
+       .ACLKEN           (ACLKEN) ,
+       .s_aclear         (s_aclear),
+       .s_areset_resp2   (s_areset_resp2),  
+       .S_VALID          (S_VALID),  
+       .S_READY          (S_READY), 
+       .S_PAYLOAD_DATA   (S_PAYLOAD_DATA),
+       .ready_pipe        (ready_pipe), 
+       .handshake_pipe    (handshake_pipe),
+       .payload_pipe      (payload_pipe)  
+      );
+    
+  // Destination-side submodule
+    
+    axis_register_slice_v1_1_20_auto_dest #
+      (
+       .C_DATA_WIDTH (C_DATA_WIDTH)
+      )
+      slr_auto_dest
+      (
+       .ACLK           (ACLK),    
+       .ACLKEN           (ACLKEN) ,
+       .m_aclear       (m_aclear),
+       .m_areset_resp2 (m_areset_resp2),  
+       .M_READY        (M_READY), 
+       .M_VALID        (M_VALID),  
+       .M_PAYLOAD_DATA (M_PAYLOAD_DATA),
+       .handshake_pipe  (handshake_pipe),
+       .ready_pipe      (ready_pipe),  
+       .payload_pipe    (payload_pipe)  
+      );
+    
+endmodule  // auto_slr
+
+module axis_register_slice_v1_1_20_auto_src #
+  (
+   parameter integer C_DATA_WIDTH = 32
+  )
+  (
+   input  wire ACLK,
+   input  wire ACLKEN,
+   input  wire s_aclear,
+   input  wire s_areset_resp2,
+   input  wire S_VALID,
+   input  wire ready_pipe,
+   output wire S_READY,
+   output wire handshake_pipe,
+   output wire [C_DATA_WIDTH-1:0] payload_pipe,
+   input  wire [C_DATA_WIDTH-1:0] S_PAYLOAD_DATA
+   );
+    
+    (* autopipeline_group="fwd",autopipeline_limit=24,autopipeline_include="resp" *) reg  [C_DATA_WIDTH-1:0] payload_pipe_r;
+    (* keep="true" *) reg [3:0] s_aresetn_resp3 = 4'b0000;
+    wire s_aresetn_d;
+    wire s_aresetn_q;
+    wire s_handshake_d;
+    wire s_ready_i;
+    
+    assign S_READY = s_ready_i & s_aresetn_q;
+    assign s_aresetn_d = (~s_aresetn_resp3[3] & s_aresetn_resp3[1]) | s_aresetn_q;
+    assign s_handshake_d = S_VALID & s_ready_i & ACLKEN & s_aresetn_q;
+    assign payload_pipe = payload_pipe_r;
+    
+    always @(posedge ACLK or posedge s_aclear) begin
+      if (s_aclear) begin
+        s_aresetn_resp3 <= 3'b000;
+      end else begin
+        s_aresetn_resp3 <= {s_aresetn_resp3[2:0], ~s_areset_resp2};
+      end
+    end
+    
+    always @(posedge ACLK) begin
+      payload_pipe_r <= S_PAYLOAD_DATA;
+    end
+    
+    // Assert s_aresetn_q asynchronously on leading edge of s_aclear; De-assert synchronously on trailing edge of s_areset_resp2.
+    FDCE #(
+        .INIT(1'b0)
+     ) reset_asyncclear (
+        .Q   (s_aresetn_q),
+        .C   (ACLK), 
+        .CE  (1'b1),
+        .CLR (s_aclear),
+        .D   (s_aresetn_d)
+     );
+    
+    (* autopipeline_group="fwd",autopipeline_limit=24,autopipeline_include="resp" *)
+    FDCE #(
+        .INIT(1'b0)
+     ) handshake_asyncclear (
+        .Q   (handshake_pipe),
+        .C   (ACLK), 
+        .CE  (1'b1),
+        .CLR (s_aclear),
+        .D   (s_handshake_d)
+     );
+    
+    FDCE #(
+        .INIT(1'b0)
+     ) ready_asyncclear (
+        .Q   (s_ready_i),
+        .C   (ACLK), 
+        .CE  (ACLKEN),
+        .CLR (s_aclear),
+        .D   (ready_pipe)
+     );
+    
+endmodule  // auto_src
+
+module axis_register_slice_v1_1_20_auto_dest #
+  (
+   parameter integer C_DATA_WIDTH = 32
+   )
+  (
+   input  wire ACLK,
+   input wire ACLKEN,
+   input  wire m_aclear,
+   input  wire m_areset_resp2,
+   input  wire M_READY,
+   input  wire handshake_pipe,
+   output wire ready_pipe,
+   output wire M_VALID,
+   input  wire [C_DATA_WIDTH-1:0] payload_pipe,
+   output wire [C_DATA_WIDTH-1:0] M_PAYLOAD_DATA
+   );
+    
+    (* keep="true" *) reg [3:0] m_aresetn_resp3 = 4'b0000;
+    wire m_aresetn_d;
+    wire m_aresetn_q;
+    wire m_valid_i;
+    wire pop;
+    wire m_ready_d;
+    wire m_handshake_q;
+    reg  [C_DATA_WIDTH-1:0] m_payload_q;
+    
+    assign M_VALID = m_valid_i;
+    assign m_aresetn_d = (~m_aresetn_resp3[3] & m_aresetn_resp3[1]) | m_aresetn_q;
+    assign m_ready_d = (M_READY | ~m_valid_i) & ACLKEN & m_aresetn_q;
+    assign pop     = M_READY & m_valid_i & ACLKEN;
+    
+    always @(posedge ACLK or posedge m_aclear) begin
+      if (m_aclear) begin
+        m_aresetn_resp3 <= 3'b000;
+      end else begin
+        m_aresetn_resp3 <= {m_aresetn_resp3[2:0], ~m_areset_resp2};
+      end
+    end
+    
+    always @(posedge ACLK) begin
+      m_payload_q <= payload_pipe;
+    end
+    
+    // Assert m_aresetn_q asynchronously on leading edge of m_aclear; De-assert synchronously on trailing edge of m_areset_resp2.
+    FDCE #(
+        .INIT(1'b0)
+     ) reset_asyncclear (
+        .Q   (m_aresetn_q),
+        .C   (ACLK), 
+        .CE  (1'b1),
+        .CLR (m_aclear),
+        .D   (m_aresetn_d)
+     );
+    
+    FDCE #(
+        .INIT(1'b0)
+     ) handshake_asyncclear (
+        .Q   (m_handshake_q),
+        .C   (ACLK), 
+        .CE  (1'b1),
+        .CLR (m_aclear),
+        .D   (handshake_pipe)
+     );
+    
+    (* autopipeline_group="resp" *)
+    FDCE #(
+        .INIT(1'b0)
+     ) ready_asyncclear (
+        .Q   (ready_pipe),
+        .C   (ACLK), 
+        .CE  (1'b1),
+        .CLR (m_aclear),
+        .D   (m_ready_d)
+     );
+    
+    axis_register_slice_v1_1_20_axic_reg_srl_fifo #
+      (
+       .C_FIFO_WIDTH (C_DATA_WIDTH), 
+       .C_FIFO_SIZE  (5)  
+      )
+      srl_fifo
+      (
+       .aclk    (ACLK),    
+       .areset  (~m_aresetn_q),
+       .aclear  (m_aclear),  
+       .s_mesg  (m_payload_q),  
+       .s_valid (m_handshake_q), 
+       .m_mesg  (M_PAYLOAD_DATA),  
+       .m_valid (m_valid_i), 
+       .m_ready (pop)
+      );
+    
+endmodule  // auto_dest
 
 
 //  (c) Copyright 2010-2011, 2013-2014 Xilinx, Inc. All rights reserved.
@@ -1445,7 +1939,7 @@ endmodule  // srl_rtl
 `timescale 1ps/1ps
 
 (* DowngradeIPIdentifiedWarnings="yes" *)
-module axis_register_slice_v1_1_17_axisc_register_slice #
+module axis_register_slice_v1_1_20_axisc_register_slice #
   (
    parameter C_FAMILY     = "virtex6",
    parameter C_DATA_WIDTH = 32,
@@ -1463,6 +1957,8 @@ module axis_register_slice_v1_1_17_axisc_register_slice #
    //   10 => NO_READY = Assume no ready signal
    //   12 => SLR Crossing (source->dest flops, full-width payload, single clock)
    //   13 => TDM SLR Crossing (source->dest flops, half-width payload, dual clock)
+   //   15 => Variable SLR Crossings (single clock)
+   //   16 -> Auto-pipelining
    parameter integer C_NUM_SLR_CROSSINGS = 0,
    parameter integer C_PIPELINES_MASTER = 0,
    parameter integer C_PIPELINES_SLAVE = 0,
@@ -1502,13 +1998,97 @@ module axis_register_slice_v1_1_17_axisc_register_slice #
     
   ////////////////////////////////////////////////////////////////////
   //
+  // C_REG_CONFIG = 17
+  // Preserve SI
+  //
+  ////////////////////////////////////////////////////////////////////
+    else if (C_REG_CONFIG == 17) begin : gen_pres_si
+      
+      axis_register_slice_v1_1_20_test_slave # (
+        .C_DATA_WIDTH ( C_DATA_WIDTH ) 
+      )
+      auto (
+        // System Signals
+        .ACLK    (ACLK),
+        .ACLKEN  (ACLKEN) ,
+        .ARESET  (ARESET),
+
+        // Slave side
+        .S_PAYLOAD_DATA (S_PAYLOAD_DATA),
+        .S_VALID        (S_VALID),
+        .S_READY        (S_READY)
+      );
+
+      // Master side
+      assign M_PAYLOAD_DATA = 0;
+      assign M_VALID = 1'b0;
+    end
+    
+  ////////////////////////////////////////////////////////////////////
+  //
+  // C_REG_CONFIG = 18
+  // Preserve MI
+  //
+  ////////////////////////////////////////////////////////////////////
+    else if (C_REG_CONFIG == 18) begin : gen_pres_mi
+      
+      axis_register_slice_v1_1_20_test_master # (
+        .C_DATA_WIDTH ( C_DATA_WIDTH ) 
+      )
+      auto (
+        // System Signals
+        .ACLK    (ACLK),
+        .ACLKEN  (ACLKEN) ,
+        .ARESET  (ARESET),
+
+        // Master side
+        .M_PAYLOAD_DATA ( M_PAYLOAD_DATA ) , 
+        .M_VALID        ( M_VALID   ) ,
+        .M_READY        ( M_READY   )
+      );
+      
+      // Slave side
+      assign S_READY = 1'b0;
+    end
+    
+  ////////////////////////////////////////////////////////////////////
+  //
+  // C_REG_CONFIG = 16
+  // Multi SLR Crossing
+  //
+  ////////////////////////////////////////////////////////////////////
+    else if (C_REG_CONFIG == 16) begin : gen_auto_slr
+      
+      axis_register_slice_v1_1_20_auto_slr # (
+        .C_DATA_WIDTH ( C_DATA_WIDTH ) 
+      )
+      auto (
+        // System Signals
+        .ACLK    (ACLK),
+        .ACLKEN  (ACLKEN) ,
+        .ARESET  (ARESET),
+
+        // Slave side
+        .S_PAYLOAD_DATA (S_PAYLOAD_DATA),
+        .S_VALID        (S_VALID),
+        .S_READY        (S_READY),
+
+        // Master side
+        .M_PAYLOAD_DATA ( M_PAYLOAD_DATA ) , 
+        .M_VALID        ( M_VALID   ) ,
+        .M_READY        ( M_READY   )
+      );
+    end
+    
+  ////////////////////////////////////////////////////////////////////
+  //
   // C_REG_CONFIG = 15
   // Multi SLR Crossing
   //
   ////////////////////////////////////////////////////////////////////
     else if (C_REG_CONFIG == 15) begin : gen_multi_slr
       
-      axis_register_slice_v1_1_17_multi_slr # (
+      axis_register_slice_v1_1_20_multi_slr # (
         .C_FAMILY     ( C_FAMILY              ) ,
         .C_DATA_WIDTH ( C_DATA_WIDTH ) ,
         .C_NUM_SLR_CROSSINGS (C_NUM_SLR_CROSSINGS) ,
@@ -1550,7 +2130,7 @@ module axis_register_slice_v1_1_17_axisc_register_slice #
       wire slr_handshake;
       wire slr_ready;
           
-      axis_register_slice_v1_1_17_source_region_slr #(
+      axis_register_slice_v1_1_20_source_region_slr #(
         .C_FAMILY     ( C_FAMILY         ) ,
         .C_REG_CONFIG ( C_REG_CONFIG       ) ,
         .C_PIPELINES  (0),
@@ -1571,7 +2151,7 @@ module axis_register_slice_v1_1_17_axisc_register_slice #
         .laguna_m_ready     ( slr_ready   )
       );
 
-      axis_register_slice_v1_1_17_dest_region_slr #(
+      axis_register_slice_v1_1_20_dest_region_slr #(
         .C_FAMILY     ( C_FAMILY         ) ,
         .C_REG_CONFIG ( C_REG_CONFIG       ) ,
         .C_PIPELINES  (0),
@@ -1736,10 +2316,10 @@ module axis_register_slice_v1_1_17_axisc_register_slice #
       assign S_READY = s_ready_i;
       assign M_VALID = m_valid_i;
 
-      (* equivalent_register_removal = "no" *) reg [1:0] areset_d = 2'b11; // Reset delay register
+      (* equivalent_register_removal = "no" *) reg [1:0] aresetn_d = 2'b00; // Reset delay register
       always @(posedge ACLK) begin
         if (ACLKEN) begin
-          areset_d <= {areset_d[0], ARESET};
+          aresetn_d <= {aresetn_d[0], ~ARESET};
         end
       end
       
@@ -1786,10 +2366,10 @@ module axis_register_slice_v1_1_17_axisc_register_slice #
         if (ARESET) begin
           s_ready_i <= 1'b0;
           state <= ZERO;
-        end else if (ACLKEN && areset_d == 2'b10) begin
+        end else if (ACLKEN && aresetn_d == 2'b01) begin
           s_ready_i <= 1'b1;
           state <= ZERO;
-        end else if (ACLKEN && areset_d == 2'b00) begin
+        end else if (ACLKEN && aresetn_d[0]) begin
           case (state)
             // No transaction stored locally
             ZERO: if (S_VALID) state <= ONE; // Got one so move to ONE
@@ -1821,7 +2401,7 @@ module axis_register_slice_v1_1_17_axisc_register_slice #
     end // if (C_REG_CONFIG == 8)
     
   ////////////////////////////////////////////////////////////////////
-  //
+  // NOT SUPPORTED
   // C_REG_CONFIG = 2
   // Only FWD mode
   //
@@ -1871,6 +2451,7 @@ module axis_register_slice_v1_1_17_axisc_register_slice #
     end // if (C_REG_CONFIG == 2)
   ////////////////////////////////////////////////////////////////////
   //
+  // NOT SUPPORTED
   // C_REG_CONFIG = 3
   // Only REV mode
   //
@@ -1961,6 +2542,7 @@ module axis_register_slice_v1_1_17_axisc_register_slice #
 
   ////////////////////////////////////////////////////////////////////
   //
+  // NOT SUPPORTED
   // C_REG_CONFIG = 6
   // INPUTS mode
   //
@@ -2149,10 +2731,10 @@ module axis_register_slice_v1_1_17_axisc_register_slice #
       assign S_READY = s_ready_i;
       assign M_VALID = m_valid_i;
 
-      (* equivalent_register_removal = "no" *) reg [1:0] areset_d; // Reset delay register
+      (* equivalent_register_removal = "no" *) reg [1:0] aresetn_d = 2'b00; // Reset delay register
       always @(posedge ACLK) begin
         if (ACLKEN) begin
-          areset_d <= {areset_d[0], ARESET};
+          aresetn_d <= {aresetn_d[0], ~ARESET};
         end
       end
       
@@ -2162,19 +2744,21 @@ module axis_register_slice_v1_1_17_axisc_register_slice #
         if (ARESET) begin
           s_ready_i <= 1'b0;
           m_valid_i <= 1'b0;
-        end else if (ACLKEN && areset_d == 2'b10) begin
-          s_ready_i <= 1'b1;
-        end else if (ACLKEN && areset_d == 2'b00) begin
-          if (m_valid_i & M_READY) begin
+        end else if (ACLKEN) begin
+          if (aresetn_d == 2'b01) begin
             s_ready_i <= 1'b1;
-            m_valid_i <= 1'b0;
-          end else if (S_VALID & s_ready_i) begin
-            s_ready_i <= 1'b0;
-            m_valid_i <= 1'b1;
+          end else if (aresetn_d[0]) begin
+            if (m_valid_i & M_READY) begin
+              s_ready_i <= 1'b1;
+              m_valid_i <= 1'b0;
+            end else if (S_VALID & s_ready_i) begin
+              s_ready_i <= 1'b0;
+              m_valid_i <= 1'b1;
+            end
           end
-        end
-        if (~m_valid_i) begin
-          storage_data1 <= S_PAYLOAD_DATA;        
+          if (~m_valid_i) begin
+            storage_data1 <= S_PAYLOAD_DATA;        
+          end
         end
       end
       assign M_PAYLOAD_DATA = storage_data1;
@@ -2257,7 +2841,7 @@ endmodule // axisc_register_slice
 `default_nettype none
 
 (* DowngradeIPIdentifiedWarnings="yes" *)
-module axis_register_slice_v1_1_17_axis_register_slice #
+module axis_register_slice_v1_1_20_axis_register_slice #
 (
 ///////////////////////////////////////////////////////////////////////////////
 // Parameter Definitions
@@ -2291,6 +2875,8 @@ module axis_register_slice_v1_1_17_axis_register_slice #
    //   10 => NO_READY = Assume no ready signal
    //   12 => SLR Crossing (source->dest flops, full-width payload, single clock)
    //   13 => TDM SLR Crossing (source->dest flops, half-width payload, dual clock)
+   //   15 => Variable SLR Crossings (single clock)
+   //   16 -> Auto-pipelining
    parameter integer C_NUM_SLR_CROSSINGS = 0,
    parameter integer C_PIPELINES_MASTER = 0,
    parameter integer C_PIPELINES_SLAVE = 0,
@@ -2347,7 +2933,7 @@ module axis_register_slice_v1_1_17_axis_register_slice #
 wire [P_TPAYLOAD_WIDTH-1:0] s_axis_tpayload;
 wire [P_TPAYLOAD_WIDTH-1:0] m_axis_tpayload;
 
-reg                         areset_r;
+reg                         areset_r = 1'b0;
 always @(posedge aclk) begin
   areset_r <= ~aresetn;
 end
@@ -2374,7 +2960,7 @@ end
     .TPAYLOAD ( s_axis_tpayload )
   );
 
-  axis_register_slice_v1_1_17_axisc_register_slice #(
+  axis_register_slice_v1_1_20_axisc_register_slice #(
     .C_FAMILY     ( C_FAMILY         ) ,
     .C_DATA_WIDTH ( P_TPAYLOAD_WIDTH ) ,
     .C_REG_CONFIG ( (C_AXIS_SIGNAL_SET[0] == 0) ? 32'hA : C_REG_CONFIG),

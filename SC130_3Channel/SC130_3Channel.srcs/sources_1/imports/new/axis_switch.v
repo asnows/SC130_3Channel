@@ -53,17 +53,36 @@
 	reg[1:0] vsyhc_reg = 2'b00;
 	reg[1:0] ps_triger0_reg = 2'b00;
 	
-//一张图作为一帧数据，vsyhc使能且ps_triger0置一，触发采集1张图
-	assign m_1_axis_tvalid = (s_axis_tvalid & tran_en);//s_axis_tvalid主机告诉从机数据本次传输有效
+////一张图作为一帧数据，vsyhc使能且ps_triger0置一，触发采集1张图
+//	assign m_1_axis_tvalid = (s_axis_tvalid & tran_en);//s_axis_tvalid主机告诉从机数据本次传输有效
+////	assign m_1_axis_tdata  = s_axis_tdata  ;
+//	assign m_1_axis_tlast  = s_axis_tlast  ;//from data_conv_model.v	  	
+//	assign m_1_axis_tuser  = (s_axis_tuser & tran_en);	
+
+
+
+////一张图作为一帧数据，vsyhc使能且ps_triger1置一，实时采集1张图	（触发采集时实时不采集）
+//	assign m_0_axis_tvalid = (s_axis_tvalid & ps_triger1 & (~tran_en));	
+////	assign m_0_axis_tdata  = s_axis_tdata  ;
+//	assign m_0_axis_tlast  = s_axis_tlast  ;//from data_conv_model.v		
+//	assign m_0_axis_tuser  = (s_axis_tuser & ps_triger1 & (~tran_en));
+	
+	reg triger1,triger0;
+	
+	
+	//一张图作为一帧数据，vsyhc使能且ps_triger0置一，触发采集1张图
+	assign m_1_axis_tvalid = (s_axis_tvalid & triger1);//s_axis_tvalid主机告诉从机数据本次传输有效
 //	assign m_1_axis_tdata  = s_axis_tdata  ;
 	assign m_1_axis_tlast  = s_axis_tlast  ;//from data_conv_model.v	  	
-	assign m_1_axis_tuser  = (s_axis_tuser & tran_en);	
+	assign m_1_axis_tuser  = (s_axis_tuser & triger1);	
+
+
 
 //一张图作为一帧数据，vsyhc使能且ps_triger1置一，实时采集1张图	（触发采集时实时不采集）
-	assign m_0_axis_tvalid = (s_axis_tvalid & ps_triger1 & (~tran_en));	
+	assign m_0_axis_tvalid = (s_axis_tvalid & triger0 );	
 //	assign m_0_axis_tdata  = s_axis_tdata  ;
 	assign m_0_axis_tlast  = s_axis_tlast  ;//from data_conv_model.v		
-	assign m_0_axis_tuser  = (s_axis_tuser & ps_triger1 & (~tran_en));
+	assign m_0_axis_tuser  = (s_axis_tuser & triger0 );
 	
 	
 
@@ -93,22 +112,24 @@
     end
     
     
-    always@(posedge aclk)
-    begin
-        if(vsyhc_reg == LH)//vsyhc（帧同步）是上升沿
-        begin
-            if((ps_triger0 == 1) && (tran_1frame == 0))
-                begin
-                    tran_en <= 1'b1;              
-                end
-            else
-                begin
-                    tran_en <= 1'b0;
-                end
-        end
+//    always@(posedge aclk)
+//    begin
+//        if(vsyhc_reg == LH)//vsyhc（帧同步）是上升沿
+//        begin
+//            if((ps_triger0 == 1) && (tran_1frame == 0))
+//                begin
+//                    tran_en <= 1'b1;              
+//                end
+//            else
+//                begin
+//                    tran_en <= 1'b0;
+//                end
+//        end
 
-    end
+//    end
     
+    
+
     
     always@(posedge aclk)
     begin            
@@ -131,6 +152,22 @@
             end           
         end            
     end
+    
+    always@(posedge aclk)
+    begin
+        if(vsyhc_reg == LH)
+        begin
+            triger0 <= ps_triger0;
+            triger1 <= ps_triger1;
+        end
+
+    end
+ 
+    
+    
+    
+    
+    
 
     endmodule
     
